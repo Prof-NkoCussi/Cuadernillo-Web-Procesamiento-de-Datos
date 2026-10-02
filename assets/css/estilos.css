@@ -1,5 +1,5 @@
 /* ==========================================================
-   Taller de Procesamiento de Datos — Cuadernillo web (misma identidad que Base de Datos I)
+   Taller de Procesamiento de Datos — Cuadernillo web
    Prof. Nicolás A. Cussi • Taller de Procesamiento de Datos
    Mobile first · Modo hoja A4 en escritorio e impresión
    ========================================================== */
@@ -283,7 +283,7 @@ button.boton { border: 0; font-family: inherit; cursor: pointer; }
 .ejemplo .subtitulo { font-size: 20px; }
 .ejemplo p { grid-column: 1 / -1; font-size: 16.5px; }
 
-/* Dos opciones lado a lado (Hoja de cálculo / Base de datos) */
+/* Dos opciones lado a lado */
 .comparar { display: grid; gap: 10px; }
 .comparar li {
   display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px;
@@ -337,7 +337,7 @@ button.boton { border: 0; font-family: inherit; cursor: pointer; }
 }
 .senal p { font-size: 15px; line-height: 1.3; }
 
-/* Grilla de 4 tarjetas (Tabla · Columna · Fila · Registro) */
+/* Grilla de 4 tarjetas */
 .ambitos--4 .tarjeta { border: 0; }
 
 /* Entidades con sus atributos */

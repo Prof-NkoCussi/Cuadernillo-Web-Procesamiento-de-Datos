@@ -33,7 +33,7 @@ HTML, CSS y JavaScript vanilla. Sin frameworks, sin build, sin backend, sin depe
 ## Identidad
 
 - **Paleta:** la misma de Base de Datos. No tocar las variables de color de `:root`.
-- **Cabecera de cada hoja:** `PROCESAMIENTO DE DATOS` con la bajada `TALLER · 1.ER AÑO`, y a la derecha `TRABAJO PRÁCTICO N°X` con la barra cian vertical. Mismas reglas de tamaño y de celular que el repo base.
+- **Cabecera de cada hoja:** `TALLER DE PROCESAMIENTO DE DATOS` con la bajada `1.ER AÑO`, y a la derecha `TRABAJO PRÁCTICO N°X` con la barra cian vertical. Mismas reglas de tamaño y de celular que el repo base (el nombre es más largo: verificar a 360 px).
 - **Pie de cada hoja:** `Taller de Procesamiento de Datos - Prof. Nicolás A. Cussi` + número de lámina (o `TP N` en profundizar y actividades).
 - **Ícono de la materia:** una computadora con teclado, en el mismo estilo (trazo oscuro + relleno cian).
 - **Sin eslóganes ni frases decorativas.**
@@ -129,10 +129,14 @@ Reglas fijas:
 - **TP11.** Práctica: mejorar la presentación del TP10 sumando transiciones consistentes, mínimo 3 elementos animados, un video de YouTube relacionado con el tema y notas del orador en al menos 3 diapositivas. Entrega: link + video corto (con el celular) presentando 1 minuto del tema.
 - **TP12.** Práctica: crear 3 piezas en Canva: un afiche A4 promocionando un evento ficticio, un post cuadrado para Instagram y una historia vertical. Todas sobre un mismo tema o marca personal. Entrega: las 3 piezas exportadas en PNG.
 
+## Decisiones confirmadas (2/10/2026)
+
+- **Laboratorio:** Windows 10, teclados en español (con Ñ). Valen los atajos de captura de arriba.
+- **TP1:** el esquema del teclado y la lista de 15 atajos van **en la carpeta** (foto a Classroom).
+- **TP1:** los 5 niveles del juego son los niveles 1 a 5 de la Parte 1 (fila guía, fila superior, fila inferior, todas las letras, números).
+- **Juego:** todavía no está hecho (el repo solo tiene su plan). El TP1 enlaza igual al link definitivo; el acceso de `index.html` queda en "Próximamente" hasta que se publique.
+- **Cabecera:** `TALLER DE PROCESAMIENTO DE DATOS` + `1.ER AÑO`.
+
 ## Pendientes a consultar con Nicolás
 
-- **Antes del TP1:** qué sistema tienen las computadoras del laboratorio. Los atajos de captura de este archivo son de Windows; si usan otro sistema, cambian.
-- **TP1:** el esquema del teclado y la lista de 15 atajos, ¿van en la carpeta (foto a Classroom) o en un documento? Documentos de Google se ve recién en el TP2.
-- **TP1:** el mínimo de 5 niveles del juego es una propuesta; Nicolás puede cambiarlo.
-- **Cabecera:** confirmar `PROCESAMIENTO DE DATOS` + `TALLER · 1.ER AÑO`.
 - **TP9, torta de aprobados:** confirmar la nota de aprobación para la condición de CONTAR.SI.
