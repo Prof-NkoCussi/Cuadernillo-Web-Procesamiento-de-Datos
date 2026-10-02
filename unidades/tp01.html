@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TP N°1 — El teclado: mi herramienta de trabajo · Taller de Procesamiento de Datos</title>
+  <meta name="description" content="TP N°1 del Taller de Procesamiento de Datos: zonas del teclado, postura, un dedo para cada tecla, atajos de teclado y captura de pantalla. Prof. Nicolás A. Cussi.">
+  <meta name="theme-color" content="#26C6D4">
+  <link rel="preload" href="../assets/fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/barlow-semi-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/estilos.css">
+</head>
+<body data-tp="1">
+
+<!-- ====== Íconos ====== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-pc-solido" viewBox="0 0 48 48">
+      <g style="fill:currentColor;stroke:none">
+        <path fill-rule="evenodd" d="M8 5h32a3 3 0 0 1 3 3v19a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3zm1.5 4.5v16h29v-16z"/>
+        <path d="M20 30h8v3.5h-8z"/>
+        <rect x="14" y="33" width="20" height="3" rx="1.5"/>
+        <path fill-rule="evenodd" d="M7 39h34a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2zm8 2.2v1.6h18v-1.6z"/>
+      </g>
+    </symbol>
+    <symbol id="i-teclado" viewBox="0 0 48 48">
+      <rect x="3" y="12" width="42" height="25" rx="3"/>
+      <path d="M9 19h2M15 19h2M21 19h2M27 19h2M33 19h2M39 19h0M9 25h2M15 25h2M21 25h2M27 25h2M33 25h6"/>
+      <rect x="13" y="29.5" width="22" height="3" rx="1.5" style="fill:var(--ac)"/>
+    </symbol>
+    <symbol id="i-mano" viewBox="0 0 48 48">
+      <path d="M15 27V11a3 3 0 0 1 6 0v12M21 23V7a3 3 0 0 1 6 0v16M27 23V9a3 3 0 0 1 6 0v15M33 24v-9a3 3 0 0 1 6 0v15c0 8-5 14-13 14h-2c-5 0-8-2.5-11-7l-5-8a3 3 0 0 1 5-3.5l3 4"/>
+      <circle cx="24" cy="7" r="3" style="fill:var(--ac);stroke:none"/>
+    </symbol>
+    <symbol id="i-atajo" viewBox="0 0 48 48">
+      <rect x="2" y="14" width="16" height="16" rx="3" style="fill:var(--ac)"/>
+      <path d="M2 30v2a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-2"/>
+      <rect x="30" y="14" width="16" height="16" rx="3"/>
+      <path d="M30 30v2a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-2"/>
+      <path d="M24 19v6M21 22h6" style="stroke-width:2.2"/>
+    </symbol>
+    <symbol id="i-captura" viewBox="0 0 48 48">
+      <rect x="4" y="7" width="40" height="27" rx="3"/>
+      <path d="M18 41h12M24 34v7"/>
+      <path d="M10 18v-5h5M38 18v-5h-5M10 23v5h5M38 23v5h-5" style="stroke:var(--ac);stroke-width:3.2"/>
+    </symbol>
+    <symbol id="i-recorte" viewBox="0 0 48 48">
+      <rect x="4" y="7" width="40" height="27" rx="3"/>
+      <path d="M18 41h12M24 34v7"/>
+      <rect x="15" y="13" width="18" height="15" style="fill:var(--ac);stroke-dasharray:3 3"/>
+    </symbol>
+    <symbol id="i-subir" viewBox="0 0 48 48">
+      <path d="M6 30v8a3 3 0 0 0 3 3h30a3 3 0 0 0 3-3v-8"/>
+      <path d="M24 31V7M15 16l9-9 9 9" style="stroke:var(--ac);stroke-width:3.4"/>
+    </symbol>
+    <symbol id="i-foco" viewBox="0 0 48 48">
+      <path d="M24 2.5v4M10 8.5l2.8 2.8M38 8.5l-2.8 2.8M4 22h4M40 22h4"/>
+      <path d="M24 12a10 10 0 0 0-6.2 17.8c1.4 1.2 2.2 2.6 2.2 4.2v1h8v-1c0-1.6.8-3 2.2-4.2A10 10 0 0 0 24 12z" style="fill:var(--ac)"/>
+      <path d="M20 39h8M21.5 43h5"/>
+    </symbol>
+    <symbol id="i-lapiz" viewBox="0 0 48 48">
+      <path d="M33 6l9 9-25 25-9-9z" style="fill:var(--ac)"/>
+      <path d="M8 31 5.5 42.5 17 40z" style="fill:#fff"/>
+      <path d="M27 12l9 9"/>
+    </symbol>
+    <symbol id="i-descarga" viewBox="0 0 24 24">
+      <path d="M12 3v12M7 10l5 5 5-5M5 20h14"/>
+    </symbol>
+    <symbol id="i-externo" viewBox="0 0 24 24">
+      <path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>
+    </symbol>
+  </defs>
+</svg>
+
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<header class="barra">
+  <div class="barra__fila">
+    <a class="barra__volver" href="../index.html">← Índice</a>
+    <span class="barra__titulo">TP N°1 — El teclado: mi herramienta de trabajo</span>
+    <button class="boton" type="button" data-imprimir aria-label="Guardar en PDF">
+      <svg aria-hidden="true" focusable="false"><use href="#i-descarga"/></svg><span><span class="boton__largo">Guardar </span>PDF</span>
+    </button>
+  </div>
+  <nav class="partes" aria-label="Partes del TP N°1">
+    <a href="#pag-1">1 · Zonas</a>
+    <a href="#pag-2">2 · Postura</a>
+    <a href="#pag-3">3 · Dedos</a>
+    <a href="#pag-4">4 · Atajos</a>
+    <a href="#profundizar">Para profundizar</a>
+    <a href="#actividades">Actividades</a>
+  </nav>
+</header>
+
+<main id="contenido" class="laminas">
+  <h1 class="sr-only">TP N°1 — El teclado: mi herramienta de trabajo</h1>
+
+  <!-- =================== LÁMINA 1 =================== -->
+  <article class="lamina lamina--compacta" id="pag-1" aria-labelledby="t1">
+    <div class="cab" aria-hidden="true">
+      <svg class="cab__logo"><use href="#i-pc-solido"/></svg>
+      <div class="cab__marca"><b>TALLER DE PROCESAMIENTO DE DATOS</b><span>1.ER AÑO</span></div>
+      <div class="cab__lema"><span class="cab__lema-largo">TRABAJO PRÁCTICO </span><span class="cab__lema-corto">TP </span><span class="cab__lema-n">N°1</span></div>
+      <span class="cab__raya"></span>
+    </div>
+
+    <div class="tit">
+      <h2 class="tit__h" id="t1"><span class="tit__num">1.</span> Las zonas del teclado</h2>
+      <p class="tit__sub">Cada tecla tiene su lugar</p>
+    </div>
+
+    <div class="intro">
+      <svg class="ico ico--xl" aria-hidden="true" focusable="false"><use href="#i-teclado"/></svg>
+      <p>El <strong>teclado</strong> sirve para escribir y para darle órdenes a la computadora. Sus teclas se agrupan en <strong>zonas</strong>, según la tarea que cumplen.</p>
+    </div>
+
+    <figure class="esquema esquema--teclado">
+      <svg viewBox="-2 -12 234 88" role="img" aria-labelledby="kz-t kz-d"><title id="kz-t">Esquema de un teclado en español con sus cinco zonas</title><desc id="kz-d">1: zona alfanumérica, con las letras, los números, los signos y la barra espaciadora. 2: teclas de función, de F1 a F12, en la fila de arriba. 3: teclas especiales, como Esc, Tab, Bloq Mayús, Retroceso, Enter, Supr y las flechas. 4: teclado numérico, a la derecha. 5: teclas modificadoras: Shift, Ctrl, Alt, AltGr y Windows.</desc><rect class="tk z-esp" x="0.45" y="0.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="5" y="5" font-size="2.2" text-anchor="middle" dominant-baseline="central">Esc</text><rect class="tk z-fn" x="20.45" y="0.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="25" y="5" font-size="2.2" text-anchor="middle" dominant-baseline="central">F1</text><rect class="tk z-fn" x="30.45" y="0.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="35" y="5" font-size="2.2" text-anchor="middle" dominant-baseline="central">F2</text><rect class="tk z-fn" x="40.45" y="0.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="45" y="5" font-size="2.2" text-anchor="middle" dominant-baseline="central">F3</text><rect class="tk z-fn" x="50.45" y="0.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="55" y="5" font-size="2.2" text-anchor="middle" dominant-baseline="central">F4</text><rect class="tk z-fn" x="65.45" y="0.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="70" y="5" font-size="2.2" text-anchor="middle" dominant-baseline="central">F5</text><rect class="tk z-fn" x="75.45" y="0.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="80" y="5" font-size="2.2" text-anchor="middle" dominant-baseline="central">F6</text><rect class="tk z-fn" x="85.45" y="0.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="90" y="5" font-size="2.2" text-anchor="middle" dominant-baseline="central">F7</text><rect class="tk z-fn" x="95.45" y="0.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="100" y="5" font-size="2.2" text-anchor="middle" dominant-baseline="central">F8</text><rect class="tk z-fn" x="110.45" y="0.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="115" y="5" font-size="2.2" text-anchor="middle" dominant-baseline="central">F9</text><rect class="tk z-fn" x="120.45" y="0.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="125" y="5" font-size="2.2" text-anchor="middle" dominant-baseline="central">F10</text><rect class="tk z-fn" x="130.45" y="0.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="135" y="5" font-size="2.2" text-anchor="middle" dominant-baseline="central">F11</text><rect class="tk z-fn" x="140.45" y="0.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="145" y="5" font-size="2.2" text-anchor="middle" dominant-baseline="central">F12</text><rect class="tk z-alfa" x="0.45" y="15.45" width="9.1" height="9.1" rx="1.2"/><rect class="tk z-alfa" x="10.45" y="15.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="15" y="20" font-size="3.6" text-anchor="middle" dominant-baseline="central">1</text><rect class="tk z-alfa" x="20.45" y="15.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="25" y="20" font-size="3.6" text-anchor="middle" dominant-baseline="central">2</text><rect class="tk z-alfa" x="30.45" y="15.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="35" y="20" font-size="3.6" text-anchor="middle" dominant-baseline="central">3</text><rect class="tk z-alfa" x="40.45" y="15.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="45" y="20" font-size="3.6" text-anchor="middle" dominant-baseline="central">4</text><rect class="tk z-alfa" x="50.45" y="15.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="55" y="20" font-size="3.6" text-anchor="middle" dominant-baseline="central">5</text><rect class="tk z-alfa" x="60.45" y="15.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="65" y="20" font-size="3.6" text-anchor="middle" dominant-baseline="central">6</text><rect class="tk z-alfa" x="70.45" y="15.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="75" y="20" font-size="3.6" text-anchor="middle" dominant-baseline="central">7</text><rect class="tk z-alfa" x="80.45" y="15.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="85" y="20" font-size="3.6" text-anchor="middle" dominant-baseline="central">8</text><rect class="tk z-alfa" x="90.45" y="15.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="95" y="20" font-size="3.6" text-anchor="middle" dominant-baseline="central">9</text><rect class="tk z-alfa" x="100.45" y="15.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="105" y="20" font-size="3.6" text-anchor="middle" dominant-baseline="central">0</text><rect class="tk z-alfa" x="110.45" y="15.45" width="9.1" height="9.1" rx="1.2"/><rect class="tk z-alfa" x="120.45" y="15.45" width="9.1" height="9.1" rx="1.2"/><rect class="tk z-esp" x="130.45" y="15.45" width="19.1" height="9.1" rx="1.2"/><text class="tt" x="140" y="20" font-size="2.2" text-anchor="middle" dominant-baseline="central">Retroceso</text><rect class="tk z-esp" x="0.45" y="25.45" width="14.1" height="9.1" rx="1.2"/><text class="tt" x="7.5" y="30" font-size="2.2" text-anchor="middle" dominant-baseline="central">Tab</text><rect class="tk z-alfa" x="15.45" y="25.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="20" y="30" font-size="3.6" text-anchor="middle" dominant-baseline="central">Q</text><rect class="tk z-alfa" x="25.45" y="25.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="30" y="30" font-size="3.6" text-anchor="middle" dominant-baseline="central">W</text><rect class="tk z-alfa" x="35.45" y="25.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="40" y="30" font-size="3.6" text-anchor="middle" dominant-baseline="central">E</text><rect class="tk z-alfa" x="45.45" y="25.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="50" y="30" font-size="3.6" text-anchor="middle" dominant-baseline="central">R</text><rect class="tk z-alfa" x="55.45" y="25.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="60" y="30" font-size="3.6" text-anchor="middle" dominant-baseline="central">T</text><rect class="tk z-alfa" x="65.45" y="25.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="70" y="30" font-size="3.6" text-anchor="middle" dominant-baseline="central">Y</text><rect class="tk z-alfa" x="75.45" y="25.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="80" y="30" font-size="3.6" text-anchor="middle" dominant-baseline="central">U</text><rect class="tk z-alfa" x="85.45" y="25.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="90" y="30" font-size="3.6" text-anchor="middle" dominant-baseline="central">I</text><rect class="tk z-alfa" x="95.45" y="25.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="100" y="30" font-size="3.6" text-anchor="middle" dominant-baseline="central">O</text><rect class="tk z-alfa" x="105.45" y="25.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="110" y="30" font-size="3.6" text-anchor="middle" dominant-baseline="central">P</text><rect class="tk z-alfa" x="115.45" y="25.45" width="9.1" height="9.1" rx="1.2"/><rect class="tk z-alfa" x="125.45" y="25.45" width="9.1" height="9.1" rx="1.2"/><path class="tk z-esp" d="M135.45 25.45H149.55V44.55H137.95V34.55H135.45Z"/><text class="tt" x="143" y="35" font-size="2.2" text-anchor="middle" dominant-baseline="central">Enter</text><rect class="tk z-esp" x="0.45" y="35.45" width="16.6" height="9.1" rx="1.2"/><text class="tt" x="8.75" y="38.85" font-size="2.2" text-anchor="middle" dominant-baseline="central">Bloq</text><text class="tt" x="8.75" y="41.16" font-size="2.2" text-anchor="middle" dominant-baseline="central">Mayús</text><rect class="tk z-alfa" x="17.95" y="35.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="22.5" y="40" font-size="3.6" text-anchor="middle" dominant-baseline="central">A</text><rect class="tk z-alfa" x="27.95" y="35.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="32.5" y="40" font-size="3.6" text-anchor="middle" dominant-baseline="central">S</text><rect class="tk z-alfa" x="37.95" y="35.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="42.5" y="40" font-size="3.6" text-anchor="middle" dominant-baseline="central">D</text><rect class="tk z-alfa" x="47.95" y="35.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="52.5" y="40" font-size="3.6" text-anchor="middle" dominant-baseline="central">F</text><path class="relieve" d="M51.1 43h2.8"/><rect class="tk z-alfa" x="57.95" y="35.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="62.5" y="40" font-size="3.6" text-anchor="middle" dominant-baseline="central">G</text><rect class="tk z-alfa" x="67.95" y="35.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="72.5" y="40" font-size="3.6" text-anchor="middle" dominant-baseline="central">H</text><rect class="tk z-alfa" x="77.95" y="35.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="82.5" y="40" font-size="3.6" text-anchor="middle" dominant-baseline="central">J</text><path class="relieve" d="M81.1 43h2.8"/><rect class="tk z-alfa" x="87.95" y="35.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="92.5" y="40" font-size="3.6" text-anchor="middle" dominant-baseline="central">K</text><rect class="tk z-alfa" x="97.95" y="35.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="102.5" y="40" font-size="3.6" text-anchor="middle" dominant-baseline="central">L</text><rect class="tk z-alfa" x="107.95" y="35.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="112.5" y="40" font-size="3.6" text-anchor="middle" dominant-baseline="central">Ñ</text><rect class="tk z-alfa" x="117.95" y="35.45" width="9.1" height="9.1" rx="1.2"/><rect class="tk z-alfa" x="127.95" y="35.45" width="9.1" height="9.1" rx="1.2"/><rect class="tk z-mod" x="0.45" y="45.45" width="11.6" height="9.1" rx="1.2"/><text class="tt tt--claro" x="6.25" y="50" font-size="2.2" text-anchor="middle" dominant-baseline="central">Shift</text><rect class="tk z-alfa" x="12.95" y="45.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="17.5" y="50" font-size="3.6" text-anchor="middle" dominant-baseline="central"><</text><rect class="tk z-alfa" x="22.95" y="45.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="27.5" y="50" font-size="3.6" text-anchor="middle" dominant-baseline="central">Z</text><rect class="tk z-alfa" x="32.95" y="45.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="37.5" y="50" font-size="3.6" text-anchor="middle" dominant-baseline="central">X</text><rect class="tk z-alfa" x="42.95" y="45.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="47.5" y="50" font-size="3.6" text-anchor="middle" dominant-baseline="central">C</text><rect class="tk z-alfa" x="52.95" y="45.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="57.5" y="50" font-size="3.6" text-anchor="middle" dominant-baseline="central">V</text><rect class="tk z-alfa" x="62.95" y="45.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="67.5" y="50" font-size="3.6" text-anchor="middle" dominant-baseline="central">B</text><rect class="tk z-alfa" x="72.95" y="45.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="77.5" y="50" font-size="3.6" text-anchor="middle" dominant-baseline="central">N</text><rect class="tk z-alfa" x="82.95" y="45.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="87.5" y="50" font-size="3.6" text-anchor="middle" dominant-baseline="central">M</text><rect class="tk z-alfa" x="92.95" y="45.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="97.5" y="50" font-size="3.6" text-anchor="middle" dominant-baseline="central">,</text><rect class="tk z-alfa" x="102.95" y="45.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="107.5" y="50" font-size="3.6" text-anchor="middle" dominant-baseline="central">.</text><rect class="tk z-alfa" x="112.95" y="45.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="117.5" y="50" font-size="3.6" text-anchor="middle" dominant-baseline="central">-</text><rect class="tk z-mod" x="122.95" y="45.45" width="26.6" height="9.1" rx="1.2"/><text class="tt tt--claro" x="136.25" y="50" font-size="2.2" text-anchor="middle" dominant-baseline="central">Shift</text><rect class="tk z-mod" x="0.45" y="55.45" width="11.6" height="9.1" rx="1.2"/><text class="tt tt--claro" x="6.25" y="60" font-size="2.2" text-anchor="middle" dominant-baseline="central">Ctrl</text><rect class="tk z-mod" x="12.95" y="55.45" width="11.6" height="9.1" rx="1.2"/><text class="tt tt--claro" x="18.75" y="60" font-size="2.2" text-anchor="middle" dominant-baseline="central">Win</text><rect class="tk z-mod" x="25.45" y="55.45" width="11.6" height="9.1" rx="1.2"/><text class="tt tt--claro" x="31.25" y="60" font-size="2.2" text-anchor="middle" dominant-baseline="central">Alt</text><rect class="tk z-alfa" x="37.95" y="55.45" width="61.6" height="9.1" rx="1.2"/><rect class="tk z-mod" x="100.45" y="55.45" width="11.6" height="9.1" rx="1.2"/><text class="tt tt--claro" x="106.25" y="60" font-size="2.2" text-anchor="middle" dominant-baseline="central">AltGr</text><rect class="tk z-mod" x="112.95" y="55.45" width="11.6" height="9.1" rx="1.2"/><text class="tt tt--claro" x="118.75" y="60" font-size="2.2" text-anchor="middle" dominant-baseline="central">Win</text><rect class="tk z-esp" x="125.45" y="55.45" width="11.6" height="9.1" rx="1.2"/><text class="tt" x="131.25" y="60" font-size="2.2" text-anchor="middle" dominant-baseline="central">Menú</text><rect class="tk z-mod" x="137.95" y="55.45" width="11.6" height="9.1" rx="1.2"/><text class="tt tt--claro" x="143.75" y="60" font-size="2.2" text-anchor="middle" dominant-baseline="central">Ctrl</text><rect class="tk z-esp" x="155.45" y="0.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="160" y="3.85" font-size="2.2" text-anchor="middle" dominant-baseline="central">Impr</text><text class="tt" x="160" y="6.16" font-size="2.2" text-anchor="middle" dominant-baseline="central">Pant</text><rect class="tk z-esp" x="165.45" y="0.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="170" y="3.85" font-size="2.2" text-anchor="middle" dominant-baseline="central">Bloq</text><text class="tt" x="170" y="6.16" font-size="2.2" text-anchor="middle" dominant-baseline="central">Despl</text><rect class="tk z-esp" x="175.45" y="0.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="180" y="5" font-size="2.2" text-anchor="middle" dominant-baseline="central">Pausa</text><rect class="tk z-esp" x="155.45" y="15.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="160" y="20" font-size="1.9" text-anchor="middle" dominant-baseline="central">Insert</text><rect class="tk z-esp" x="165.45" y="15.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="170" y="20" font-size="1.9" text-anchor="middle" dominant-baseline="central">Inicio</text><rect class="tk z-esp" x="175.45" y="15.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="180" y="18.85" font-size="2.2" text-anchor="middle" dominant-baseline="central">Re</text><text class="tt" x="180" y="21.16" font-size="2.2" text-anchor="middle" dominant-baseline="central">Pág</text><rect class="tk z-esp" x="155.45" y="25.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="160" y="30" font-size="2.2" text-anchor="middle" dominant-baseline="central">Supr</text><rect class="tk z-esp" x="165.45" y="25.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="170" y="30" font-size="2.2" text-anchor="middle" dominant-baseline="central">Fin</text><rect class="tk z-esp" x="175.45" y="25.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="180" y="28.85" font-size="2.2" text-anchor="middle" dominant-baseline="central">Av</text><text class="tt" x="180" y="31.16" font-size="2.2" text-anchor="middle" dominant-baseline="central">Pág</text><rect class="tk z-esp" x="165.45" y="45.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="170" y="50" font-size="3.6" text-anchor="middle" dominant-baseline="central">↑</text><rect class="tk z-esp" x="155.45" y="55.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="160" y="60" font-size="3.6" text-anchor="middle" dominant-baseline="central">←</text><rect class="tk z-esp" x="165.45" y="55.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="170" y="60" font-size="3.6" text-anchor="middle" dominant-baseline="central">↓</text><rect class="tk z-esp" x="175.45" y="55.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="180" y="60" font-size="3.6" text-anchor="middle" dominant-baseline="central">→</text><rect class="tk z-num" x="190.45" y="15.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="195" y="18.85" font-size="2.2" text-anchor="middle" dominant-baseline="central">Bloq</text><text class="tt" x="195" y="21.16" font-size="2.2" text-anchor="middle" dominant-baseline="central">Num</text><rect class="tk z-num" x="200.45" y="15.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="205" y="20" font-size="3.6" text-anchor="middle" dominant-baseline="central">/</text><rect class="tk z-num" x="210.45" y="15.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="215" y="20" font-size="3.6" text-anchor="middle" dominant-baseline="central">*</text><rect class="tk z-num" x="220.45" y="15.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="225" y="20" font-size="3.6" text-anchor="middle" dominant-baseline="central">-</text><rect class="tk z-num" x="190.45" y="25.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="195" y="30" font-size="3.6" text-anchor="middle" dominant-baseline="central">7</text><rect class="tk z-num" x="200.45" y="25.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="205" y="30" font-size="3.6" text-anchor="middle" dominant-baseline="central">8</text><rect class="tk z-num" x="210.45" y="25.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="215" y="30" font-size="3.6" text-anchor="middle" dominant-baseline="central">9</text><rect class="tk z-num" x="190.45" y="35.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="195" y="40" font-size="3.6" text-anchor="middle" dominant-baseline="central">4</text><rect class="tk z-num" x="200.45" y="35.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="205" y="40" font-size="3.6" text-anchor="middle" dominant-baseline="central">5</text><rect class="tk z-num" x="210.45" y="35.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="215" y="40" font-size="3.6" text-anchor="middle" dominant-baseline="central">6</text><rect class="tk z-num" x="190.45" y="45.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="195" y="50" font-size="3.6" text-anchor="middle" dominant-baseline="central">1</text><rect class="tk z-num" x="200.45" y="45.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="205" y="50" font-size="3.6" text-anchor="middle" dominant-baseline="central">2</text><rect class="tk z-num" x="210.45" y="45.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="215" y="50" font-size="3.6" text-anchor="middle" dominant-baseline="central">3</text><rect class="tk z-num" x="220.45" y="25.45" width="9.1" height="19.1" rx="1.2"/><text class="tt" x="225" y="35" font-size="3.6" text-anchor="middle" dominant-baseline="central">+</text><rect class="tk z-num" x="220.45" y="45.45" width="9.1" height="19.1" rx="1.2"/><text class="tt" x="225" y="55" font-size="2.2" text-anchor="middle" dominant-baseline="central">Intro</text><rect class="tk z-num" x="190.45" y="55.45" width="19.1" height="9.1" rx="1.2"/><text class="tt" x="200" y="60" font-size="3.6" text-anchor="middle" dominant-baseline="central">0</text><rect class="tk z-num" x="210.45" y="55.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="215" y="60" font-size="3.6" text-anchor="middle" dominant-baseline="central">.</text><path class="guia" d="M70 71L70 65.3"/><circle class="badge" cx="70" cy="71" r="3.4"/><text class="tt tt--claro" x="70" y="71" font-size="4" font-weight="700" text-anchor="middle" dominant-baseline="central">1</text><path class="guia" d="M85 -7L85 0.5"/><circle class="badge" cx="85" cy="-7" r="3.4"/><text class="tt tt--claro" x="85" y="-7" font-size="4" font-weight="700" text-anchor="middle" dominant-baseline="central">2</text><path class="guia" d="M170 -7L170 0.5"/><circle class="badge" cx="170" cy="-7" r="3.4"/><text class="tt tt--claro" x="170" y="-7" font-size="4" font-weight="700" text-anchor="middle" dominant-baseline="central">3</text><path class="guia" d="M210 71L210 65.3"/><circle class="badge" cx="210" cy="71" r="3.4"/><text class="tt tt--claro" x="210" y="71" font-size="4" font-weight="700" text-anchor="middle" dominant-baseline="central">4</text><path class="guia" d="M6 71L6 65.3"/><circle class="badge" cx="6" cy="71" r="3.4"/><text class="tt tt--claro" x="6" y="71" font-size="4" font-weight="700" text-anchor="middle" dominant-baseline="central">5</text><path class="guia" d="M5 -7L5 0.5"/><circle class="badge" cx="5" cy="-7" r="3.4"/><text class="tt tt--claro" x="5" y="-7" font-size="4" font-weight="700" text-anchor="middle" dominant-baseline="central">3</text></svg>
+    </figure>
+
+    <table class="tabla-comp tabla-zonas">
+      <caption class="sr-only">Las cinco zonas del teclado, para qué sirven y ejemplos de teclas</caption>
+      <thead>
+        <tr><th scope="col">Zona</th><th scope="col">Para qué sirve</th><th scope="col">Ejemplos</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row"><span><i class="muestra z-alfa" aria-hidden="true"></i>1 · Alfanumérica</span></th><td>Escribir letras, números y signos.</td><td><kbd>A</kbd> <kbd>Ñ</kbd> <kbd>7</kbd> <kbd>Espacio</kbd></td></tr>
+        <tr><th scope="row"><span><i class="muestra z-fn" aria-hidden="true"></i>2 · Función</span></th><td>Tareas rápidas que cambian según el programa.</td><td><kbd>F1</kbd> a <kbd>F12</kbd></td></tr>
+        <tr><th scope="row"><span><i class="muestra z-esp" aria-hidden="true"></i>3 · Especiales</span></th><td>Confirmar, borrar, salir y moverse.</td><td><kbd>Enter</kbd> <kbd>Retroceso</kbd> <kbd>Esc</kbd> <kbd>↑</kbd></td></tr>
+        <tr><th scope="row"><span><i class="muestra z-num" aria-hidden="true"></i>4 · Numérico</span></th><td>Cargar números rápido, como en una calculadora.</td><td><kbd>0</kbd> a <kbd>9</kbd> <kbd>+</kbd> <kbd>-</kbd></td></tr>
+        <tr><th scope="row"><span><i class="muestra z-mod" aria-hidden="true"></i>5 · Modificadoras</span></th><td>Solas no hacen nada: cambian lo que hace otra tecla.</td><td><kbd>Shift</kbd> <kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>AltGr</kbd></td></tr>
+      </tbody>
+    </table>
+
+    <aside class="idea" aria-label="Idea clave">
+      <span class="idea__ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-foco"/></svg></span>
+      <p><strong>Idea clave:</strong> si sabemos en qué zona está cada tecla, la encontramos más rápido.</p>
+    </aside>
+
+    <footer class="pie">
+      <span class="pie__linea"></span>
+      <span>Taller de Procesamiento de Datos - Prof. Nicolás A. Cussi</span>
+      <span class="pie__linea"></span>
+      <span class="pie__num" aria-label="Página 1">1</span>
+    </footer>
+  </article>
+
+  <!-- =================== LÁMINA 2 =================== -->
+  <article class="lamina" id="pag-2" aria-labelledby="t2">
+    <div class="cab" aria-hidden="true">
+      <svg class="cab__logo"><use href="#i-pc-solido"/></svg>
+      <div class="cab__marca"><b>TALLER DE PROCESAMIENTO DE DATOS</b><span>1.ER AÑO</span></div>
+      <div class="cab__lema"><span class="cab__lema-largo">TRABAJO PRÁCTICO </span><span class="cab__lema-corto">TP </span><span class="cab__lema-n">N°1</span></div>
+      <span class="cab__raya"></span>
+    </div>
+
+    <div class="tit">
+      <h2 class="tit__h" id="t2"><span class="tit__num">2.</span> Postura y posición de las manos</h2>
+      <p class="tit__sub">Cómodos frente a la computadora</p>
+    </div>
+
+    <section class="postura" aria-labelledby="s2">
+      <h3 class="subtitulo" id="s2">Cómo nos sentamos</h3>
+      <div class="postura__cuerpo">
+        <figure class="esquema">
+          <svg viewBox="0 0 300 262" role="img" aria-labelledby="po-t po-d">
+            <title id="po-t">Esquema de una persona sentada frente a la computadora, vista de costado</title>
+            <desc id="po-d">La persona está sentada con la espalda apoyada en el respaldo. El borde de arriba de la pantalla está a la altura de sus ojos y a un brazo de distancia. Los codos forman un ángulo recto, las muñecas están derechas sobre el teclado y los pies apoyados en el piso. Los números marcan cada uno de estos puntos.</desc>
+            <path class="p-piso" d="M8 250H292"/>
+            <!-- silla -->
+            <path class="p-silla" d="M36 150h76M46 148 40 76M76 156v66M46 236h60"/>
+            <circle class="p-rueda" cx="49" cy="242" r="5"/><circle class="p-rueda" cx="103" cy="242" r="5"/>
+            <!-- escritorio -->
+            <path class="p-mueble" d="M104 137h176M266 137v113"/>
+            <rect class="p-teclado" x="108" y="129" width="34" height="6" rx="2"/>
+            <!-- pantalla -->
+            <path class="p-mueble" d="M222 137h26M235 137v-24"/>
+            <rect class="p-pantalla" x="230" y="40" width="10" height="74" rx="2"/>
+            <!-- línea de la vista -->
+            <path class="p-vista" d="M76 49H228"/>
+            <!-- distancia: un brazo -->
+            <path class="p-ac" d="M78 20H226M84 15l-6 5 6 5M220 15l6 5-6 5"/>
+            <!-- cuerpo -->
+            <path class="p-cuerpo" d="M60 144 55 78M58 84 62 128 112 128M60 144H122V238H142"/>
+            <circle class="p-cabeza" cx="62" cy="52" r="15"/>
+            <circle class="p-ojo" cx="70" cy="49" r="2"/>
+            <!-- ángulos rectos -->
+            <path class="p-ac" d="M64 116h10v12M110 144v12h12"/>
+            <!-- referencias -->
+            <g class="p-ref">
+              <circle cx="258" cy="40" r="9"/><text x="258" y="40">1</text>
+              <circle cx="22" cy="100" r="9"/><text x="22" y="100">2</text>
+              <circle cx="86" cy="108" r="9"/><text x="86" y="108">3</text>
+              <circle cx="122" cy="110" r="9"/><text x="122" y="110">4</text>
+              <circle cx="168" cy="236" r="9"/><text x="168" y="236">5</text>
+              <circle cx="152" cy="20" r="9"/><text x="152" y="20">6</text>
+            </g>
+          </svg>
+        </figure>
+        <ol class="puntos">
+          <li><span class="puntos__n" aria-hidden="true">1</span><span>El borde de arriba de la <strong>pantalla</strong>, a la altura de los ojos.</span></li>
+          <li><span class="puntos__n" aria-hidden="true">2</span><span>La <strong>espalda</strong>, derecha y apoyada en el respaldo.</span></li>
+          <li><span class="puntos__n" aria-hidden="true">3</span><span>Los <strong>codos</strong>, cerca del cuerpo y en ángulo recto.</span></li>
+          <li><span class="puntos__n" aria-hidden="true">4</span><span>Las <strong>muñecas</strong>, derechas: no se doblan ni se apoyan.</span></li>
+          <li><span class="puntos__n" aria-hidden="true">5</span><span>Los <strong>pies</strong>, apoyados en el piso.</span></li>
+          <li><span class="puntos__n" aria-hidden="true">6</span><span>La pantalla, a un <strong>brazo</strong> de distancia.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="s2b">
+      <div class="panel__cab"><h3 class="subtitulo" id="s2b">La posición inicial: la fila guía</h3></div>
+      <p class="panel__texto">Antes de escribir, apoyamos los dedos en la fila del medio. Desde ahí, cada dedo sale a buscar su tecla y vuelve.</p>
+      <div class="fila-guia">
+        <div class="fila-guia__mano">
+          <h4>Mano izquierda</h4>
+          <p class="teclas"><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><kbd class="con-relieve">F</kbd></p>
+        </div>
+        <div class="fila-guia__mano">
+          <h4>Mano derecha</h4>
+          <p class="teclas"><kbd class="con-relieve">J</kbd><kbd>K</kbd><kbd>L</kbd><kbd>Ñ</kbd></p>
+        </div>
+        <div class="fila-guia__mano">
+          <h4>Pulgares</h4>
+          <p class="teclas"><kbd class="tecla-espacio">Espacio</kbd></p>
+        </div>
+      </div>
+      <p class="panel__texto">Las teclas <kbd>F</kbd> y <kbd>J</kbd> tienen una <strong>rayita en relieve</strong>: la sentimos con los índices y así encontramos la posición sin mirar.</p>
+    </section>
+
+    <aside class="idea" aria-label="Idea clave">
+      <span class="idea__ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-foco"/></svg></span>
+      <p><strong>Idea clave:</strong> primero la postura, después la velocidad. Escribir cómodos evita el cansancio y los dolores.</p>
+    </aside>
+
+    <footer class="pie">
+      <span class="pie__linea"></span>
+      <span>Taller de Procesamiento de Datos - Prof. Nicolás A. Cussi</span>
+      <span class="pie__linea"></span>
+      <span class="pie__num" aria-label="Página 2">2</span>
+    </footer>
+  </article>
+
+  <!-- =================== LÁMINA 3 =================== -->
+  <article class="lamina" id="pag-3" aria-labelledby="t3">
+    <div class="cab" aria-hidden="true">
+      <svg class="cab__logo"><use href="#i-pc-solido"/></svg>
+      <div class="cab__marca"><b>TALLER DE PROCESAMIENTO DE DATOS</b><span>1.ER AÑO</span></div>
+      <div class="cab__lema"><span class="cab__lema-largo">TRABAJO PRÁCTICO </span><span class="cab__lema-corto">TP </span><span class="cab__lema-n">N°1</span></div>
+      <span class="cab__raya"></span>
+    </div>
+
+    <div class="tit">
+      <h2 class="tit__h" id="t3"><span class="tit__num">3.</span> Un dedo para cada tecla</h2>
+      <p class="tit__sub">Escribir sin mirar el teclado</p>
+    </div>
+
+    <div class="intro">
+      <svg class="ico ico--xl" aria-hidden="true" focusable="false"><use href="#i-mano"/></svg>
+      <p>La <strong>mecanografía</strong> es escribir con los diez dedos y sin mirar el teclado. Cada dedo tiene sus teclas y, después de tocarlas, <strong>vuelve a la fila guía</strong>.</p>
+    </div>
+
+    <figure class="esquema esquema--teclado">
+      <svg viewBox="-1 -1 152 52" role="img" aria-labelledby="kd-t kd-d"><title id="kd-t">Esquema del teclado con las teclas de cada dedo</title><desc id="kd-d">Cada dedo se ocupa de una columna inclinada de teclas. Meñiques: las teclas de los bordes, como Q, A, Z, P, Ñ, Shift y Enter. Anulares: W, S, X, O, L y el punto. Medios: E, D, C, I, K y la coma. Índices: las dos columnas del centro de cada mano, R, F, V, T, G, B y Y, H, N, U, J, M. Pulgares: la barra espaciadora. La fila guía es A, S, D, F, J, K, L, Ñ.</desc><rect class="tk d-me" x="0.45" y="0.45" width="9.1" height="9.1" rx="1.2"/><rect class="tk d-me" x="10.45" y="0.45" width="9.1" height="9.1" rx="1.2"/><text class="tt tt--claro" x="15" y="5" font-size="4.6" text-anchor="middle" dominant-baseline="central">1</text><rect class="tk d-an" x="20.45" y="0.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="25" y="5" font-size="4.6" text-anchor="middle" dominant-baseline="central">2</text><rect class="tk d-md" x="30.45" y="0.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="35" y="5" font-size="4.6" text-anchor="middle" dominant-baseline="central">3</text><rect class="tk d-in" x="40.45" y="0.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="45" y="5" font-size="4.6" text-anchor="middle" dominant-baseline="central">4</text><rect class="tk d-in" x="50.45" y="0.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="55" y="5" font-size="4.6" text-anchor="middle" dominant-baseline="central">5</text><rect class="tk d-in" x="60.45" y="0.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="65" y="5" font-size="4.6" text-anchor="middle" dominant-baseline="central">6</text><rect class="tk d-in" x="70.45" y="0.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="75" y="5" font-size="4.6" text-anchor="middle" dominant-baseline="central">7</text><rect class="tk d-md" x="80.45" y="0.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="85" y="5" font-size="4.6" text-anchor="middle" dominant-baseline="central">8</text><rect class="tk d-an" x="90.45" y="0.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="95" y="5" font-size="4.6" text-anchor="middle" dominant-baseline="central">9</text><rect class="tk d-me" x="100.45" y="0.45" width="9.1" height="9.1" rx="1.2"/><text class="tt tt--claro" x="105" y="5" font-size="4.6" text-anchor="middle" dominant-baseline="central">0</text><rect class="tk d-me" x="110.45" y="0.45" width="9.1" height="9.1" rx="1.2"/><rect class="tk d-me" x="120.45" y="0.45" width="9.1" height="9.1" rx="1.2"/><rect class="tk d-me" x="130.45" y="0.45" width="19.1" height="9.1" rx="1.2"/><text class="tt tt--claro" x="140" y="5" font-size="2.2" text-anchor="middle" dominant-baseline="central">Retroceso</text><rect class="tk d-me" x="0.45" y="10.45" width="14.1" height="9.1" rx="1.2"/><text class="tt tt--claro" x="7.5" y="15" font-size="2.2" text-anchor="middle" dominant-baseline="central">Tab</text><rect class="tk d-me" x="15.45" y="10.45" width="9.1" height="9.1" rx="1.2"/><text class="tt tt--claro" x="20" y="15" font-size="4.6" text-anchor="middle" dominant-baseline="central">Q</text><rect class="tk d-an" x="25.45" y="10.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="30" y="15" font-size="4.6" text-anchor="middle" dominant-baseline="central">W</text><rect class="tk d-md" x="35.45" y="10.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="40" y="15" font-size="4.6" text-anchor="middle" dominant-baseline="central">E</text><rect class="tk d-in" x="45.45" y="10.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="50" y="15" font-size="4.6" text-anchor="middle" dominant-baseline="central">R</text><rect class="tk d-in" x="55.45" y="10.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="60" y="15" font-size="4.6" text-anchor="middle" dominant-baseline="central">T</text><rect class="tk d-in" x="65.45" y="10.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="70" y="15" font-size="4.6" text-anchor="middle" dominant-baseline="central">Y</text><rect class="tk d-in" x="75.45" y="10.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="80" y="15" font-size="4.6" text-anchor="middle" dominant-baseline="central">U</text><rect class="tk d-md" x="85.45" y="10.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="90" y="15" font-size="4.6" text-anchor="middle" dominant-baseline="central">I</text><rect class="tk d-an" x="95.45" y="10.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="100" y="15" font-size="4.6" text-anchor="middle" dominant-baseline="central">O</text><rect class="tk d-me" x="105.45" y="10.45" width="9.1" height="9.1" rx="1.2"/><text class="tt tt--claro" x="110" y="15" font-size="4.6" text-anchor="middle" dominant-baseline="central">P</text><rect class="tk d-me" x="115.45" y="10.45" width="9.1" height="9.1" rx="1.2"/><rect class="tk d-me" x="125.45" y="10.45" width="9.1" height="9.1" rx="1.2"/><path class="tk d-me" d="M135.45 10.45H149.55V29.55H137.95V19.55H135.45Z"/><text class="tt tt--claro" x="143" y="20" font-size="2.2" text-anchor="middle" dominant-baseline="central">Enter</text><rect class="tk d-me" x="0.45" y="20.45" width="16.6" height="9.1" rx="1.2"/><text class="tt tt--claro" x="8.75" y="23.85" font-size="2.2" text-anchor="middle" dominant-baseline="central">Bloq</text><text class="tt tt--claro" x="8.75" y="26.16" font-size="2.2" text-anchor="middle" dominant-baseline="central">Mayús</text><rect class="tk d-me" x="17.95" y="20.45" width="9.1" height="9.1" rx="1.2" stroke-width="1.4"/><text class="tt tt--claro" x="22.5" y="25" font-size="4.6" text-anchor="middle" dominant-baseline="central">A</text><rect class="tk d-an" x="27.95" y="20.45" width="9.1" height="9.1" rx="1.2" stroke-width="1.4"/><text class="tt" x="32.5" y="25" font-size="4.6" text-anchor="middle" dominant-baseline="central">S</text><rect class="tk d-md" x="37.95" y="20.45" width="9.1" height="9.1" rx="1.2" stroke-width="1.4"/><text class="tt" x="42.5" y="25" font-size="4.6" text-anchor="middle" dominant-baseline="central">D</text><rect class="tk d-in" x="47.95" y="20.45" width="9.1" height="9.1" rx="1.2" stroke-width="1.4"/><text class="tt" x="52.5" y="25" font-size="4.6" text-anchor="middle" dominant-baseline="central">F</text><path class="relieve" d="M51.1 28h2.8"/><rect class="tk d-in" x="57.95" y="20.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="62.5" y="25" font-size="4.6" text-anchor="middle" dominant-baseline="central">G</text><rect class="tk d-in" x="67.95" y="20.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="72.5" y="25" font-size="4.6" text-anchor="middle" dominant-baseline="central">H</text><rect class="tk d-in" x="77.95" y="20.45" width="9.1" height="9.1" rx="1.2" stroke-width="1.4"/><text class="tt" x="82.5" y="25" font-size="4.6" text-anchor="middle" dominant-baseline="central">J</text><path class="relieve" d="M81.1 28h2.8"/><rect class="tk d-md" x="87.95" y="20.45" width="9.1" height="9.1" rx="1.2" stroke-width="1.4"/><text class="tt" x="92.5" y="25" font-size="4.6" text-anchor="middle" dominant-baseline="central">K</text><rect class="tk d-an" x="97.95" y="20.45" width="9.1" height="9.1" rx="1.2" stroke-width="1.4"/><text class="tt" x="102.5" y="25" font-size="4.6" text-anchor="middle" dominant-baseline="central">L</text><rect class="tk d-me" x="107.95" y="20.45" width="9.1" height="9.1" rx="1.2" stroke-width="1.4"/><text class="tt tt--claro" x="112.5" y="25" font-size="4.6" text-anchor="middle" dominant-baseline="central">Ñ</text><rect class="tk d-me" x="117.95" y="20.45" width="9.1" height="9.1" rx="1.2"/><rect class="tk d-me" x="127.95" y="20.45" width="9.1" height="9.1" rx="1.2"/><rect class="tk d-me" x="0.45" y="30.45" width="11.6" height="9.1" rx="1.2"/><text class="tt tt--claro" x="6.25" y="35" font-size="2.2" text-anchor="middle" dominant-baseline="central">Shift</text><rect class="tk d-me" x="12.95" y="30.45" width="9.1" height="9.1" rx="1.2"/><text class="tt tt--claro" x="17.5" y="35" font-size="4.6" text-anchor="middle" dominant-baseline="central"><</text><rect class="tk d-me" x="22.95" y="30.45" width="9.1" height="9.1" rx="1.2"/><text class="tt tt--claro" x="27.5" y="35" font-size="4.6" text-anchor="middle" dominant-baseline="central">Z</text><rect class="tk d-an" x="32.95" y="30.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="37.5" y="35" font-size="4.6" text-anchor="middle" dominant-baseline="central">X</text><rect class="tk d-md" x="42.95" y="30.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="47.5" y="35" font-size="4.6" text-anchor="middle" dominant-baseline="central">C</text><rect class="tk d-in" x="52.95" y="30.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="57.5" y="35" font-size="4.6" text-anchor="middle" dominant-baseline="central">V</text><rect class="tk d-in" x="62.95" y="30.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="67.5" y="35" font-size="4.6" text-anchor="middle" dominant-baseline="central">B</text><rect class="tk d-in" x="72.95" y="30.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="77.5" y="35" font-size="4.6" text-anchor="middle" dominant-baseline="central">N</text><rect class="tk d-in" x="82.95" y="30.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="87.5" y="35" font-size="4.6" text-anchor="middle" dominant-baseline="central">M</text><rect class="tk d-md" x="92.95" y="30.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="97.5" y="35" font-size="4.6" text-anchor="middle" dominant-baseline="central">,</text><rect class="tk d-an" x="102.95" y="30.45" width="9.1" height="9.1" rx="1.2"/><text class="tt" x="107.5" y="35" font-size="4.6" text-anchor="middle" dominant-baseline="central">.</text><rect class="tk d-me" x="112.95" y="30.45" width="9.1" height="9.1" rx="1.2"/><text class="tt tt--claro" x="117.5" y="35" font-size="4.6" text-anchor="middle" dominant-baseline="central">-</text><rect class="tk d-me" x="122.95" y="30.45" width="26.6" height="9.1" rx="1.2"/><text class="tt tt--claro" x="136.25" y="35" font-size="2.2" text-anchor="middle" dominant-baseline="central">Shift</text><rect class="tk d-no" x="0.45" y="40.45" width="11.6" height="9.1" rx="1.2"/><text class="tt" x="6.25" y="45" font-size="2.2" text-anchor="middle" dominant-baseline="central">Ctrl</text><rect class="tk d-no" x="12.95" y="40.45" width="11.6" height="9.1" rx="1.2"/><text class="tt" x="18.75" y="45" font-size="2.2" text-anchor="middle" dominant-baseline="central">Win</text><rect class="tk d-no" x="25.45" y="40.45" width="11.6" height="9.1" rx="1.2"/><text class="tt" x="31.25" y="45" font-size="2.2" text-anchor="middle" dominant-baseline="central">Alt</text><rect class="tk d-pu" x="37.95" y="40.45" width="61.6" height="9.1" rx="1.2"/><rect class="tk d-no" x="100.45" y="40.45" width="11.6" height="9.1" rx="1.2"/><text class="tt" x="106.25" y="45" font-size="2.2" text-anchor="middle" dominant-baseline="central">AltGr</text><rect class="tk d-no" x="112.95" y="40.45" width="11.6" height="9.1" rx="1.2"/><text class="tt" x="118.75" y="45" font-size="2.2" text-anchor="middle" dominant-baseline="central">Win</text><rect class="tk d-no" x="125.45" y="40.45" width="11.6" height="9.1" rx="1.2"/><text class="tt" x="131.25" y="45" font-size="2.2" text-anchor="middle" dominant-baseline="central">Menú</text><rect class="tk d-no" x="137.95" y="40.45" width="11.6" height="9.1" rx="1.2"/><text class="tt" x="143.75" y="45" font-size="2.2" text-anchor="middle" dominant-baseline="central">Ctrl</text></svg>
+      <ul class="leyenda" aria-hidden="true">
+        <li><i class="muestra d-me"></i>Meñiques</li>
+        <li><i class="muestra d-an"></i>Anulares</li>
+        <li><i class="muestra d-md"></i>Medios</li>
+        <li><i class="muestra d-in"></i>Índices</li>
+        <li><i class="muestra d-pu"></i>Pulgares</li>
+        <li><i class="muestra muestra--guia"></i>Fila guía</li>
+      </ul>
+    </figure>
+
+    <table class="tabla-comp tabla-dedos">
+      <caption class="sr-only">Teclas de cada dedo, con la mano izquierda y con la mano derecha</caption>
+      <thead>
+        <tr><th scope="col">Dedo</th><th scope="col">Mano izquierda</th><th scope="col">Mano derecha</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row"><span><i class="muestra d-me" aria-hidden="true"></i>Meñique</span></th><td><kbd>Q</kbd> <kbd>A</kbd> <kbd>Z</kbd> <kbd>1</kbd> <kbd>Shift</kbd></td><td><kbd>P</kbd> <kbd>Ñ</kbd> <kbd>-</kbd> <kbd>0</kbd> <kbd>Enter</kbd></td></tr>
+        <tr><th scope="row"><span><i class="muestra d-an" aria-hidden="true"></i>Anular</span></th><td><kbd>W</kbd> <kbd>S</kbd> <kbd>X</kbd> <kbd>2</kbd></td><td><kbd>O</kbd> <kbd>L</kbd> <kbd>.</kbd> <kbd>9</kbd></td></tr>
+        <tr><th scope="row"><span><i class="muestra d-md" aria-hidden="true"></i>Medio</span></th><td><kbd>E</kbd> <kbd>D</kbd> <kbd>C</kbd> <kbd>3</kbd></td><td><kbd>I</kbd> <kbd>K</kbd> <kbd>,</kbd> <kbd>8</kbd></td></tr>
+        <tr><th scope="row"><span><i class="muestra d-in" aria-hidden="true"></i>Índice</span></th><td><kbd>R</kbd> <kbd>F</kbd> <kbd>V</kbd> <kbd>T</kbd> <kbd>G</kbd> <kbd>B</kbd> <kbd>4</kbd> <kbd>5</kbd></td><td><kbd>U</kbd> <kbd>J</kbd> <kbd>M</kbd> <kbd>Y</kbd> <kbd>H</kbd> <kbd>N</kbd> <kbd>6</kbd> <kbd>7</kbd></td></tr>
+        <tr><th scope="row"><span><i class="muestra d-pu" aria-hidden="true"></i>Pulgar</span></th><td colspan="2">la barra espaciadora, con cualquiera de las dos manos</td></tr>
+      </tbody>
+    </table>
+
+    <aside class="idea" aria-label="Idea clave">
+      <span class="idea__ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-foco"/></svg></span>
+      <p><strong>Idea clave:</strong> la vista va a la pantalla, no al teclado. Con práctica, los dedos aprenden el camino solos.</p>
+    </aside>
+
+    <footer class="pie">
+      <span class="pie__linea"></span>
+      <span>Taller de Procesamiento de Datos - Prof. Nicolás A. Cussi</span>
+      <span class="pie__linea"></span>
+      <span class="pie__num" aria-label="Página 3">3</span>
+    </footer>
+  </article>
+
+  <!-- =================== LÁMINA 4 =================== -->
+  <article class="lamina" id="pag-4" aria-labelledby="t4">
+    <div class="cab" aria-hidden="true">
+      <svg class="cab__logo"><use href="#i-pc-solido"/></svg>
+      <div class="cab__marca"><b>TALLER DE PROCESAMIENTO DE DATOS</b><span>1.ER AÑO</span></div>
+      <div class="cab__lema"><span class="cab__lema-largo">TRABAJO PRÁCTICO </span><span class="cab__lema-corto">TP </span><span class="cab__lema-n">N°1</span></div>
+      <span class="cab__raya"></span>
+    </div>
+
+    <div class="tit">
+      <h2 class="tit__h" id="t4"><span class="tit__num">4.</span> Atajos y captura de pantalla</h2>
+      <p class="tit__sub">Trabajar más rápido con el teclado</p>
+    </div>
+
+    <div class="intro">
+      <svg class="ico ico--xl" aria-hidden="true" focusable="false"><use href="#i-atajo"/></svg>
+      <p>Un <strong>atajo de teclado</strong> es una combinación de teclas que hace una tarea sin usar el mouse. Mantenemos apretada la primera tecla, por ejemplo <kbd>Ctrl</kbd>, y tocamos la otra.</p>
+    </div>
+
+    <ul class="atajos">
+      <li><p class="atajos__teclas"><kbd>Ctrl</kbd> + <kbd>C</kbd></p><h3>Copiar</h3><p>Copia lo que seleccionamos.</p></li>
+      <li><p class="atajos__teclas"><kbd>Ctrl</kbd> + <kbd>X</kbd></p><h3>Cortar</h3><p>Lo saca de su lugar para llevarlo a otro.</p></li>
+      <li><p class="atajos__teclas"><kbd>Ctrl</kbd> + <kbd>V</kbd></p><h3>Pegar</h3><p>Pone lo copiado o cortado donde está el cursor.</p></li>
+      <li><p class="atajos__teclas"><kbd>Ctrl</kbd> + <kbd>Z</kbd></p><h3>Deshacer</h3><p>Vuelve atrás el último cambio.</p></li>
+      <li><p class="atajos__teclas"><kbd>Ctrl</kbd> + <kbd>S</kbd></p><h3>Guardar</h3><p>Guarda el archivo en el que trabajamos.</p></li>
+      <li><p class="atajos__teclas"><kbd>Alt</kbd> + <kbd>Tab</kbd></p><h3>Cambiar de ventana</h3><p>Pasa de un programa abierto a otro.</p></li>
+    </ul>
+
+    <section aria-labelledby="s4">
+      <h3 class="subtitulo" id="s4">Captura de pantalla</h3>
+      <p class="texto texto--sub">Es una foto de lo que se ve en la pantalla. La usamos para mostrar nuestro trabajo, por ejemplo al entregar en Classroom.</p>
+      <ul class="comparar">
+        <li><div><h3>Toda la pantalla</h3><p><kbd>Windows</kbd> + <kbd>Impr Pant</kbd><br>La imagen se guarda sola en <strong>Imágenes › Capturas de pantalla</strong>.</p></div><svg class="ico ico--xl" aria-hidden="true" focusable="false"><use href="#i-captura"/></svg></li>
+        <li><div><h3>Solo una parte</h3><p><kbd>Windows</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd><br>Marcamos la parte con el mouse. Queda copiada: la pegamos con <kbd>Ctrl</kbd> + <kbd>V</kbd>.</p></div><svg class="ico ico--xl" aria-hidden="true" focusable="false"><use href="#i-recorte"/></svg></li>
+      </ul>
+    </section>
+
+    <aside class="idea" aria-label="Idea clave">
+      <span class="idea__ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-foco"/></svg></span>
+      <p><strong>Idea clave:</strong> los atajos nos ahorran tiempo, y la captura de pantalla nos sirve para mostrar lo que hicimos.</p>
+    </aside>
+
+    <footer class="pie">
+      <span class="pie__linea"></span>
+      <span>Taller de Procesamiento de Datos - Prof. Nicolás A. Cussi</span>
+      <span class="pie__linea"></span>
+      <span class="pie__num" aria-label="Página 4">4</span>
+    </footer>
+  </article>
+
+  <!-- =================== PARA PROFUNDIZAR =================== -->
+  <article class="lamina lamina--pf" id="profundizar" aria-labelledby="tpf">
+    <div class="cab" aria-hidden="true">
+      <svg class="cab__logo"><use href="#i-pc-solido"/></svg>
+      <div class="cab__marca"><b>TALLER DE PROCESAMIENTO DE DATOS</b><span>1.ER AÑO</span></div>
+      <div class="cab__lema"><span class="cab__lema-largo">TRABAJO PRÁCTICO </span><span class="cab__lema-corto">TP </span><span class="cab__lema-n">N°1</span></div>
+      <span class="cab__raya"></span>
+    </div>
+
+    <div class="tit">
+      <h2 class="tit__h" id="tpf"><span class="tit__num">+</span> Para profundizar</h2>
+      <p class="tit__sub">Un poco más sobre cada lámina</p>
+    </div>
+
+    <div class="pf-grid">
+    <section class="pf" aria-labelledby="pf1">
+      <p class="pf__etiqueta">Lámina 1</p>
+      <h3 class="pf__titulo" id="pf1">Teclas que se parecen</h3>
+      <div class="pf__cols">
+        <div class="pf__texto">
+          <p>Algunas teclas parecen hacer lo mismo, pero no. Conviene conocer la diferencia para no borrar o escribir de más.</p>
+          <p>Las notebooks casi nunca tienen teclado numérico. Además, algunas teclas comparten lugar con otras y se usan junto con la tecla <kbd>Fn</kbd>.</p>
+        </div>
+        <div class="pf__caja">
+          <h4>Parecidas, pero distintas</h4>
+          <ul class="pf__lista">
+            <li><kbd>Retroceso</kbd> borra lo que está a la izquierda del cursor; <kbd>Supr</kbd>, lo que está a la derecha.</li>
+            <li><kbd>Shift</kbd> escribe en mayúscula mientras la apretamos; <kbd>Bloq Mayús</kbd> deja todo en mayúscula hasta que la volvemos a tocar.</li>
+            <li>Si <kbd>Bloq Num</kbd> está apagada, el teclado numérico mueve el cursor en vez de escribir números.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="pf" aria-labelledby="pf2">
+      <p class="pf__etiqueta">Lámina 2</p>
+      <h3 class="pf__titulo" id="pf2">Cuidar el cuerpo</h3>
+      <div class="pf__cols">
+        <div class="pf__texto">
+          <p>Pasar mucho tiempo en la misma posición cansa la vista, la espalda y las manos. Frente a la pantalla, además, parpadeamos menos y los ojos se secan.</p>
+          <p>Las <strong>pausas activas</strong> son descansos cortos para mover el cuerpo. Duran un minuto y se hacen sin levantarse.</p>
+        </div>
+        <div class="pf__caja">
+          <h4>Pausas activas</h4>
+          <ul class="pf__lista">
+            <li>Cada 20 minutos, mirar algo lejano durante 20 segundos.</li>
+            <li>Abrir y cerrar las manos, y estirar los dedos.</li>
+            <li>Subir y bajar los hombros, y estirar la espalda.</li>
+            <li>Parpadear varias veces seguidas.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="pf" aria-labelledby="pf3">
+      <p class="pf__etiqueta">Lámina 3</p>
+      <h3 class="pf__titulo" id="pf3">Cómo se aprende a escribir sin mirar</h3>
+      <div class="pf__cols">
+        <div class="pf__texto">
+          <p>Primero buscamos <strong>no equivocarnos</strong>; la velocidad llega sola con la práctica. Al principio vamos a escribir más lento que con dos dedos: es normal.</p>
+          <p>Practicar 10 minutos todos los días rinde más que una hora de golpe.</p>
+        </div>
+        <div class="pf__caja">
+          <h4>Cómo se mide el avance</h4>
+          <ul class="pf__lista">
+            <li><strong>Velocidad:</strong> cuántas palabras escribimos en un minuto (PPM).</li>
+            <li><strong>Precisión:</strong> qué parte de las teclas tocamos bien. Si tocamos 100 teclas y 95 están bien, la precisión es de 95 %.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="pf" aria-labelledby="pf4">
+      <p class="pf__etiqueta">Lámina 4</p>
+      <h3 class="pf__titulo" id="pf4">¿Dónde quedó mi captura?</h3>
+      <div class="pf__cols">
+        <div class="pf__texto">
+          <p>Con <kbd>Windows</kbd> + <kbd>Impr Pant</kbd>, la pantalla se oscurece un instante y la imagen se guarda sola. La encontramos en el <strong>Explorador de archivos</strong>, en <strong>Imágenes › Capturas de pantalla</strong>, con un nombre como <em>Captura de pantalla (1).png</em>.</p>
+          <p>En algunas notebooks, <kbd>Impr Pant</kbd> se usa junto con <kbd>Fn</kbd>.</p>
+        </div>
+        <div class="pf__caja">
+          <h4>Subirla a Classroom</h4>
+          <ul class="pf__lista">
+            <li>Abrir la tarea en Classroom.</li>
+            <li>Tocar <strong>Agregar o crear</strong> y elegir <strong>Archivo</strong>.</li>
+            <li>Buscar la captura en Imágenes › Capturas de pantalla.</li>
+            <li>Cuando están todos los archivos, tocar <strong>Entregar</strong>.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    </div>
+
+    <footer class="pie">
+      <span class="pie__linea"></span>
+      <span>Taller de Procesamiento de Datos - Prof. Nicolás A. Cussi</span>
+      <span class="pie__linea"></span>
+      <span class="pie__num">TP 1</span>
+    </footer>
+  </article>
+
+  <!-- =================== ACTIVIDADES · Parte 1 =================== -->
+  <article class="lamina lamina--act" id="actividades" aria-labelledby="act-1">
+    <div class="cab" aria-hidden="true">
+      <svg class="cab__logo"><use href="#i-pc-solido"/></svg>
+      <div class="cab__marca"><b>TALLER DE PROCESAMIENTO DE DATOS</b><span>1.ER AÑO</span></div>
+      <div class="cab__lema"><span class="cab__lema-largo">TRABAJO PRÁCTICO </span><span class="cab__lema-corto">TP </span><span class="cab__lema-n">N°1</span></div>
+      <span class="cab__raya"></span>
+    </div>
+
+    <header class="act-banda">
+      <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-lapiz"/></svg>
+      <div>
+        <h2 id="act-1">Actividades para hacer en la carpeta</h2>
+        <p>TP N°1 — El teclado: mi herramienta de trabajo</p>
+      </div>
+      <span class="act-banda__parte">Parte<br>1 de 2</span>
+    </header>
+
+    <p class="consigna"><strong>Consigna:</strong> Respondé cada punto en la carpeta, con tus propias palabras. Podés apoyarte en las láminas y en “Para profundizar” del TP N°1.</p>
+
+    <ol class="acts acts--2col">
+      <li class="act">
+        <h3 class="act__titulo"><span class="act__num">1-</span> Las zonas del teclado</h3>
+        <ol class="act__items">
+          <li><b class="act__letra">a)</b><div>Nombrá las cinco zonas del teclado.</div></li>
+          <li><b class="act__letra">b)</b><div>Escribí dos teclas de cada zona.</div></li>
+          <li><b class="act__letra">c)</b><div>¿Qué hace una tecla modificadora? Dá un ejemplo.</div></li>
+        </ol>
+      </li>
+      <li class="act">
+        <h3 class="act__titulo"><span class="act__num">2-</span> Postura y posición de las manos</h3>
+        <ol class="act__items">
+          <li><b class="act__letra">a)</b><div>Escribí tres cosas que hay que cuidar al sentarnos frente a la computadora.</div></li>
+          <li><b class="act__letra">b)</b><div>¿Qué teclas tocan los dedos en la fila guía?</div></li>
+          <li><b class="act__letra">c)</b><div>¿Para qué sirve la rayita en relieve de la <kbd>F</kbd> y la <kbd>J</kbd>?</div></li>
+        </ol>
+      </li>
+      <li class="act">
+        <h3 class="act__titulo"><span class="act__num">3-</span> Un dedo para cada tecla</h3>
+        <ol class="act__items">
+          <li><b class="act__letra">a)</b><div>Explicá con tus palabras qué es la mecanografía.</div></li>
+          <li><b class="act__letra">b)</b><div>Indicá con qué dedo y con qué mano se toca cada tecla: <kbd>A</kbd> / <kbd>E</kbd> / <kbd>P</kbd> / <kbd>M</kbd> / barra espaciadora.</div></li>
+          <li><b class="act__letra">c)</b><div>¿Por qué conviene mirar la pantalla y no el teclado?</div></li>
+        </ol>
+      </li>
+      <li class="act">
+        <h3 class="act__titulo"><span class="act__num">4-</span> Atajos y captura de pantalla</h3>
+        <ol class="act__items">
+          <li><b class="act__letra">a)</b><div>Uní cada atajo con lo que hace. Atajos: <kbd>Ctrl</kbd> + <kbd>C</kbd> / <kbd>Ctrl</kbd> + <kbd>V</kbd> / <kbd>Ctrl</kbd> + <kbd>Z</kbd> / <kbd>Ctrl</kbd> + <kbd>S</kbd> / <kbd>Alt</kbd> + <kbd>Tab</kbd>. Tareas: deshacer / guardar / copiar / cambiar de ventana / pegar.</div></li>
+          <li><b class="act__letra">b)</b><div>¿Qué diferencia hay entre <kbd>Windows</kbd> + <kbd>Impr Pant</kbd> y <kbd>Windows</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd>?</div></li>
+          <li><b class="act__letra">c)</b><div>Sacaste una captura con <kbd>Windows</kbd> + <kbd>Impr Pant</kbd>. ¿Dónde la buscás?</div></li>
+        </ol>
+      </li>
+    </ol>
+
+    <footer class="pie">
+      <span class="pie__linea"></span>
+      <span>Taller de Procesamiento de Datos - Prof. Nicolás A. Cussi</span>
+      <span class="pie__linea"></span>
+      <span class="pie__num">TP 1</span>
+    </footer>
+  </article>
+
+  <!-- =================== ACTIVIDADES · Parte 2 =================== -->
+  <article class="lamina lamina--act" id="actividades-2" aria-labelledby="act-2">
+    <div class="cab" aria-hidden="true">
+      <svg class="cab__logo"><use href="#i-pc-solido"/></svg>
+      <div class="cab__marca"><b>TALLER DE PROCESAMIENTO DE DATOS</b><span>1.ER AÑO</span></div>
+      <div class="cab__lema"><span class="cab__lema-largo">TRABAJO PRÁCTICO </span><span class="cab__lema-corto">TP </span><span class="cab__lema-n">N°1</span></div>
+      <span class="cab__raya"></span>
+    </div>
+
+    <header class="act-banda">
+      <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-teclado"/></svg>
+      <div>
+        <h2 id="act-2">Práctica en la computadora</h2>
+        <p>TP N°1 — El teclado: mi herramienta de trabajo</p>
+      </div>
+      <span class="act-banda__parte">Parte<br>2 de 2</span>
+    </header>
+
+    <p class="consigna"><strong>Consigna:</strong> Hacé los tres pasos. El esquema y la lista de atajos van en la carpeta; el juego se hace en la computadora.</p>
+
+    <ol class="acts">
+      <li class="act">
+        <h3 class="act__titulo"><span class="act__num">1-</span> Esquema del teclado</h3>
+        <ol class="act__items">
+          <li><b class="act__letra">a)</b><div>En una hoja de la carpeta, dibujá un teclado o pegá uno impreso.</div></li>
+          <li><b class="act__letra">b)</b><div>Pintá cada zona de un color distinto (alfanumérica, de función, especiales, numérico y modificadoras) y agregá un cuadro de referencias con el color y el nombre de cada zona.</div></li>
+        </ol>
+      </li>
+      <li class="act">
+        <h3 class="act__titulo"><span class="act__num">2-</span> Juego de mecanografía</h3>
+        <ol class="act__items">
+          <li><b class="act__letra">a)</b><div>Abrí el juego y escribí tu nombre, tu apellido y tu curso.
+            <p class="juego-link"><a class="boton" href="https://prof-nkocussi.github.io/Juego-Mecanografia/" target="_blank" rel="noopener"><svg aria-hidden="true" focusable="false"><use href="#i-externo"/></svg><span>Abrir el juego<span class="sr-only"> (se abre en una pestaña nueva)</span></span></a><span class="juego-link__url">prof-nkocussi.github.io/Juego-Mecanografia</span></p></div></li>
+          <li><b class="act__letra">b)</b><div>Terminá como mínimo <strong>5 niveles</strong>: los niveles 1 a 5 de la Parte 1 (fila guía, fila superior, fila inferior, todas las letras y números). Cada nivel se abre cuando ganás el anterior.</div></li>
+          <li><b class="act__letra">c)</b><div>Al terminar cada nivel, sacá una captura de la pantalla de resultado con <kbd>Windows</kbd> + <kbd>Impr Pant</kbd>.</div></li>
+        </ol>
+      </li>
+      <li class="act">
+        <h3 class="act__titulo"><span class="act__num">3-</span> Lista de 15 atajos de teclado</h3>
+        <ol class="act__items">
+          <li><b class="act__letra">a)</b><div>En la carpeta, armá un cuadro de dos columnas, <strong>Atajo</strong> y <strong>Qué hace</strong>, con 15 atajos. Podés empezar por los de la lámina 4 y buscar los demás.</div></li>
+          <li><b class="act__letra">b)</b><div>Probá cada atajo en la computadora antes de anotarlo.</div></li>
+        </ol>
+      </li>
+    </ol>
+
+    <section class="entrega" aria-labelledby="ent-1">
+      <svg class="ico ico--l" aria-hidden="true" focusable="false"><use href="#i-subir"/></svg>
+      <div>
+        <h3 id="ent-1">Entrega</h3>
+        <p>Subí a la tarea de Classroom:</p>
+        <ul class="act__frases">
+          <li>las capturas del juego, una por cada nivel terminado;</li>
+          <li>una foto del esquema del teclado;</li>
+          <li>una foto de la lista de atajos.</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="pie">
+      <span class="pie__linea"></span>
+      <span>Taller de Procesamiento de Datos - Prof. Nicolás A. Cussi</span>
+      <span class="pie__linea"></span>
+      <span class="pie__num">TP 1</span>
+    </footer>
+  </article>
+</main>
+
+<script src="../assets/js/actividades.js"></script>
+</body>
+</html>
