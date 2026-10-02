@@ -1,18 +1,18 @@
-# Base de Datos I · Cuadernillo web
+# Taller de Procesamiento de Datos · Cuadernillo web
 
-Cuadernillo de actividades de **Base de Datos I** (5.º año) para la especialidad Técnico en Programación del C.T.P. "Olga B. de Arko", Ushuaia.
+Cuadernillo de actividades del **Taller de Procesamiento de Datos** (1.er año) del C.T.P. "Olga B. de Arko", Ushuaia.
 
 **Prof. Nicolás A. Cussi**
 
-👉 **Entrá acá:** https://prof-nkocussi.github.io/Cuadernillo-Web-Base-de-Datos-1/
+👉 **Entrá acá:** https://prof-nkocussi.github.io/Cuadernillo-Web-Procesamiento-de-Datos/
 
 ## Qué es
 
-Una versión web del cuadernillo "Bases de Datos y SQL · Desde cero", pensada para leer desde el celular. Está organizada en trabajos prácticos (TP). Cada TP tiene:
+Un cuadernillo web para aprender a usar el teclado, los documentos de texto, las hojas de cálculo y las presentaciones. Está pensado para leer desde el celular y trabajar en la computadora. Se organiza en trabajos prácticos (TP). Cada TP tiene:
 
 1. **Láminas** con la teoría, una por tema.
 2. **Para profundizar**: una página que amplía cada lámina con ejemplos.
-3. **Actividades para hacer en la carpeta**.
+3. **Actividades**: una parte para hacer en la carpeta y una práctica en la computadora, con su entrega.
 
 ## Cómo se usa
 
@@ -25,19 +25,24 @@ Una versión web del cuadernillo "Bases de Datos y SQL · Desde cero", pensada p
 
 | TP | Tema | Estado |
 |---|---|---|
-| **Módulo 1 · Conceptos de bases de datos** | | |
-| 1 | Del dato a la base de datos | ✅ Disponible |
-| 2 | Componentes de una tabla | ✅ Disponible |
-| 3 | Archivos de texto | Próximamente |
-| **Módulo 2 · Operaciones con planilla de cálculo** | | |
-| 4 | La planilla como base de datos | Próximamente |
-| 5 | Buscar y resumir datos | Próximamente |
-| **Módulo 3 · Bases de datos relacionales** | | |
-| 6 | Software de gestión | Próximamente |
-| 7 | Modelo relacional y claves | Próximamente |
-| 8 | Relaciones, formularios e informes | Próximamente |
-| 9 | Primeros pasos con XAMPP y SQL | Próximamente |
-| Integrador | Caso práctico: diseñamos y creamos una base de datos | Próximamente |
+| **Módulo 1 · Teclado y mecanografía** | | |
+| 1 | El teclado: mi herramienta de trabajo | Próximamente |
+| **Módulo 2 · Documentos de texto** | | |
+| 2 | Mi primer documento | Próximamente |
+| 3 | Documento con estructura | Próximamente |
+| 4 | Documento con imágenes y enlaces | Próximamente |
+| 5 | Trabajo colaborativo y revisión | Próximamente |
+| **Módulo 3 · Hojas de cálculo** | | |
+| 6 | Conociendo la hoja de cálculo | Próximamente |
+| 7 | Mis primeras fórmulas | Próximamente |
+| 8 | Más funciones útiles | Próximamente |
+| 9 | Gráficos y presentación de datos | Próximamente |
+| **Módulo 4 · Presentaciones y diseño** | | |
+| 10 | Mi primera presentación | Próximamente |
+| 11 | Presentación con efectos | Próximamente |
+| 12 | Diseño en Canva y edición de imagen | Próximamente |
+
+La práctica de teclado se hace en el **juego de mecanografía**, que es un sitio aparte (próximamente).
 
 ## Estructura del repositorio
 
@@ -48,11 +53,12 @@ assets/css/estilos.css   estilos y paleta de colores
 assets/js/actividades.js botón PDF, barra de navegación y marca de "Visto"
 assets/fonts/            tipografías
 assets/img/              imágenes
+_modelo/                 página de referencia para armar los TPs (no se publica)
 ```
 
 Es un sitio estático: HTML, CSS y JavaScript, sin instalación ni servidor. Para verlo en tu computadora, descargá el repositorio y abrí `index.html` en el navegador.
 
 ## Créditos
 
-- Contenido y adaptación: Prof. Nicolás A. Cussi.
+- Contenido: Prof. Nicolás A. Cussi.
 - Tipografías Barlow, Barlow Semi Condensed y Barlow Condensed, bajo licencia SIL Open Font License (ver `assets/fonts/OFL.txt`).

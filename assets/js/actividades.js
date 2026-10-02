@@ -1,5 +1,5 @@
 /* ==========================================================
-   Base de Datos I — actividades.js
+   Taller de Procesamiento de Datos — actividades.js
    Parte técnica común a todos los TPs:
    - Botón "Guardar PDF" (impresión del navegador en A4)
    - Marca la parte visible en la barra (láminas · Para profundizar · Actividades)
@@ -9,7 +9,7 @@
 (function () {
   "use strict";
 
-  var CLAVE = "bd1:tp-visto-";
+  var CLAVE = "tpd1:tp-visto-";
 
   /* ---- Guardado local seguro (puede no estar disponible) ---- */
   function guardar(clave, valor) {

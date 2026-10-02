@@ -1,6 +1,6 @@
 /* ==========================================================
-   Base de Datos I — Cuadernillo web (identidad: "Bases de Datos y SQL · Desde cero")
-   Prof. Nicolás A. Cussi • Base de Datos I
+   Taller de Procesamiento de Datos — Cuadernillo web (misma identidad que Base de Datos I)
+   Prof. Nicolás A. Cussi • Taller de Procesamiento de Datos
    Mobile first · Modo hoja A4 en escritorio e impresión
    ========================================================== */
 
@@ -153,7 +153,7 @@ button.boton { border: 0; font-family: inherit; cursor: pointer; }
   padding-left: 12px; border-left: 1.5px solid var(--linea);
   line-height: 1.15;
 }
-/* "BASES DE DATOS Y SQL" y "TRABAJO PRÁCTICO N°X" llevan siempre el mismo tamaño */
+/* El nombre de la materia y "TRABAJO PRÁCTICO N°X" llevan siempre el mismo tamaño */
 .cab__marca b, .cab__lema {
   font-size: 14px; font-weight: 700; letter-spacing: .02em; color: var(--tinta);
   text-transform: uppercase; white-space: nowrap;
