@@ -24,7 +24,6 @@ assets/css/estilos.css   paleta en :root, mobile first, modo hoja A4
 assets/js/actividades.js botón PDF, resaltado de la barra, "✓ Visto" (localStorage)
 assets/fonts/            Barlow, Barlow Semi Condensed, Barlow Condensed (locales)
 assets/img/
-_modelo/tp-modelo.html   TP1 de Base de Datos, solo como referencia de estructura (se borra al aprobar el TP1)
 README.md                presentación del sitio + tabla de TPs con su estado
 ```
 
@@ -39,7 +38,7 @@ HTML, CSS y JavaScript vanilla. Sin frameworks, sin build, sin backend, sin depe
 - **Sin eslóganes ni frases decorativas.**
 - **Progreso:** la clave de `localStorage` es `tpd1:tp-visto-`. No usar `bd1:`: todos los cuadernillos comparten el dominio `prof-nkocussi.github.io` y se pisarían las marcas de "✓ Visto".
 
-## Formato de cada TP — copiar la estructura de `_modelo/tp-modelo.html`
+## Formato de cada TP — copiar la estructura de `unidades/tp01.html`
 
 1. **Barra superior** (`header.barra`): "← Índice" · "TP N°X — nombre del TP" · botón `data-imprimir`. Debajo, `nav.partes` con accesos a cada lámina, "Para profundizar" y "Actividades".
 2. **Láminas** (`article.lamina#pag-N`): `.cab` → `.tit` (número en cian + título + subtítulo) → bloques → `.idea` (Idea clave) → `.pie`.

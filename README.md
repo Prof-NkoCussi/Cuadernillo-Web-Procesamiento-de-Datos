@@ -53,7 +53,6 @@ assets/css/estilos.css   estilos y paleta de colores
 assets/js/actividades.js botón PDF, barra de navegación y marca de "Visto"
 assets/fonts/            tipografías
 assets/img/              imágenes
-_modelo/                 página de referencia para armar los TPs (no se publica)
 ```
 
 Es un sitio estático: HTML, CSS y JavaScript, sin instalación ni servidor. Para verlo en tu computadora, descargá el repositorio y abrí `index.html` en el navegador.
