@@ -33,14 +33,20 @@ HTML, CSS y JavaScript vanilla. Sin frameworks, sin build, sin backend, sin depe
 
 - **Paleta:** la misma de Base de Datos. No tocar las variables de color de `:root`.
 - **Cabecera de cada hoja:** `TALLER DE PROCESAMIENTO DE DATOS` con la bajada `1.ER AÑO`, y a la derecha `TRABAJO PRÁCTICO N°X` con la barra cian vertical. Mismas reglas de tamaño y de celular que el repo base (el nombre es más largo: verificar a 360 px).
-- **Pie de cada hoja:** `Taller de Procesamiento de Datos - Prof. Nicolás A. Cussi` + número de lámina (o `TP N` en profundizar y actividades).
+- **Pie de cada hoja** (láminas, "Para profundizar", actividades) **y de la portada** (`index.html`): `Taller de Procesamiento de Datos — Prof. Nicolás A. Cussi`.
+  - Antes de "Prof." va un guion largo (—) con un espacio a cada lado, nunca un guion corto (-), "|" ni "·". Si el nombre de la materia tiene un guion adentro, ese queda corto: solo el de antes de "Prof." es largo.
+  - En las láminas, el pie lleva además el número de lámina (o `TP N` en profundizar y actividades). En `index.html` va sin número.
 - **Ícono de la materia:** una computadora con teclado, en el mismo estilo (trazo oscuro + relleno cian).
 - **Sin eslóganes ni frases decorativas.**
 - **Progreso:** la clave de `localStorage` es `tpd1:tp-visto-`. No usar `bd1:`: todos los cuadernillos comparten el dominio `prof-nkocussi.github.io` y se pisarían las marcas de "✓ Visto".
 
 ## Formato de cada TP — copiar la estructura de `unidades/tp01.html`
 
-1. **Barra superior** (`header.barra`): "← Índice" · "TP N°X — nombre del TP" · botón `data-imprimir`. Debajo, `nav.partes` con accesos a cada lámina, "Para profundizar" y "Actividades".
+1. **Barra superior** (`header.barra`): botón "Índice" · "TP N°X — nombre del TP" · botón `data-imprimir`. Debajo, `nav.partes` con accesos a cada lámina, "Para profundizar" y "Actividades".
+   - El "Índice" es un botón igual al de "Guardar PDF" (clase `.boton`: mismo fondo, texto blanco, mismo alto), con una flecha hacia atrás:
+     `<a class="boton barra__volver" href="../index.html"><svg aria-hidden="true" focusable="false"><use href="#i-atras"/></svg><span>Índice</span></a>`
+   - En el sprite, junto a `i-descarga`: `<symbol id="i-atras" viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6"/></symbol>`.
+   - En el CSS, `.barra__volver` no tiene estilos propios: solo la regla `.barra__volver, .boton { flex: none; }`.
 2. **Láminas** (`article.lamina#pag-N`): `.cab` → `.tit` (número en cian + título + subtítulo) → bloques → `.idea` (Idea clave) → `.pie`.
 3. **Para profundizar** (`article.lamina.lamina--pf#profundizar`): `.pf-grid` de 2×2, un bloque `.pf` por lámina (texto + recuadro `.pf__caja` con ejemplo o lista). Si el TP tiene 3 láminas, el cuarto bloque integra o suma un ejemplo.
 4. **Actividades** (`article.lamina.lamina--act`, ids `actividades` y `actividades-2`), en dos hojas:
