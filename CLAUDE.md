@@ -31,7 +31,7 @@ HTML, CSS y JavaScript vanilla. Sin frameworks, sin build, sin backend, sin depe
 
 ## Identidad
 
-- **Paleta:** la misma de Base de Datos. No tocar las variables de color de `:root`.
+- **Paleta:** cian de base, más los colores de la sección "Colores vivos". Todos los colores van como variables en `:root`.
 - **Cabecera de cada hoja:** `TALLER DE PROCESAMIENTO DE DATOS` con la bajada `1.ER AÑO`, y a la derecha `TRABAJO PRÁCTICO N°X` con la barra cian vertical. Mismas reglas de tamaño y de celular que el repo base (el nombre es más largo: verificar a 360 px).
 - **Pie de cada hoja** (láminas, "Para profundizar", actividades) **y de la portada** (`index.html`): `Taller de Procesamiento de Datos — Prof. Nicolás A. Cussi`.
   - Antes de "Prof." va un guion largo (—) con un espacio a cada lado, nunca un guion corto (-), "|" ni "·". Si el nombre de la materia tiene un guion adentro, ese queda corto: solo el de antes de "Prof." es largo.
@@ -50,8 +50,8 @@ HTML, CSS y JavaScript vanilla. Sin frameworks, sin build, sin backend, sin depe
 2. **Láminas** (`article.lamina#pag-N`): `.cab` → `.tit` (número en cian + título + subtítulo) → bloques → `.idea` (Idea clave) → `.pie`.
 3. **Para profundizar** (`article.lamina.lamina--pf#profundizar`): `.pf-grid` de 2×2, un bloque `.pf` por lámina (texto + recuadro `.pf__caja` con ejemplo o lista). Si el TP tiene 3 láminas, el cuarto bloque integra o suma un ejemplo.
 4. **Actividades** (`article.lamina.lamina--act`, ids `actividades` y `actividades-2`), en dos hojas:
-   - **Parte 1 · Para hacer en la carpeta:** banda `.act-banda`, `.consigna`, y un punto `.act` por lámina con incisos a), b), c), en grilla `.acts--2col`.
-   - **Parte 2 · Práctica en la computadora:** la "Práctica" de Nicolás, partida en pasos numerados, y un recuadro **"Entrega"** con lo que se sube a Classroom.
+   - **Parte 1 · Para hacer en la carpeta:** banda `.act-banda`, `.consigna`, y un punto `.act` por lámina con incisos a), b), c), en grilla `.acts--2col`. Los puntos se numeran desde 1 en cada TP (`1-`, `2-`, `3-`…), no con el número de la lámina.
+   - **Parte 2 · Práctica en la computadora:** la "Práctica" de Nicolás, partida en pasos numerados, y un recuadro **"Entrega"** con lo que se sube a Classroom. El `article` lleva la clase `lamina--compu` y el `<body>` lleva la clase del programa del TP (`prog--docs`, `prog--hojas`…).
    - Sin corrección automática. Objetivo: que el TP se trabaje en 2 semanas (8 horas cátedra).
 
 Reglas fijas:
@@ -68,6 +68,57 @@ Reglas fijas:
 - **Pantallas de los programas:** no usar capturas reales de Google ni de Canva. Hacer esquemas SVG simplificados (barra de herramientas, celdas, diapositiva) con los nombres de los botones. Si hace falta una captura real, dejar un marcador visible: `[CAPTURA: qué mostrar]`, para que la agregue Nicolás.
 - Teclas y atajos: mostrarlos como teclas (`<kbd>`), por ejemplo `<kbd>Ctrl</kbd> + <kbd>C</kbd>`.
 - Mobile first. Cortes en 600 px y 860 px. El bloque `@media (min-width: 860px), print` convierte cada `.lamina` en una hoja A4 (210 × 297 mm).
+
+## Colores vivos
+
+El color va en marcos, etiquetas, íconos y esquemas, y cada color significa algo. No va en títulos ni en texto corrido. Todo texto de color: 4,5:1 o más. Sin degradés: dos colores en una franja van en bandas con corte neto. Los colores se usan solo para lo que significan, nunca como decoración.
+
+**Un color por programa** (variables `--X`, `--X-claro`, `--X-texto`, `--X-linea`):
+
+| Programa | Variable | Clase | Dónde |
+|---|---|---|---|
+| Teclado | `--teclado` (cian oscuro) | `teclado` | TP1 y juego |
+| Documentos | `--docs` (azul) | `docs` | TP2 a TP5 |
+| Hojas de cálculo | `--hojas` (verde) | `hojas` | TP6 a TP9 |
+| Presentaciones | `--pres` (ámbar) | `pres` | TP10 y TP11 |
+| Canva | `--canva` (violeta) | `canva` | TP12 |
+
+- Cada TP lleva su programa en el `<body>`: `<body data-tp="N" class="prog--docs">`. Eso define `--prog`, `--prog-claro`, `--prog-texto`, `--prog-linea` y `--prog-sobre` (el color del texto sobre una banda de `--prog`: blanco, salvo en Presentaciones, que es `--tinta`).
+- Para texto de color usar siempre la variante `-texto`. `--cian-numero` queda solo para números grandes; el texto cian chico va en `--cian-texto`.
+
+**Actividades**
+- Parte 1 (carpeta): en cian, como siempre. Los puntos se numeran desde 1 en cada TP.
+- Parte 2 (computadora): `article.lamina--compu`. Toma el color del programa del TP.
+
+**Portada (`index.html`)**
+- Cada tarjeta lleva `tp--programa`: franja izquierda y número del color del programa.
+- En `.tp__meta`, antes de "Láminas", las etiquetas de los programas que usa: `<span class="tp__tecs"><span class="etq etq--docs">Documentos</span></span> Láminas…`. Varias etiquetas van separadas por espacios. Un tema sin color propio (Drive, Classroom) usa `.etq` sola.
+- Cada módulo lleva `bloque--programa` en su `section`: colorea la barrita del título. El Módulo 4 usa `bloque--pres-canva` (dos bandas).
+
+**Recuadros**
+- "Importante": `.esquema-nota.esquema-nota--importante` o `.pf__caja--importante`, en naranja, con el ícono `#i-importante`.
+- "Recomendación" y buenas prácticas: `p.consejo` o `.pf__caja--consejo`, en verde, con el ícono `#i-consejo`.
+- El ícono va delante del título: `<h3><svg class="ico tit-ico" aria-hidden="true" focusable="false"><use href="#i-importante"/></svg>Importante</h3>`.
+- "Idea clave" sigue en cian.
+
+**Etiquetas dentro del texto** (toman el color del programa del TP)
+- Ruta de menú: `<span class="menu">Insertar › Imagen</span>`.
+- Fórmula: `<code class="formula">=SUMA(B2:B9)</code>`.
+- Las teclas siguen en `<kbd>`, sin color.
+
+**Esquemas SVG**
+- Ventana de un programa: marco con una barra en `--prog-claro` y los tres puntos (`--punto-rojo`, `--punto-amarillo`, `--punto-verde`). Los botones y rótulos que nombran algo del programa, en `--prog-texto`.
+- Carpetas de Drive: en `--carpeta`, con fondo `--carpeta-claro` si es un panel. Ícono: `<svg class="ico ico--carpeta">`.
+- Dos grupos en un mismo esquema: uno en cian (`--teclado`, `--cian-claro`, `--cian-texto`) y otro en naranja. Las viñetas de al lado repiten el color: `li.punto--cian` y `li.punto--naranja`.
+- Rótulos chicos: con el color de lo que nombran, no en gris.
+- Teclado: un tinte por zona y por dedo (`--tinte-*`), con las letras en `--tinta`. Dedos: meñique violeta, anular azul, medio verde, índice ámbar, pulgar naranja. El juego de mecanografía usa los mismos.
+- El color nunca va solo: cada zona, dedo o grupo lleva además su nombre, número o leyenda.
+
+**Choques aceptados:** el verde es Hojas de cálculo y también "Recomendación"; el ámbar es Presentaciones y también carpetas. Se distinguen porque los recuadros y las carpetas llevan siempre ícono y título.
+
+**No cambia:** títulos y texto corrido, fondo gris de las introducciones, "Idea clave" en cian, cabecera y pie.
+
+**Controles extra:** texto naranja nunca sobre fondo cian (no llega a 4,5:1); medir el contraste de cada texto de color nuevo; que los colores salgan en la impresión.
 
 ## Controles antes de entregar un TP
 

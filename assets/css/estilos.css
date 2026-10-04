@@ -386,14 +386,7 @@ kbd {
 .esquema .guia { stroke: var(--tinta); stroke-width: .5; }
 .esquema .badge { fill: var(--tinta); }
 
-/* Colores de zonas y de dedos (sirven para el SVG y para las muestras) */
-.z-alfa { fill: var(--blanco); background: var(--blanco); }
-.d-no { fill: var(--panel); background: var(--panel); }
-.z-fn, .d-md { fill: var(--cian-claro); background: var(--cian-claro); }
-.z-esp, .d-an { fill: var(--linea); background: var(--linea); }
-.z-num, .d-in { fill: var(--cian); background: var(--cian); }
-.z-mod, .d-me { fill: var(--tinta); background: var(--tinta); }
-.d-pu { fill: var(--cian-suave); background: var(--cian-suave); }
+/* Muestras y leyenda (los colores de zonas y dedos están en "Colores vivos") */
 .muestra { display: inline-block; flex: none; width: 16px; height: 16px; border: 1.5px solid var(--tinta); border-radius: 4px; }
 .muestra--guia { background: var(--blanco); border-width: 3.5px; }
 .leyenda { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 16px; margin-top: 10px; font-size: 15px; font-weight: 600; color: var(--tinta); }
@@ -578,6 +571,111 @@ kbd.con-relieve { text-decoration: underline; text-decoration-thickness: 3px; te
 .act-tabla th, .act-tabla td { border: 1.5px solid var(--linea); padding: 5px 4px; text-align: left; height: 30px; }
 .act-tabla thead th { background: var(--cian-claro); font-weight: 700; color: var(--tinta); text-align: center; }
 .act-tabla tbody th { font-weight: 600; color: var(--tinta); }
+
+/* ==========================================================
+   COLORES VIVOS (4/10/2026)
+   Cada color significa algo. Va en marcos, etiquetas, íconos y
+   esquemas; nunca en títulos ni en texto corrido.
+   ========================================================== */
+:root {
+  /* Cian para texto chico: --cian-numero (3:1) queda solo para números grandes */
+  --cian-texto: #155E75;
+
+  /* Programas. "-texto" da 4,5:1 o más sobre blanco, --panel y --cian-suave */
+  --teclado: #0E7490;  --teclado-claro: #CDEFF4;  --teclado-texto: #155E75;  --teclado-linea: #9BDCE5;
+  --docs: #2563EB;     --docs-claro: #DBEAFE;     --docs-texto: #1D4ED8;     --docs-linea: #BFDBFE;
+  --hojas: #15803D;    --hojas-claro: #DCFCE7;    --hojas-texto: #166534;    --hojas-linea: #BBF7D0;
+  --pres: #F59E0B;     --pres-claro: #FEF3C7;     --pres-texto: #92400E;     --pres-linea: #FDE68A;
+  --canva: #7C3AED;    --canva-claro: #EDE9FE;    --canva-texto: #6D28D9;    --canva-linea: #DDD6FE;
+
+  /* Avisos y apoyo para esquemas (no etiquetan programas) */
+  --ok: #15803D;       --ok-claro: #DCFCE7;       --ok-texto: #166534;       /* "Recomendación" */
+  --naranja: #EA580C;  --naranja-claro: #FFEDD5;  --naranja-texto: #C2410C;  /* "Importante" y segundo grupo de un esquema */
+  --carpeta: #F59E0B;  --carpeta-claro: #FEF3C7;  --carpeta-texto: #92400E;  --carpeta-linea: #FDE68A;
+  --punto-rojo: #FF5F57;  --punto-amarillo: #FEBC2E;  --punto-verde: #28C840;  /* los tres puntos de una ventana */
+
+  /* Tintes para rellenar teclas (dedos y zonas): siempre con texto --tinta encima */
+  --tinte-violeta: #C4B5FD;  --tinte-azul: #93C5FD;  --tinte-verde: #86EFAC;
+  --tinte-ambar: #FCD34D;    --tinte-naranja: #FDBA74;
+}
+
+/* ---- Programa de cada TP, tarjeta o módulo ----
+   <body class="prog--docs"> · <a class="tp tp--docs"> · <section class="bloque bloque--docs"> */
+.prog--teclado, .tp--teclado, .bloque--teclado { --prog: var(--teclado); --prog-claro: var(--teclado-claro); --prog-texto: var(--teclado-texto); --prog-linea: var(--teclado-linea); --prog-sobre: var(--blanco); }
+.prog--docs, .tp--docs, .bloque--docs { --prog: var(--docs); --prog-claro: var(--docs-claro); --prog-texto: var(--docs-texto); --prog-linea: var(--docs-linea); --prog-sobre: var(--blanco); }
+.prog--hojas, .tp--hojas, .bloque--hojas { --prog: var(--hojas); --prog-claro: var(--hojas-claro); --prog-texto: var(--hojas-texto); --prog-linea: var(--hojas-linea); --prog-sobre: var(--blanco); }
+.prog--pres, .tp--pres, .bloque--pres { --prog: var(--pres); --prog-claro: var(--pres-claro); --prog-texto: var(--pres-texto); --prog-linea: var(--pres-linea); --prog-sobre: var(--tinta); }
+.prog--canva, .tp--canva, .bloque--canva { --prog: var(--canva); --prog-claro: var(--canva-claro); --prog-texto: var(--canva-texto); --prog-linea: var(--canva-linea); --prog-sobre: var(--blanco); }
+
+/* ---- Actividades: Parte 1 (carpeta) en cian; Parte 2 (computadora) con el color del programa ---- */
+.lamina--compu .act-banda, .lamina--compu .act__num { background: var(--prog); color: var(--prog-sobre); }
+.lamina--compu .act-banda .ico { --ac: var(--prog-claro); }
+.lamina--compu .act-banda__parte { border-left-color: currentColor; }
+.lamina--compu .act__letra, .lamina--compu .consigna { background: var(--prog-claro); }
+.lamina--compu .act__caso { border-left-color: var(--prog); }
+.lamina--compu .act__frases li::before { background: var(--prog); }
+.lamina--compu .entrega { border-color: var(--prog); }
+.lamina--compu .entrega .ico { --ac: var(--prog); }
+.lamina--compu .puntos__n { background: var(--naranja-texto); }   /* los "!" son avisos */
+
+/* ---- Portada: franja, número, barrita y etiquetas por programa ---- */
+.tp { box-shadow: inset 6px 0 0 var(--prog, var(--cian)); }   /* franja sin tocar el borde del hover */
+.tp .tp__num { color: var(--prog-texto, var(--cian-texto)); }
+a.tp:hover { border-color: var(--prog, var(--cian)); }
+.bloque .subtitulo::after { background: var(--prog, var(--cian)); }
+.bloque--pres-canva .subtitulo::after { background: linear-gradient(90deg, var(--pres) 0 50%, var(--canva) 50%); }   /* dos programas: bandas con corte neto */
+.etq {
+  display: inline-block; padding: 1px 8px; border-radius: 999px;
+  font-family: var(--fuente); font-weight: 700; font-size: .82em; line-height: 1.45;
+  color: var(--blanco); background: var(--tinta); white-space: nowrap;
+}
+.etq--teclado { background: var(--teclado-texto); }
+.etq--docs { background: var(--docs-texto); }
+.etq--hojas { background: var(--hojas-texto); }
+.etq--pres { background: var(--pres-texto); }
+.etq--canva { background: var(--canva-texto); }
+.tp__tecs { display: inline-flex; flex-wrap: wrap; gap: 4px; margin-right: 8px; vertical-align: 1px; }
+.tp__tecs .etq { font-size: 11px; letter-spacing: 0; text-transform: none; padding: 0 7px; }
+
+/* ---- Recuadros por tipo ---- */
+.tit-ico { display: inline-block; width: 1.2em; height: 1.2em; margin-right: 6px; vertical-align: -.25em; }
+.esquema-nota { background: var(--cian-suave); border-radius: var(--radio); padding: 10px 14px; }
+.esquema-nota h3 { font-family: var(--fuente-titulo); font-weight: 700; font-size: 18px; line-height: 1.15; color: var(--tinta); margin-bottom: 6px; }
+.esquema-nota p, .esquema-nota li { font-size: 15.5px; line-height: 1.35; }
+.esquema-nota--importante { background: var(--naranja-claro); box-shadow: inset 4px 0 0 var(--naranja); }
+.esquema-nota--importante h3 { color: var(--naranja-texto); }
+.pf__caja--importante { background: var(--naranja-claro); }
+.pf__caja--importante h4 { color: var(--naranja-texto); border-bottom-color: var(--naranja); }
+.esquema-nota--importante .tit-ico, .pf__caja--importante .tit-ico { --ac: var(--naranja-texto); }
+.consejo { background: var(--ok-claro); border-radius: 8px; padding: 6px 10px; box-shadow: inset 4px 0 0 var(--ok); }
+.consejo strong { color: var(--ok-texto); }
+.pf__caja--consejo { background: var(--ok-claro); }
+.pf__caja--consejo h4 { color: var(--ok-texto); border-bottom-color: var(--ok); }
+.consejo .tit-ico, .pf__caja--consejo .tit-ico { --ac: var(--ok); }
+
+/* ---- Etiquetas dentro del texto: rutas de menú y fórmulas, con el color del programa del TP ---- */
+.menu, code.formula {
+  padding: 0 .35em; border-radius: 5px; white-space: nowrap; font-weight: 600;
+  background: var(--prog-claro, var(--cian-suave)); color: var(--prog-texto, var(--cian-texto));
+  box-shadow: inset 0 0 0 1px var(--prog-linea, var(--panel-linea));   /* borde sin cambiar el ancho */
+}
+code.formula { font-family: Consolas, "Cascadia Mono", Menlo, "DejaVu Sans Mono", "Courier New", monospace; font-size: .92em; }
+
+/* ---- Esquemas ---- */
+.ico--carpeta { --ac: var(--carpeta); }
+.pf__lista li.punto--cian::before { background: var(--cian-texto); }
+.pf__lista li.punto--naranja::before { background: var(--naranja-texto); }
+
+/* ---- Teclado: un color por zona y por dedo (reemplaza las reglas .z-* y .d-* anteriores) ----
+   Ya no hay teclas oscuras: las letras de las teclas van con .tt (--tinta);
+   .tt--claro queda solo para los números blancos de los círculos (.badge). */
+.z-alfa { fill: var(--blanco); background: var(--blanco); }
+.d-no { fill: var(--panel); background: var(--panel); }
+.z-mod, .d-me { fill: var(--tinte-violeta); background: var(--tinte-violeta); }
+.z-fn,  .d-an { fill: var(--tinte-azul); background: var(--tinte-azul); }
+.z-num, .d-md { fill: var(--tinte-verde); background: var(--tinte-verde); }
+.d-in { fill: var(--tinte-ambar); background: var(--tinte-ambar); }
+.z-esp, .d-pu { fill: var(--tinte-naranja); background: var(--tinte-naranja); }
 
 /* ==========================================================
    Pantallas medianas: secuencias horizontales
@@ -801,7 +899,6 @@ kbd.con-relieve { text-decoration: underline; text-decoration-thickness: 3px; te
   text-decoration: none; color: var(--texto);
   border: 2px solid transparent;
 }
-a.tp:hover { border-color: var(--cian); }
 .tp__num {
   grid-row: span 3;
   font-family: var(--fuente-titular); font-weight: 800; font-size: 28px; line-height: 1;
