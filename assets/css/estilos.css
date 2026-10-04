@@ -680,6 +680,7 @@ code.formula { font-family: Consolas, "Cascadia Mono", Menlo, "DejaVu Sans Mono"
 /* ---- Esquemas ---- */
 .ico--carpeta { --ac: var(--carpeta); }
 .ico--docs { --ac: var(--docs); }
+.act-banda .ico { --doc-lineas: var(--tinta); }   /* ícono de documento sobre relleno claro: renglones oscuros */
 .pf__lista li.punto--cian::before { background: var(--cian-texto); }
 .pf__lista li.punto--naranja::before { background: var(--naranja-texto); }
 
