@@ -623,6 +623,7 @@ kbd.con-relieve { text-decoration: underline; text-decoration-thickness: 3px; te
 /* ---- Portada: franja, número, barrita y etiquetas por programa ---- */
 .tp { box-shadow: inset 6px 0 0 var(--prog, var(--cian)); }   /* franja sin tocar el borde del hover */
 .tp .tp__num { color: var(--prog-texto, var(--cian-texto)); }
+.tp--cian .tp__num { color: var(--cian-numero); }   /* Módulo 1: el número turquesa de siempre */
 a.tp:hover { border-color: var(--prog, var(--cian)); }
 .bloque .subtitulo::after { background: var(--prog, var(--cian)); }
 .bloque--pres-canva .subtitulo::after { background: linear-gradient(90deg, var(--pres) 0 50%, var(--canva) 50%); }   /* dos programas: bandas con corte neto */

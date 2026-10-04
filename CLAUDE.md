@@ -3,7 +3,7 @@
 Sitio estático con los TPs del Taller de Procesamiento de Datos. 4 horas cátedra por semana.
 Docente: Prof. Nicolás A. Cussi · C.T.P. "Olga B. de Arko" · Ushuaia.
 Repo: `Prof-NkoCussi/Cuadernillo-Web-Procesamiento-de-Datos` · se publica con GitHub Pages · los alumnos lo abren desde el celular y desde las computadoras del laboratorio.
-Creado como copia del repo base `Prof-NkoCussi/Cuadernillo-Web-Base-de-Datos-1`: misma estructura, misma paleta, cambia la materia y el contenido.
+Creado como copia del repo base `Prof-NkoCussi/Cuadernillo-Web-Base-de-Datos-1`: misma estructura y el mismo cian de base; cambian la materia y el contenido, y se suman los "Colores vivos".
 
 ## Forma de trabajo
 
@@ -94,7 +94,8 @@ El color va en marcos, etiquetas, íconos y esquemas, y cada color significa alg
 - Cada tarjeta lleva `tp--programa`: franja izquierda y número del color del programa.
 - En `.tp__meta`, antes de "Láminas", las etiquetas de los programas que usa: `<span class="tp__tecs"><span class="etq etq--docs">Documentos</span></span> Láminas…`. Varias etiquetas van separadas por espacios. Un tema sin color propio (Drive, Classroom) usa `.etq` sola.
 - Cada módulo lleva `bloque--programa` en su `section`: colorea la barrita del título. El Módulo 4 usa `bloque--pres-canva` (dos bandas).
-- **Excepción (Nicolás, 4/10/2026):** el Módulo 1 de la portada va en el cian de base, no en `--teclado`: `bloque--cian`, `tp--cian` y `etq etq--cian` (etiqueta con texto `--tinta`). El TP1 por dentro sigue con `prog--teclado`.
+- **Excepción (Nicolás, 4/10/2026):** el Módulo 1 de la portada va en el cian de base, no en `--teclado`: `bloque--cian` en la `section` (barrita del título en `--cian`), `tp--cian` en la tarjeta del TP1 (franja en `--cian` y número en `--cian-numero`, como antes) y `etq etq--cian` en la etiqueta "Teclado" (fondo `--cian`, texto `--tinta`). El TP1 por dentro sigue con `prog--teclado`. La sección "Práctica de teclado" (tarjeta del juego) sigue con `bloque--teclado` y `tp--teclado`.
+- En el CSS, los colores de `.tp`, `.tp__num`, `a.tp:hover` y `.bloque .subtitulo::after` los define el bloque "COLORES VIVOS". No volver a declararlos en la sección "Portada e índice" del final: al estar más abajo, los pisarían.
 
 **Recuadros**
 - "Importante": `.esquema-nota.esquema-nota--importante` o `.pf__caja--importante`, en naranja, con el ícono `#i-importante`.
@@ -113,6 +114,9 @@ El color va en marcos, etiquetas, íconos y esquemas, y cada color significa alg
 - Dos grupos en un mismo esquema: uno en cian (`--teclado`, `--cian-claro`, `--cian-texto`) y otro en naranja. Las viñetas de al lado repiten el color: `li.punto--cian` y `li.punto--naranja`.
 - Rótulos chicos: con el color de lo que nombran, no en gris.
 - Teclado: un tinte por zona y por dedo (`--tinte-*`), con las letras en `--tinta`. Dedos: meñique violeta, anular azul, medio verde, índice ámbar, pulgar naranja. El juego de mecanografía usa los mismos.
+  - Zonas: alfanumérica blanco (`.z-alfa`), función azul (`.z-fn`), especiales naranja (`.z-esp`), numérico verde (`.z-num`), modificadoras violeta (`.z-mod`). Teclas sin dedo asignado: gris (`.d-no`).
+  - En el SVG, las letras de las teclas van con `class="tt"` (en `--tinta`). `tt--claro` (blanco) queda solo para los números de los círculos negros (`.badge`): no usarla en teclas.
+  - Las muestras de leyendas y tablas (`.muestra .z-*` / `.d-*`) usan las mismas clases que el esquema, así coinciden solas.
 - El color nunca va solo: cada zona, dedo o grupo lleva además su nombre, número o leyenda.
 
 **Choques aceptados:** el verde es Hojas de cálculo y también "Recomendación"; el ámbar es Presentaciones y también carpetas. Se distinguen porque los recuadros y las carpetas llevan siempre ícono y título.
@@ -128,6 +132,7 @@ El color va en marcos, etiquetas, íconos y esquemas, y cada color significa alg
 - A 390 px y 360 px de ancho: sin scroll horizontal y con tablas legibles.
 - Accesibilidad: íconos decorativos con `aria-hidden`; esquemas SVG con `role="img"` y texto alternativo; tablas con `<caption>` y `scope`; foco visible; enlace "Saltar al contenido".
 - Sin errores en la consola. Botón PDF, barra de partes e índice funcionando.
+- Las mediciones se hacen con el sitio servido por HTTP (un servidor local), no abriendo el archivo con `file://`: así el navegador bloquea las fuentes precargadas, aparecen errores que en GitHub Pages no existen y los altos salen mal.
 - **Nombres de menús, botones y funciones:** tienen que ser los de la versión en español de Google Docs, Sheets y Presentaciones, y de Canva. Si no estás seguro de un nombre, marcalo para que Nicolás lo verifique en la pantalla.
 
 ## Contenido
@@ -193,6 +198,12 @@ El color va en marcos, etiquetas, íconos y esquemas, y cada color significa alg
 - **TP1:** los 5 niveles del juego son los niveles 1 a 5 de la Parte 1 (fila guía, fila superior, fila inferior, todas las letras, números).
 - **Juego:** todavía no está hecho (el repo solo tiene su plan). El TP1 enlaza igual al link definitivo; el acceso de `index.html` queda en "Próximamente" hasta que se publique.
 - **Cabecera:** `TALLER DE PROCESAMIENTO DE DATOS` + `1.ER AÑO`.
+
+## Decisiones confirmadas (4/10/2026)
+
+- **Colores vivos** aplicados a la portada y al TP1 (ver la sección "Colores vivos").
+- **Portada, Módulo 1:** en el cian de base (franja, barrita, número y etiqueta). Ver la excepción en "Colores vivos › Portada".
+- **Tarjetas "Próximamente":** mantienen la opacidad .62. Con eso, su texto queda por debajo de 4,5:1; se acepta porque son tarjetas inactivas. Al activar un TP, sus colores vuelven a contraste completo.
 
 ## Pendientes a consultar con Nicolás
 
