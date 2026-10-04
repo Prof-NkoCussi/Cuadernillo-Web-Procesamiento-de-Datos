@@ -613,10 +613,11 @@ kbd.con-relieve { text-decoration: underline; text-decoration-thickness: 3px; te
 .tp--cian, .bloque--cian { --prog: var(--cian); --prog-claro: var(--cian-claro); --prog-texto: var(--cian-texto); --prog-linea: var(--panel-linea); --prog-sobre: var(--tinta); }
 
 /* ---- Números en círculo (listas al lado de un esquema y círculos dentro del SVG):
-   color del programa del TP; en la Parte 2 siguen en naranja (ver abajo) ---- */
-.puntos__n { background: var(--prog, var(--tinta)); color: var(--prog-sobre, var(--blanco)); }
-.esquema .badge, .p-ref circle { fill: var(--prog, var(--tinta)); }
-.esquema .badge + text, .p-ref text { fill: var(--prog-sobre, var(--blanco)); }
+   cian oscuro en todos los TPs; en la Parte 2 siguen en naranja (ver abajo) ---- */
+:root { --num-circulo: #0E7490; }   /* con número blanco: 5,4:1 */
+.puntos__n { background: var(--num-circulo); color: var(--blanco); }
+.esquema .badge, .p-ref circle { fill: var(--num-circulo); }
+.esquema .badge + text, .p-ref text { fill: var(--blanco); }
 
 /* ---- Actividades: Parte 1 (carpeta) en cian; Parte 2 (computadora) con el color del programa ---- */
 .lamina--compu .act-banda, .lamina--compu .act__num { background: var(--prog); color: var(--prog-sobre); }
