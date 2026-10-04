@@ -94,6 +94,7 @@ El color va en marcos, etiquetas, íconos y esquemas, y cada color significa alg
 - Cada tarjeta lleva `tp--programa`: franja izquierda y número del color del programa.
 - En `.tp__meta`, antes de "Láminas", las etiquetas de los programas que usa: `<span class="tp__tecs"><span class="etq etq--docs">Documentos</span></span> Láminas…`. Varias etiquetas van separadas por espacios. Un tema sin color propio (Drive, Classroom) usa `.etq` sola.
 - Cada módulo lleva `bloque--programa` en su `section`: colorea la barrita del título. El Módulo 4 usa `bloque--pres-canva` (dos bandas).
+- **Excepción (Nicolás, 4/10/2026):** el Módulo 1 de la portada va en el cian de base, no en `--teclado`: `bloque--cian`, `tp--cian` y `etq etq--cian` (etiqueta con texto `--tinta`). El TP1 por dentro sigue con `prog--teclado`.
 
 **Recuadros**
 - "Importante": `.esquema-nota.esquema-nota--importante` o `.pf__caja--importante`, en naranja, con el ícono `#i-importante`.

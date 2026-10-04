@@ -606,6 +606,8 @@ kbd.con-relieve { text-decoration: underline; text-decoration-thickness: 3px; te
 .prog--hojas, .tp--hojas, .bloque--hojas { --prog: var(--hojas); --prog-claro: var(--hojas-claro); --prog-texto: var(--hojas-texto); --prog-linea: var(--hojas-linea); --prog-sobre: var(--blanco); }
 .prog--pres, .tp--pres, .bloque--pres { --prog: var(--pres); --prog-claro: var(--pres-claro); --prog-texto: var(--pres-texto); --prog-linea: var(--pres-linea); --prog-sobre: var(--tinta); }
 .prog--canva, .tp--canva, .bloque--canva { --prog: var(--canva); --prog-claro: var(--canva-claro); --prog-texto: var(--canva-texto); --prog-linea: var(--canva-linea); --prog-sobre: var(--blanco); }
+/* Portada, Módulo 1: el cian de base en vez de --teclado */
+.tp--cian, .bloque--cian { --prog: var(--cian); --prog-claro: var(--cian-claro); --prog-texto: var(--cian-texto); --prog-linea: var(--panel-linea); --prog-sobre: var(--tinta); }
 
 /* ---- Actividades: Parte 1 (carpeta) en cian; Parte 2 (computadora) con el color del programa ---- */
 .lamina--compu .act-banda, .lamina--compu .act__num { background: var(--prog); color: var(--prog-sobre); }
@@ -634,6 +636,7 @@ a.tp:hover { border-color: var(--prog, var(--cian)); }
 .etq--hojas { background: var(--hojas-texto); }
 .etq--pres { background: var(--pres-texto); }
 .etq--canva { background: var(--canva-texto); }
+.etq--cian { background: var(--cian); color: var(--tinta); }   /* sobre cian, texto oscuro */
 .tp__tecs { display: inline-flex; flex-wrap: wrap; gap: 4px; margin-right: 8px; vertical-align: 1px; }
 .tp__tecs .etq { font-size: 11px; letter-spacing: 0; text-transform: none; padding: 0 7px; }
 
