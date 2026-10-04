@@ -612,6 +612,12 @@ kbd.con-relieve { text-decoration: underline; text-decoration-thickness: 3px; te
 /* Portada, Módulo 1: el cian de base en vez de --teclado */
 .tp--cian, .bloque--cian { --prog: var(--cian); --prog-claro: var(--cian-claro); --prog-texto: var(--cian-texto); --prog-linea: var(--panel-linea); --prog-sobre: var(--tinta); }
 
+/* ---- Números en círculo (listas al lado de un esquema y círculos dentro del SVG):
+   color del programa del TP; en la Parte 2 siguen en naranja (ver abajo) ---- */
+.puntos__n { background: var(--prog, var(--tinta)); color: var(--prog-sobre, var(--blanco)); }
+.esquema .badge, .p-ref circle { fill: var(--prog, var(--tinta)); }
+.esquema .badge + text, .p-ref text { fill: var(--prog-sobre, var(--blanco)); }
+
 /* ---- Actividades: Parte 1 (carpeta) en cian; Parte 2 (computadora) con el color del programa ---- */
 .lamina--compu .act-banda, .lamina--compu .act__num { background: var(--prog); color: var(--prog-sobre); }
 .lamina--compu .act-banda .ico { --ac: var(--prog-claro); }
@@ -621,7 +627,7 @@ kbd.con-relieve { text-decoration: underline; text-decoration-thickness: 3px; te
 .lamina--compu .act__frases li::before { background: var(--prog); }
 .lamina--compu .entrega { border-color: var(--prog); }
 .lamina--compu .entrega .ico { --ac: var(--prog); }
-.lamina--compu .puntos__n { background: var(--naranja-texto); }   /* los "!" son avisos */
+.lamina--compu .puntos__n { background: var(--naranja-texto); color: var(--blanco); }   /* los "!" son avisos */
 
 /* ---- Portada: franja, número, barrita y etiquetas por programa ---- */
 .tp { box-shadow: inset 6px 0 0 var(--prog, var(--cian)); }   /* franja sin tocar el borde del hover */
@@ -676,7 +682,7 @@ code.formula { font-family: Consolas, "Cascadia Mono", Menlo, "DejaVu Sans Mono"
 
 /* ---- Teclado: un color por zona y por dedo (reemplaza las reglas .z-* y .d-* anteriores) ----
    Ya no hay teclas oscuras: las letras de las teclas van con .tt (--tinta);
-   .tt--claro queda solo para los números blancos de los círculos (.badge). */
+   .tt--claro no va en teclas: queda para los números de los círculos (.badge) y los botones oscuros. */
 .z-alfa { fill: var(--blanco); background: var(--blanco); }
 .d-no { fill: var(--panel); background: var(--panel); }
 .z-mod, .d-me { fill: var(--tinte-violeta); background: var(--tinte-violeta); }

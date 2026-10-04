@@ -113,9 +113,10 @@ El color va en marcos, etiquetas, íconos y esquemas, y cada color significa alg
 - Carpetas de Drive: en `--carpeta`, con fondo `--carpeta-claro` si es un panel. Ícono: `<svg class="ico ico--carpeta">`.
 - Dos grupos en un mismo esquema: uno en cian (`--teclado`, `--cian-claro`, `--cian-texto`) y otro en naranja. Las viñetas de al lado repiten el color: `li.punto--cian` y `li.punto--naranja`.
 - Rótulos chicos: con el color de lo que nombran, no en gris.
+- Números en círculo (`.puntos__n` en las listas, `.badge` y `.p-ref` dentro del SVG): círculo en `--prog` y número en `--prog-sobre` (Nicolás, 4/10/2026). Un solo color por TP, no uno por número. En la Parte 2 (`lamina--compu`) los "!" siguen en naranja.
 - Teclado: un tinte por zona y por dedo (`--tinte-*`), con las letras en `--tinta`. Dedos: meñique violeta, anular azul, medio verde, índice ámbar, pulgar naranja. El juego de mecanografía usa los mismos.
   - Zonas: alfanumérica blanco (`.z-alfa`), función azul (`.z-fn`), especiales naranja (`.z-esp`), numérico verde (`.z-num`), modificadoras violeta (`.z-mod`). Teclas sin dedo asignado: gris (`.d-no`).
-  - En el SVG, las letras de las teclas van con `class="tt"` (en `--tinta`). `tt--claro` (blanco) queda solo para los números de los círculos negros (`.badge`): no usarla en teclas.
+  - En el SVG, las letras de las teclas van con `class="tt"` (en `--tinta`). `tt--claro` (blanco) queda para los números de los círculos (`.badge`) y los botones oscuros de las pantallas simuladas: no usarla en teclas.
   - Las muestras de leyendas y tablas (`.muestra .z-*` / `.d-*`) usan las mismas clases que el esquema, así coinciden solas.
 - El color nunca va solo: cada zona, dedo o grupo lleva además su nombre, número o leyenda.
 
