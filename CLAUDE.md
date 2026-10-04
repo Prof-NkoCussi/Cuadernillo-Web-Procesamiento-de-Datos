@@ -205,6 +205,7 @@ El color va en marcos, etiquetas, íconos y esquemas, y cada color significa alg
 - **Colores vivos** aplicados a la portada y al TP1 (ver la sección "Colores vivos").
 - **Portada, Módulo 1:** en el cian de base (franja, barrita, número y etiqueta). Ver la excepción en "Colores vivos › Portada".
 - **TP2, guía "Crear una cuenta de Google":** hoja sin número entre la lámina 5 y la 6 (`article#crear-cuenta`, ícono en el título en vez de número, pie `TP 2`), para no correr la numeración de las 47 láminas. Seis pantallas simuladas; el recuadro cian (`.v-toque`) marca lo que se toca. Avisa que hacen falta 13 años o más (si no, un adulto la crea con "Para mi hijo").
+- **Cian de base más suave:** `--cian: #2AAEBB` (antes #26C6D4, muy chillón). El mismo valor va en `<meta name="theme-color">` de cada página. Texto `--tinta` encima: 6,65:1. No cambian `--cian-claro`, `--cian-suave`, `--cian-numero` ni el cian oscuro (`--num-circulo`, `--compu`).
 - **Tarjetas "Próximamente":** mantienen la opacidad .62. Con eso, su texto queda por debajo de 4,5:1; se acepta porque son tarjetas inactivas. Al activar un TP, sus colores vuelven a contraste completo.
 
 ## Pendientes a consultar con Nicolás

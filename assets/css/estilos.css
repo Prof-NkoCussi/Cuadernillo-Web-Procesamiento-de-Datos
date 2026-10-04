@@ -17,7 +17,7 @@
 /* ---------- Paleta (detectada del PDF) ---------- */
 :root {
   /* Identidad del cuadernillo */
-  --cian: #26C6D4;          /* acento: íconos, barras, flechas, recuadros */
+  --cian: #2AAEBB;          /* acento: íconos, barras, flechas, recuadros (antes #26C6D4, más chillón) */
   --cian-numero: #05A2B4;   /* número de cada título (ajustado: 3:1 sobre blanco) */
   --cian-claro: #CDEFF4;    /* encabezados de tarjetas */
   --cian-suave: #E2F5F8;    /* fondo de "Idea clave" */
