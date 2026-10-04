@@ -619,15 +619,17 @@ kbd.con-relieve { text-decoration: underline; text-decoration-thickness: 3px; te
 .esquema .badge, .p-ref circle { fill: var(--num-circulo); }
 .esquema .badge + text, .p-ref text { fill: var(--blanco); }
 
-/* ---- Actividades: Parte 1 (carpeta) en cian; Parte 2 (computadora) con el color del programa ---- */
-.lamina--compu .act-banda, .lamina--compu .act__num { background: var(--prog); color: var(--prog-sobre); }
-.lamina--compu .act-banda .ico { --ac: var(--prog-claro); }
+/* ---- Actividades: Parte 1 (carpeta) en cian; Parte 2 (computadora) en cian oscuro en todos los TPs.
+   Las rutas de menú y las fórmulas dentro de la Parte 2 siguen con el color del programa (--prog). ---- */
+.lamina--compu { --compu: var(--num-circulo); --compu-claro: var(--cian-claro); }
+.lamina--compu .act-banda, .lamina--compu .act__num { background: var(--compu); color: var(--blanco); }
+.lamina--compu .act-banda .ico { --ac: var(--compu-claro); }
 .lamina--compu .act-banda__parte { border-left-color: currentColor; }
-.lamina--compu .act__letra, .lamina--compu .consigna { background: var(--prog-claro); }
-.lamina--compu .act__caso { border-left-color: var(--prog); }
-.lamina--compu .act__frases li::before { background: var(--prog); }
-.lamina--compu .entrega { border-color: var(--prog); }
-.lamina--compu .entrega .ico { --ac: var(--prog); }
+.lamina--compu .act__letra, .lamina--compu .consigna { background: var(--compu-claro); }
+.lamina--compu .act__caso { border-left-color: var(--compu); }
+.lamina--compu .act__frases li::before { background: var(--compu); }
+.lamina--compu .entrega { border-color: var(--compu); }
+.lamina--compu .entrega .ico { --ac: var(--compu); }
 .lamina--compu .puntos__n { background: var(--naranja-texto); color: var(--blanco); }   /* los "!" son avisos */
 
 /* ---- Portada: franja, número, barrita y etiquetas por programa ---- */

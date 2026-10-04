@@ -88,7 +88,7 @@ El color va en marcos, etiquetas, íconos y esquemas, y cada color significa alg
 
 **Actividades**
 - Parte 1 (carpeta): en cian, como siempre. Los puntos se numeran desde 1 en cada TP.
-- Parte 2 (computadora): `article.lamina--compu`. Toma el color del programa del TP.
+- Parte 2 (computadora): `article.lamina--compu`. **Cian oscuro en todos los TPs** (Nicolás, 4/10/2026): banda, números, incisos, consigna y recuadro "Entrega" usan `--compu` / `--compu-claro` (#0E7490 / `--cian-claro`), no el color del programa. Las rutas de menú (`.menu`) y las fórmulas que aparezcan en la práctica siguen con el color del programa.
 
 **Portada (`index.html`)**
 - Cada tarjeta lleva `tp--programa`: franja izquierda y número del color del programa.
