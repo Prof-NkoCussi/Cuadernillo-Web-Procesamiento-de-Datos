@@ -511,7 +511,7 @@ kbd.con-relieve { text-decoration: underline; text-decoration-thickness: 3px; te
   font-size: 11.5px; color: var(--gris);
 }
 .pie__linea { flex: 1; height: 1px; background: var(--linea); }
-.pie__num { font-weight: 700; font-size: 15px; color: var(--tinta); min-width: 1.2em; text-align: right; }
+.pie__num { font-weight: 700; font-size: 15px; color: var(--tinta); min-width: 1.2em; text-align: right; white-space: nowrap; }
 
 /* ==========================================================
    Actividades para hacer en la carpeta
@@ -777,6 +777,18 @@ code.formula { font-family: Consolas, "Cascadia Mono", Menlo, "DejaVu Sans Mono"
 .arbol__n3 { padding-left: 28px; }
 .arbol__n4 { padding-left: 42px; }
 
+/* Guía "Crear una cuenta de Google": pantallas chicas con su paso */
+.pasos-cuenta { display: grid; gap: 10px; }
+.pasos-cuenta > li {
+  display: grid; gap: 8px; align-content: start;
+  background: var(--panel); border-radius: var(--radio); padding: 10px;
+}
+.pasos-cuenta .esquema svg { max-width: 400px; margin: 0 auto; }
+.pasos-cuenta p { display: grid; grid-template-columns: 26px 1fr; gap: 8px; align-items: start; font-size: 15.5px; line-height: 1.3; }
+.v-campo { fill: var(--blanco); stroke: var(--gris-sub); stroke-width: .8; }
+.v-boton-tinta { fill: var(--tinta); }
+.v-toque { fill: none; stroke: var(--cian-numero); stroke-width: 2.2; }   /* lo que tocamos */
+
 /* ==========================================================
    Pantallas medianas: secuencias horizontales
    ========================================================== */
@@ -832,6 +844,7 @@ code.formula { font-family: Consolas, "Cascadia Mono", Menlo, "DejaVu Sans Mono"
   .secuencia--sub .paso h4 { font-size: 18px; line-height: 1.15; }
   .secuencia--sub .paso p { font-size: 15.5px; }
   .formatos, .alinear { grid-template-columns: repeat(4, 1fr); }
+  .pasos-cuenta { grid-template-columns: 1fr 1fr; }
   .ejemplo { grid-template-columns: auto auto 1fr; }
   .ejemplo p { grid-column: auto; padding-left: 12px; border-left: 2px solid var(--panel-linea); }
 }
@@ -958,6 +971,9 @@ code.formula { font-family: Consolas, "Cascadia Mono", Menlo, "DejaVu Sans Mono"
   .alinear h4 { font-size: 19px; }
   .alinear p, .alinear .alinear__atajo { font-size: 16px; }
   .arbol .ico { width: 18px; height: 18px; }
+  .pasos-cuenta { grid-template-columns: repeat(3, 1fr); gap: 3mm; }
+  .pasos-cuenta > li { padding: 9px 9px 10px; }
+  .pasos-cuenta p { font-size: 15px; }
 
   /* Tablas de la hoja A4 (heredadas del cuadernillo base) */
   .senal--fila { margin-top: 30%; }

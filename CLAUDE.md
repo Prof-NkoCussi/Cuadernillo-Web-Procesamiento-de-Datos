@@ -140,7 +140,7 @@ El color va en marcos, etiquetas, íconos y esquemas, y cada color significa alg
 - Edad: chicos de 12–13 años. Frases cortas, un concepto por bloque, ejemplos de la escuela y la vida cotidiana.
 - Teoría en tono neutro ("podemos…"); consignas en voseo ("Indicá", "Escribí", "Abrí").
 - No adelantar temas de TPs posteriores.
-- **Herramientas: todo Google** (Documentos, Hojas de cálculo, Presentaciones) más Canva. No mencionar Word, Excel ni PowerPoint. Los alumnos entran con su propia cuenta de Google: el TP2 enseña a entrar a la cuenta y a Drive, no a crear la cuenta.
+- **Herramientas: todo Google** (Documentos, Hojas de cálculo, Presentaciones) más Canva. No mencionar Word, Excel ni PowerPoint. Los alumnos entran con su propia cuenta de Google: el TP2 enseña a entrar a la cuenta y a Drive, y suma una hoja-guía sin número para crear la cuenta (ver "Decisiones confirmadas (4/10/2026)").
 - **Hojas de cálculo:** funciones en español (`SUMA`, `PROMEDIO`, `MAX`, `MIN`, `CONTAR`, `CONTARA`, `CONTAR.SI`). Con la configuración regional de Argentina, los argumentos se separan con punto y coma: `=CONTAR.SI(B2:B9;">=6")`.
 - **Entregas:** van a Google Classroom.
 - **Capturas de pantalla:** el TP1 explica cómo sacarlas (lámina 4 y "Para profundizar") porque se usan en casi todas las entregas. En Windows: `Windows + Impr Pant` guarda la pantalla completa en Imágenes › Capturas de pantalla; `Windows + Shift + S` recorta una parte.
@@ -160,7 +160,7 @@ El color va en marcos, etiquetas, íconos y esquemas, y cada color significa alg
 | **Módulo 1 · Teclado y mecanografía** | | | |
 | 1 | El teclado: mi herramienta de trabajo | 1–4 | zonas del teclado (alfanuméricas, función, especiales, numérico, modificadoras) · postura y posición de las manos · un dedo para cada tecla · atajos básicos (Ctrl+C, Ctrl+V, Ctrl+Z, Ctrl+S, Alt+Tab) y captura de pantalla |
 | **Módulo 2 · Documentos de texto (Documentos de Google)** | | | |
-| 2 | Mi primer documento | 5–8 | entrar a la cuenta y a Drive · crear, abrir y guardar · fuente, tamaño y color · negrita, cursiva, subrayado y alineación |
+| 2 | Mi primer documento | 5–8 | entrar a la cuenta y a Drive (+ guía sin número: crear una cuenta de Google) · crear, abrir y guardar · fuente, tamaño y color · negrita, cursiva, subrayado y alineación |
 | 3 | Documento con estructura | 9–12 | títulos (Título, Título 1, Título 2) · listas numeradas y con viñetas · interlineado, espaciado y sangrías · tabla simple |
 | 4 | Documento con imágenes y enlaces | 13–16 | insertar imágenes (subir y desde la web) · tamaño, ubicación y ajuste de texto · hipervínculos · encabezado, pie y numeración de páginas |
 | 5 | Trabajo colaborativo y revisión | 17–20 | compartir y permisos (editor, comentarista, lector) · comentarios y sugerencias · historial de versiones · tabla de contenidos automática y exportar a PDF |
@@ -203,6 +203,7 @@ El color va en marcos, etiquetas, íconos y esquemas, y cada color significa alg
 
 - **Colores vivos** aplicados a la portada y al TP1 (ver la sección "Colores vivos").
 - **Portada, Módulo 1:** en el cian de base (franja, barrita, número y etiqueta). Ver la excepción en "Colores vivos › Portada".
+- **TP2, guía "Crear una cuenta de Google":** hoja sin número entre la lámina 5 y la 6 (`article#crear-cuenta`, ícono en el título en vez de número, pie `TP 2`), para no correr la numeración de las 47 láminas. Seis pantallas simuladas; el recuadro cian (`.v-toque`) marca lo que se toca. Avisa que hacen falta 13 años o más (si no, un adulto la crea con "Para mi hijo").
 - **Tarjetas "Próximamente":** mantienen la opacidad .62. Con eso, su texto queda por debajo de 4,5:1; se acepta porque son tarjetas inactivas. Al activar un TP, sus colores vuelven a contraste completo.
 
 ## Pendientes a consultar con Nicolás
