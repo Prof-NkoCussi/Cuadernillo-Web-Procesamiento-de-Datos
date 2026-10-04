@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TP N°2 — Mi primer documento · Taller de Procesamiento de Datos</title>
+  <meta name="description" content="TP N°2 del Taller de Procesamiento de Datos: entrar a la cuenta de Google y a Drive, crear, abrir y guardar un documento, fuente, tamaño y color, negrita, cursiva, subrayado y alineación. Prof. Nicolás A. Cussi.">
+  <meta name="theme-color" content="#26C6D4">
+  <link rel="preload" href="../assets/fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/barlow-semi-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/estilos.css">
+</head>
+<body data-tp="2" class="prog--docs">
+
+<!-- ====== Íconos ====== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-pc-solido" viewBox="0 0 48 48">
+      <g style="fill:currentColor;stroke:none">
+        <path fill-rule="evenodd" d="M8 5h32a3 3 0 0 1 3 3v19a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3zm1.5 4.5v16h29v-16z"/>
+        <path d="M20 30h8v3.5h-8z"/>
+        <rect x="14" y="33" width="20" height="3" rx="1.5"/>
+        <path fill-rule="evenodd" d="M7 39h34a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2zm8 2.2v1.6h18v-1.6z"/>
+      </g>
+    </symbol>
+    <symbol id="i-cuenta" viewBox="0 0 48 48">
+      <circle cx="24" cy="24" r="20"/>
+      <circle cx="24" cy="19" r="7" style="fill:var(--ac)"/>
+      <path d="M11 37.5c2.5-5.5 7.3-8.5 13-8.5s10.5 3 13 8.5"/>
+    </symbol>
+    <symbol id="i-navegador" viewBox="0 0 48 48">
+      <rect x="4" y="7" width="40" height="34" rx="3"/>
+      <path d="M4 16h40M9.5 11.5h0M14 11.5h0"/>
+      <rect x="10" y="24" width="28" height="8" rx="4" style="fill:var(--ac)"/>
+    </symbol>
+    <symbol id="i-candado" viewBox="0 0 48 48">
+      <rect x="9" y="21" width="30" height="22" rx="3" style="fill:var(--ac)"/>
+      <path d="M16 21v-6a8 8 0 0 1 16 0v6M24 29v6"/>
+    </symbol>
+    <symbol id="i-apps" viewBox="0 0 48 48">
+      <g style="fill:currentColor;stroke:none">
+        <circle cx="12" cy="12" r="4"/><circle cx="24" cy="12" r="4"/><circle cx="36" cy="12" r="4"/>
+        <circle cx="12" cy="24" r="4"/><circle cx="36" cy="24" r="4"/>
+        <circle cx="12" cy="36" r="4"/><circle cx="24" cy="36" r="4"/><circle cx="36" cy="36" r="4"/>
+      </g>
+      <circle cx="24" cy="24" r="4.6" style="fill:var(--ac);stroke-width:2"/>
+    </symbol>
+    <symbol id="i-nuevo" viewBox="0 0 48 48">
+      <circle cx="24" cy="24" r="19" style="fill:var(--ac)"/>
+      <path d="M24 15v18M15 24h18"/>
+    </symbol>
+    <symbol id="i-documento" viewBox="0 0 48 48">
+      <path d="M12 4h17l10 10v28a2 2 0 0 1-2 2H12a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" style="fill:var(--ac)"/>
+      <path d="M29 4v10h10M16 23h16M16 29h16M16 35h10"/>
+    </symbol>
+    <symbol id="i-hoja" viewBox="0 0 48 48">
+      <path d="M12 4h17l10 10v28a2 2 0 0 1-2 2H12a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/>
+      <path d="M29 4v10h10"/>
+      <path d="M18 20v12" style="stroke:var(--ac);stroke-width:3.6"/>
+    </symbol>
+    <symbol id="i-carpeta" viewBox="0 0 48 48">
+      <path d="M4 12a3 3 0 0 1 3-3h11l4 5h19a3 3 0 0 1 3 3v21a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z" style="fill:var(--ac)"/>
+      <path d="M4 20h40"/>
+    </symbol>
+    <symbol id="i-fuente" viewBox="0 0 48 48">
+      <path d="M9 35 21 7h4l12 28M13.5 25h19"/>
+      <rect x="5" y="39" width="38" height="5" rx="1.5" style="fill:var(--ac)"/>
+    </symbol>
+    <symbol id="i-subir" viewBox="0 0 48 48">
+      <path d="M6 30v8a3 3 0 0 0 3 3h30a3 3 0 0 0 3-3v-8"/>
+      <path d="M24 31V7M15 16l9-9 9 9" style="stroke:var(--ac);stroke-width:3.4"/>
+    </symbol>
+    <symbol id="i-foco" viewBox="0 0 48 48">
+      <path d="M24 2.5v4M10 8.5l2.8 2.8M38 8.5l-2.8 2.8M4 22h4M40 22h4"/>
+      <path d="M24 12a10 10 0 0 0-6.2 17.8c1.4 1.2 2.2 2.6 2.2 4.2v1h8v-1c0-1.6.8-3 2.2-4.2A10 10 0 0 0 24 12z" style="fill:var(--ac)"/>
+      <path d="M20 39h8M21.5 43h5"/>
+    </symbol>
+    <symbol id="i-lapiz" viewBox="0 0 48 48">
+      <path d="M33 6l9 9-25 25-9-9z" style="fill:var(--ac)"/>
+      <path d="M8 31 5.5 42.5 17 40z" style="fill:#fff"/>
+      <path d="M27 12l9 9"/>
+    </symbol>
+    <symbol id="i-importante" viewBox="0 0 48 48">
+      <circle cx="24" cy="24" r="21" style="fill:var(--ac);stroke:none"/>
+      <path d="M24 12v15M24 35v.5" style="stroke:var(--blanco);stroke-width:5.5"/>
+    </symbol>
+    <symbol id="i-consejo" viewBox="0 0 48 48">
+      <circle cx="24" cy="24" r="21" style="fill:var(--ac);stroke:none"/>
+      <path d="M14 24.5l7 7 13-14" style="stroke:var(--blanco);stroke-width:5.5"/>
+    </symbol>
+    <symbol id="i-descarga" viewBox="0 0 24 24">
+      <path d="M12 3v12M7 10l5 5 5-5M5 20h14"/>
+    </symbol>
+    <symbol id="i-atras" viewBox="0 0 24 24">
+      <path d="M20 12H5M11 6l-6 6 6 6"/>
+    </symbol>
+  </defs>
+</svg>
+
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<header class="barra">
+  <div class="barra__fila">
+    <a class="boton barra__volver" href="../index.html"><svg aria-hidden="true" focusable="false"><use href="#i-atras"/></svg><span>Índice</span></a>
+    <span class="barra__titulo">TP N°2 — Mi primer documento</span>
+    <button class="boton" type="button" data-imprimir aria-label="Guardar en PDF">
+      <svg aria-hidden="true" focusable="false"><use href="#i-descarga"/></svg><span><span class="boton__largo">Guardar </span>PDF</span>
+    </button>
+  </div>
+  <nav class="partes" aria-label="Partes del TP N°2">
+    <a href="#pag-5">5 · Cuenta y Drive</a>
+    <a href="#pag-6">6 · Crear y guardar</a>
+    <a href="#pag-7">7 · Fuente</a>
+    <a href="#pag-8">8 · Estilos</a>
+    <a href="#profundizar">Para profundizar</a>
+    <a href="#actividades">Actividades</a>
+  </nav>
+</header>
+
+<main id="contenido" class="laminas">
+  <h1 class="sr-only">TP N°2 — Mi primer documento</h1>
+
+  <!-- =================== LÁMINA 5 =================== -->
+  <article class="lamina lamina--compacta" id="pag-5" aria-labelledby="t5">
+    <div class="cab" aria-hidden="true">
+      <svg class="cab__logo"><use href="#i-pc-solido"/></svg>
+      <div class="cab__marca"><b>TALLER DE PROCESAMIENTO DE DATOS</b><span>1.ER AÑO</span></div>
+      <div class="cab__lema"><span class="cab__lema-largo">TRABAJO PRÁCTICO </span><span class="cab__lema-corto">TP </span><span class="cab__lema-n">N°2</span></div>
+      <span class="cab__raya"></span>
+    </div>
+
+    <div class="tit">
+      <h2 class="tit__h" id="t5"><span class="tit__num">5.</span> Mi cuenta de Google y Drive</h2>
+      <p class="tit__sub">Entrar y encontrar nuestros archivos</p>
+    </div>
+
+    <div class="intro">
+      <svg class="ico ico--xl" aria-hidden="true" focusable="false"><use href="#i-cuenta"/></svg>
+      <p>Con nuestra <strong>cuenta de Google</strong> entramos a Drive, a Documentos y a Classroom. <strong>Drive</strong> guarda nuestros archivos en internet.</p>
+    </div>
+
+    <section aria-labelledby="s5a">
+      <h3 class="subtitulo" id="s5a">Entrar a la cuenta</h3>
+      <ol class="secuencia secuencia--sub">
+        <li class="paso">
+          <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-navegador"/></svg>
+          <h4>Acceder</h4>
+          <p>En google.com, tocamos <strong>Acceder</strong>, arriba a la derecha.</p>
+        </li>
+        <li class="paso">
+          <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-candado"/></svg>
+          <h4>Correo y contraseña</h4>
+          <p>Escribimos cada uno y tocamos <strong>Siguiente</strong>.</p>
+        </li>
+        <li class="paso">
+          <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-apps"/></svg>
+          <h4>Abrir Drive</h4>
+          <p>En <strong>Aplicaciones de Google</strong> (los nueve puntos), elegimos <strong>Drive</strong>.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="pantalla" aria-labelledby="s5b">
+      <h3 class="subtitulo" id="s5b">La pantalla de Drive</h3>
+      <div class="pantalla__cuerpo">
+        <figure class="esquema esquema--ventana">
+          <svg viewBox="0 0 300 190" role="img" aria-labelledby="dr-t dr-d">
+            <title id="dr-t">Esquema de la pantalla de Drive</title>
+            <desc id="dr-d">Arriba están el buscador Buscar en Drive, los nueve puntos de Aplicaciones de Google y el círculo de la cuenta. A la izquierda, el botón Nuevo y la lista: Inicio, Mi unidad, Compartidos conmigo, Recientes, Destacados y Papelera. En el centro, Mi unidad muestra dos carpetas, Escuela y Fotos, y dos documentos, Mi cuento y Tareas. Los números marcan: 1, Nuevo; 2, Mi unidad; 3, Buscar en Drive; 4, Aplicaciones de Google; 5, la cuenta.</desc>
+            <rect class="v-fondo" x="1" y="1" width="298" height="188" rx="6"/>
+            <path class="v-barra v-barra--neutra" d="M7 1H293a6 6 0 0 1 6 6V15H1V7a6 6 0 0 1 6-6z"/>
+            <circle class="v-rojo" cx="9" cy="8" r="2.6"/><circle class="v-amarillo" cx="17" cy="8" r="2.6"/><circle class="v-verde" cx="25" cy="8" r="2.6"/>
+            <path class="v-sep" d="M1 15H299M1 41H299"/>
+            <!-- encabezado: nombre, buscador, aplicaciones y cuenta -->
+            <text class="tt tt--b" x="10" y="28" font-size="12" dominant-baseline="central">Drive</text>
+            <rect class="v-gris" x="46" y="20" width="132" height="16" rx="8"/>
+            <circle class="v-trazo" cx="55" cy="27.4" r="3"/><path class="v-trazo" d="M57.2 29.6l2.4 2.4"/>
+            <text class="tt" x="64" y="28" font-size="9.5" dominant-baseline="central">Buscar en Drive</text>
+            <g class="v-tinta"><circle cx="240" cy="23" r="1.5"/><circle cx="245" cy="23" r="1.5"/><circle cx="250" cy="23" r="1.5"/><circle cx="240" cy="28" r="1.5"/><circle cx="245" cy="28" r="1.5"/><circle cx="250" cy="28" r="1.5"/><circle cx="240" cy="33" r="1.5"/><circle cx="245" cy="33" r="1.5"/><circle cx="250" cy="33" r="1.5"/></g>
+            <circle class="v-gris" cx="283" cy="28" r="8.5"/><circle class="v-trazo" cx="283" cy="28" r="8.5"/>
+            <circle class="v-tinta" cx="283" cy="25.3" r="2.8"/><path class="v-tinta" d="M277.9 33.4a5.3 4.8 0 0 1 10.2 0z"/>
+            <!-- columna izquierda -->
+            <rect class="v-boton" x="8" y="48" width="60" height="20" rx="6"/>
+            <path class="v-trazo" d="M14.5 58h7M18 54.5v7"/>
+            <text class="tt tt--b" x="26" y="58" font-size="10" dominant-baseline="central">Nuevo</text>
+            <rect class="v-gris" x="6" y="86" width="84" height="14" rx="7"/>
+            <text class="tt" x="14" y="79" font-size="9" dominant-baseline="central">Inicio</text>
+            <text class="tt tt--b" x="14" y="93" font-size="9" dominant-baseline="central">Mi unidad</text>
+            <text class="tt" x="14" y="107" font-size="9" dominant-baseline="central">Compartidos conmigo</text>
+            <text class="tt" x="14" y="121" font-size="9" dominant-baseline="central">Recientes</text>
+            <text class="tt" x="14" y="135" font-size="9" dominant-baseline="central">Destacados</text>
+            <text class="tt" x="14" y="149" font-size="9" dominant-baseline="central">Papelera</text>
+            <!-- Mi unidad: carpetas y documentos -->
+            <text class="tt tt--b" x="112" y="55" font-size="11" dominant-baseline="central">Mi unidad</text>
+            <rect class="v-carpeta-claro" x="112" y="65" width="86" height="20" rx="5"/>
+            <path class="v-carpeta" d="M118 70.5a1 1 0 0 1 1-1h4l1.6 1.8h6a1 1 0 0 1 1 1v6.7a1 1 0 0 1-1 1H119a1 1 0 0 1-1-1z"/>
+            <text class="tt" x="137" y="75" font-size="9.5" dominant-baseline="central">Escuela</text>
+            <rect class="v-carpeta-claro" x="206" y="65" width="86" height="20" rx="5"/>
+            <path class="v-carpeta" d="M212 70.5a1 1 0 0 1 1-1h4l1.6 1.8h6a1 1 0 0 1 1 1v6.7a1 1 0 0 1-1 1H213a1 1 0 0 1-1-1z"/>
+            <text class="tt" x="231" y="75" font-size="9.5" dominant-baseline="central">Fotos</text>
+            <rect class="v-borde" x="112" y="93" width="86" height="88" rx="5"/>
+            <path class="v-renglon" d="M122 103h66M122 110h66M122 117h66M122 124h46M122 136h66M122 143h38"/>
+            <path class="v-sep" d="M112 159H198"/>
+            <rect class="v-doc" x="119" y="164" width="9" height="11.5" rx="1.2"/><path class="v-trazo-claro" d="M121.2 168.3h4.6M121.2 171.3h4.6"/>
+            <text class="tt" x="133" y="170" font-size="9.5" dominant-baseline="central">Mi cuento</text>
+            <rect class="v-borde" x="206" y="93" width="86" height="88" rx="5"/>
+            <path class="v-renglon" d="M216 103h66M216 110h50M216 122h66M216 129h66M216 136h30"/>
+            <path class="v-sep" d="M206 159H292"/>
+            <rect class="v-doc" x="213" y="164" width="9" height="11.5" rx="1.2"/><path class="v-trazo-claro" d="M215.2 168.3h4.6M215.2 171.3h4.6"/>
+            <text class="tt" x="227" y="170" font-size="9.5" dominant-baseline="central">Tareas</text>
+            <rect class="v-marco" x="1" y="1" width="298" height="188" rx="6"/>
+            <!-- referencias -->
+            <circle class="badge" cx="77" cy="58" r="6"/><text class="tt tt--claro tt--b" x="77" y="58" font-size="8" text-anchor="middle" dominant-baseline="central">1</text>
+            <circle class="badge" cx="98" cy="93" r="6"/><text class="tt tt--claro tt--b" x="98" y="93" font-size="8" text-anchor="middle" dominant-baseline="central">2</text>
+            <circle class="badge" cx="188" cy="28" r="6"/><text class="tt tt--claro tt--b" x="188" y="28" font-size="8" text-anchor="middle" dominant-baseline="central">3</text>
+            <circle class="badge" cx="227" cy="28" r="6"/><text class="tt tt--claro tt--b" x="227" y="28" font-size="8" text-anchor="middle" dominant-baseline="central">4</text>
+            <circle class="badge" cx="283" cy="50" r="6"/><text class="tt tt--claro tt--b" x="283" y="50" font-size="8" text-anchor="middle" dominant-baseline="central">5</text>
+          </svg>
+        </figure>
+        <ol class="puntos">
+          <li><span class="puntos__n" aria-hidden="true">1</span><span><strong>Nuevo</strong>: crea documentos y carpetas.</span></li>
+          <li><span class="puntos__n" aria-hidden="true">2</span><span><strong>Mi unidad</strong>: todos nuestros archivos.</span></li>
+          <li><span class="puntos__n" aria-hidden="true">3</span><span><strong>Buscar en Drive</strong>: busca por nombre.</span></li>
+          <li><span class="puntos__n" aria-hidden="true">4</span><span><strong>Aplicaciones de Google</strong>: Documentos y más.</span></li>
+          <li><span class="puntos__n" aria-hidden="true">5</span><span><strong>La cuenta</strong>: con qué cuenta entramos.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <div class="esquema-nota esquema-nota--importante">
+      <h3><svg class="ico tit-ico" aria-hidden="true" focusable="false"><use href="#i-importante"/></svg>Importante</h3>
+      <p>En el laboratorio, al terminar, tocamos el círculo de la cuenta (5) y elegimos <strong>Cerrar sesión</strong>.</p>
+    </div>
+
+    <aside class="idea" aria-label="Idea clave">
+      <span class="idea__ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-foco"/></svg></span>
+      <p><strong>Idea clave:</strong> con nuestra cuenta, abrimos los archivos de Drive desde cualquier computadora o celular.</p>
+    </aside>
+
+    <footer class="pie">
+      <span class="pie__linea"></span>
+      <span>Taller de Procesamiento de Datos — Prof. Nicolás A. Cussi</span>
+      <span class="pie__linea"></span>
+      <span class="pie__num" aria-label="Página 5">5</span>
+    </footer>
+  </article>
+
+  <!-- =================== LÁMINA 6 =================== -->
+  <article class="lamina lamina--compacta" id="pag-6" aria-labelledby="t6">
+    <div class="cab" aria-hidden="true">
+      <svg class="cab__logo"><use href="#i-pc-solido"/></svg>
+      <div class="cab__marca"><b>TALLER DE PROCESAMIENTO DE DATOS</b><span>1.ER AÑO</span></div>
+      <div class="cab__lema"><span class="cab__lema-largo">TRABAJO PRÁCTICO </span><span class="cab__lema-corto">TP </span><span class="cab__lema-n">N°2</span></div>
+      <span class="cab__raya"></span>
+    </div>
+
+    <div class="tit">
+      <h2 class="tit__h" id="t6"><span class="tit__num">6.</span> Crear, abrir y guardar</h2>
+      <p class="tit__sub">El documento se guarda solo</p>
+    </div>
+
+    <section aria-labelledby="s6a">
+      <h3 class="subtitulo" id="s6a">Crear un documento</h3>
+      <ol class="secuencia secuencia--sub">
+        <li class="paso">
+          <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-nuevo"/></svg>
+          <h4>Nuevo</h4>
+          <p>En Drive, tocamos <strong>+ Nuevo</strong>, arriba a la izquierda.</p>
+        </li>
+        <li class="paso">
+          <svg class="ico ico--docs" aria-hidden="true" focusable="false"><use href="#i-documento"/></svg>
+          <h4>Documentos de Google</h4>
+          <p>En la lista, vamos a <strong>Documentos de Google</strong>.</p>
+        </li>
+        <li class="paso">
+          <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-hoja"/></svg>
+          <h4>Documento en blanco</h4>
+          <p>Lo elegimos y se abre en una pestaña nueva.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="pantalla" aria-labelledby="s6b">
+      <h3 class="subtitulo" id="s6b">La ventana de Documentos</h3>
+      <div class="pantalla__cuerpo">
+        <figure class="esquema esquema--ventana">
+          <svg viewBox="0 0 320 150" role="img" aria-labelledby="dc-t dc-d">
+            <title id="dc-t">Esquema de la ventana de Documentos con un documento nuevo</title>
+            <desc id="dc-d">Arriba a la izquierda está el nombre, Documento sin título, y al lado el ícono de la nube. A la derecha, el botón Compartir. Debajo, la barra de menús: Archivo, Editar, Ver, Insertar, Formato, Herramientas, Extensiones y Ayuda, y más abajo la barra de herramientas. En el centro, la hoja en blanco con el cursor. Los números marcan: 1, el nombre; 2, la nube; 3, la barra de menús; 4, el cursor.</desc>
+            <rect class="v-fondo" x="1" y="1" width="318" height="148" rx="6"/>
+            <path class="v-barra" d="M7 1H313a6 6 0 0 1 6 6V15H1V7a6 6 0 0 1 6-6z"/>
+            <circle class="v-rojo" cx="9" cy="8" r="2.6"/><circle class="v-amarillo" cx="17" cy="8" r="2.6"/><circle class="v-verde" cx="25" cy="8" r="2.6"/>
+            <path class="v-sep" d="M1 15H319"/>
+            <!-- ícono, nombre, nube y Compartir -->
+            <rect class="v-doc" x="9" y="19.5" width="12.5" height="16" rx="1.5"/><path class="v-trazo-claro" d="M12 25h6.5M12 28.5h6.5M12 32h4"/>
+            <rect class="v-caja" x="27" y="19.5" width="120" height="16" rx="3"/>
+            <text class="tt" x="31" y="27.5" font-size="11" dominant-baseline="central">Documento sin título</text>
+            <path class="v-trazo" d="M172 32h11a3.4 3.4 0 0 0 .4-6.8 5 5 0 0 0-9.6-1.4 3.9 3.9 0 0 0-1.8 8.2z"/><path class="v-trazo" d="M174.6 28.2l2 2 3.6-3.6"/>
+            <rect class="v-prog-claro" x="254" y="19.5" width="58" height="16" rx="8"/>
+            <text class="tt tt--prog tt--b" x="283" y="27.5" font-size="9" text-anchor="middle" dominant-baseline="central">Compartir</text>
+            <!-- barra de menús -->
+            <text class="tt tt--prog" x="27" y="44" font-size="8" word-spacing="3" dominant-baseline="central">Archivo Editar Ver Insertar Formato Herramientas Extensiones Ayuda</text>
+            <!-- barra de herramientas -->
+            <rect class="v-gris" x="6" y="53" width="308" height="15" rx="7.5"/>
+            <text class="tt tt--prog" x="16" y="60.5" font-size="8" dominant-baseline="central">Texto normal</text>
+            <text class="tt tt--prog" x="86" y="60.5" font-size="8" dominant-baseline="central">Arial</text>
+            <text class="tt tt--prog" x="124" y="60.5" font-size="8" dominant-baseline="central">− 11 +</text>
+            <text class="tt tt--prog tt--b" x="164" y="60.5" font-size="8.5" dominant-baseline="central">B</text>
+            <text class="tt tt--prog tt--i" x="176" y="60.5" font-size="8.5" dominant-baseline="central">I</text>
+            <text class="tt tt--prog" x="186" y="60.5" font-size="8.5" dominant-baseline="central">U</text>
+            <path class="v-sep v-sep--prog" d="M78 56v9M116 56v9M154 56v9"/>
+            <!-- hoja en blanco -->
+            <path class="v-gris" d="M1 73H319V143a6 6 0 0 1-6 6H7a6 6 0 0 1-6-6z"/>
+            <rect class="v-borde" x="78" y="80" width="164" height="70"/>
+            <path class="v-cursor" d="M96 93v12"/>
+            <rect class="v-marco" x="1" y="1" width="318" height="148" rx="6"/>
+            <!-- referencias -->
+            <circle class="badge" cx="155" cy="27.5" r="6"/><text class="tt tt--claro tt--b" x="155" y="27.5" font-size="8" text-anchor="middle" dominant-baseline="central">1</text>
+            <circle class="badge" cx="194" cy="27.5" r="6"/><text class="tt tt--claro tt--b" x="194" y="27.5" font-size="8" text-anchor="middle" dominant-baseline="central">2</text>
+            <circle class="badge" cx="15" cy="44" r="6"/><text class="tt tt--claro tt--b" x="15" y="44" font-size="8" text-anchor="middle" dominant-baseline="central">3</text>
+            <circle class="badge" cx="108" cy="99" r="6"/><text class="tt tt--claro tt--b" x="108" y="99" font-size="8" text-anchor="middle" dominant-baseline="central">4</text>
+          </svg>
+        </figure>
+        <ol class="puntos">
+          <li><span class="puntos__n" aria-hidden="true">1</span><span><strong>Documento sin título</strong>: el nombre. Tocamos y lo cambiamos.</span></li>
+          <li><span class="puntos__n" aria-hidden="true">2</span><span><strong>La nube</strong>: avisa que ya se guardó en Drive.</span></li>
+          <li><span class="puntos__n" aria-hidden="true">3</span><span><strong>Barra de menús</strong>: las opciones de Documentos.</span></li>
+          <li><span class="puntos__n" aria-hidden="true">4</span><span><strong>El cursor</strong>: dónde aparece lo que escribimos.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section aria-labelledby="s6c">
+      <h3 class="subtitulo" id="s6c">Abrir un documento</h3>
+      <ul class="comparar comparar--sub">
+        <li><div><h4>Desde Drive</h4><p>En <strong>Mi unidad</strong>, hacemos doble clic sobre el documento.</p></div><svg class="ico ico--xl ico--carpeta" aria-hidden="true" focusable="false"><use href="#i-carpeta"/></svg></li>
+        <li><div><h4>Desde Documentos</h4><p>En <strong>Aplicaciones de Google</strong>, elegimos <strong>Documentos</strong>: aparecen los últimos que usamos.</p></div><svg class="ico ico--xl ico--docs" aria-hidden="true" focusable="false"><use href="#i-documento"/></svg></li>
+      </ul>
+    </section>
+
+    <aside class="idea" aria-label="Idea clave">
+      <span class="idea__ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-foco"/></svg></span>
+      <p><strong>Idea clave:</strong> Documentos guarda solo cada cambio, sin <kbd>Ctrl</kbd> + <kbd>S</kbd>. Lo que sí hacemos es ponerle un nombre claro, para encontrarlo rápido en Drive.</p>
+    </aside>
+
+    <footer class="pie">
+      <span class="pie__linea"></span>
+      <span>Taller de Procesamiento de Datos — Prof. Nicolás A. Cussi</span>
+      <span class="pie__linea"></span>
+      <span class="pie__num" aria-label="Página 6">6</span>
+    </footer>
+  </article>
+
+  <!-- =================== LÁMINA 7 =================== -->
+  <article class="lamina" id="pag-7" aria-labelledby="t7">
+    <div class="cab" aria-hidden="true">
+      <svg class="cab__logo"><use href="#i-pc-solido"/></svg>
+      <div class="cab__marca"><b>TALLER DE PROCESAMIENTO DE DATOS</b><span>1.ER AÑO</span></div>
+      <div class="cab__lema"><span class="cab__lema-largo">TRABAJO PRÁCTICO </span><span class="cab__lema-corto">TP </span><span class="cab__lema-n">N°2</span></div>
+      <span class="cab__raya"></span>
+    </div>
+
+    <div class="tit">
+      <h2 class="tit__h" id="t7"><span class="tit__num">7.</span> Fuente, tamaño y color</h2>
+      <p class="tit__sub">Cambiar cómo se ve la letra</p>
+    </div>
+
+    <div class="intro">
+      <svg class="ico ico--xl" aria-hidden="true" focusable="false"><use href="#i-fuente"/></svg>
+      <p>La <strong>fuente</strong> es el tipo de letra: la forma que tienen las letras. También podemos cambiar su <strong>tamaño</strong> y su <strong>color</strong>. Antes, siempre <strong>seleccionamos</strong> el texto: lo marcamos arrastrando el mouse por encima.</p>
+    </div>
+
+    <section class="pantalla" aria-labelledby="s7">
+      <h3 class="subtitulo" id="s7">La barra de herramientas</h3>
+      <figure class="esquema esquema--barra">
+        <svg viewBox="0 0 320 64" role="img" aria-labelledby="bh-t bh-d">
+          <title id="bh-t">Esquema de la barra de herramientas de Documentos</title>
+          <desc id="bh-d">De izquierda a derecha: Texto normal, la fuente Arial, el tamaño 11 con los botones menos y más, los botones B, I y U, el botón A de Color del texto, el marcador de Color de resaltado y los botones de alineación. Los números marcan: 1, la fuente; 2, el tamaño; 3, Color del texto; 4, Color de resaltado.</desc>
+          <rect class="v-borde" x="2" y="4" width="316" height="30" rx="15"/>
+          <text class="tt tt--prog" x="14" y="19" font-size="10" dominant-baseline="central">Texto normal</text>
+          <path class="v-trazo v-trazo--prog" d="M77 17.5l2.5 2.5 2.5-2.5"/>
+          <path class="v-sep v-sep--prog" d="M91 11v16M141 11v16M201 11v16M253 11v16M297 11v16"/>
+          <text class="tt tt--prog" x="99" y="19" font-size="10" dominant-baseline="central">Arial</text>
+          <path class="v-trazo v-trazo--prog" d="M127 17.5l2.5 2.5 2.5-2.5"/>
+          <path class="v-trazo v-trazo--prog" d="M147 19h6M185 19h6M188 16v6"/>
+          <rect class="v-boton v-boton--prog" x="157" y="11.5" width="24" height="15" rx="3"/>
+          <text class="tt tt--prog" x="169" y="19" font-size="10" text-anchor="middle" dominant-baseline="central">11</text>
+          <text class="tt tt--prog tt--b" x="209" y="19" font-size="11" dominant-baseline="central">B</text>
+          <text class="tt tt--prog tt--i" x="224" y="19" font-size="11" dominant-baseline="central">I</text>
+          <text class="tt tt--prog" x="236" y="19" font-size="11" dominant-baseline="central">U</text>
+          <path class="v-trazo v-trazo--prog" d="M236 25h7"/>
+          <text class="tt tt--prog tt--b" x="264" y="17" font-size="11" text-anchor="middle" dominant-baseline="central">A</text>
+          <rect class="v-muestra-rojo" x="258" y="23.5" width="12" height="3" rx=".5"/>
+          <path class="v-trazo v-trazo--prog" d="M281 21.5l6.5-8 3.5 2.8-6.5 8h-3.5z"/>
+          <rect class="v-muestra-resaltado" x="279" y="23.5" width="12" height="3" rx=".5"/>
+          <path class="v-trazo v-trazo--prog" d="M303 13h10M303 17h7M303 21h10M303 25h7"/>
+          <!-- referencias -->
+          <path class="guia" d="M111 34v12M169 34v12M264 34v12M285 34v12"/>
+          <circle class="badge" cx="111" cy="53" r="7"/><text class="tt tt--claro tt--b" x="111" y="53" font-size="9" text-anchor="middle" dominant-baseline="central">1</text>
+          <circle class="badge" cx="169" cy="53" r="7"/><text class="tt tt--claro tt--b" x="169" y="53" font-size="9" text-anchor="middle" dominant-baseline="central">2</text>
+          <circle class="badge" cx="264" cy="53" r="7"/><text class="tt tt--claro tt--b" x="264" y="53" font-size="9" text-anchor="middle" dominant-baseline="central">3</text>
+          <circle class="badge" cx="285" cy="53" r="7"/><text class="tt tt--claro tt--b" x="285" y="53" font-size="9" text-anchor="middle" dominant-baseline="central">4</text>
+        </svg>
+      </figure>
+      <ul class="formatos">
+        <li class="tarjeta">
+          <h4 class="tarjeta__cab">1 · Fuente</h4>
+          <p class="formatos__muestra"><span class="f-arial">Arial</span><span class="f-times">Times New Roman</span><span class="f-courier">Courier New</span></p>
+          <p>La elegimos en la lista de fuentes. Arial es la que viene de entrada.</p>
+        </li>
+        <li class="tarjeta">
+          <h4 class="tarjeta__cab">2 · Tamaño</h4>
+          <p class="formatos__muestra formatos__muestra--tam"><span class="t-11">Aa<small>11</small></span><span class="t-14">Aa<small>14</small></span><span class="t-20">Aa<small>20</small></span></p>
+          <p>Se mide en puntos. Con <strong>−</strong> y <strong>+</strong> lo cambiamos de a uno.</p>
+        </li>
+        <li class="tarjeta">
+          <h4 class="tarjeta__cab">3 · Color del texto</h4>
+          <p class="formatos__muestra"><span class="muestra-color">Texto en color</span></p>
+          <p>Cambia el color de las letras.</p>
+        </li>
+        <li class="tarjeta">
+          <h4 class="tarjeta__cab">4 · Color de resaltado</h4>
+          <p class="formatos__muestra"><span><mark class="muestra-resaltado">Texto resaltado</mark></span></p>
+          <p>Pinta el fondo de las letras, como un resaltador.</p>
+        </li>
+      </ul>
+    </section>
+
+    <p class="consejo"><svg class="ico tit-ico" aria-hidden="true" focusable="false"><use href="#i-consejo"/></svg><strong>Recomendación:</strong> usar pocos colores y que el texto sea oscuro sobre el fondo blanco, para que se lea bien. El color, solo para destacar.</p>
+
+    <aside class="idea" aria-label="Idea clave">
+      <span class="idea__ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-foco"/></svg></span>
+      <p><strong>Idea clave:</strong> primero seleccionamos el texto; después cambiamos la fuente, el tamaño o el color.</p>
+    </aside>
+
+    <footer class="pie">
+      <span class="pie__linea"></span>
+      <span>Taller de Procesamiento de Datos — Prof. Nicolás A. Cussi</span>
+      <span class="pie__linea"></span>
+      <span class="pie__num" aria-label="Página 7">7</span>
+    </footer>
+  </article>
+
+  <!-- =================== LÁMINA 8 =================== -->
+  <article class="lamina" id="pag-8" aria-labelledby="t8">
+    <div class="cab" aria-hidden="true">
+      <svg class="cab__logo"><use href="#i-pc-solido"/></svg>
+      <div class="cab__marca"><b>TALLER DE PROCESAMIENTO DE DATOS</b><span>1.ER AÑO</span></div>
+      <div class="cab__lema"><span class="cab__lema-largo">TRABAJO PRÁCTICO </span><span class="cab__lema-corto">TP </span><span class="cab__lema-n">N°2</span></div>
+      <span class="cab__raya"></span>
+    </div>
+
+    <div class="tit">
+      <h2 class="tit__h" id="t8"><span class="tit__num">8.</span> Destacar y alinear el texto</h2>
+      <p class="tit__sub">Negrita, cursiva, subrayado y alineación</p>
+    </div>
+
+    <section aria-labelledby="s8a">
+      <h3 class="subtitulo" id="s8a">Negrita, cursiva y subrayado</h3>
+      <p class="texto texto--sub">Sirven para destacar palabras. Seleccionamos el texto y tocamos el botón, o usamos el atajo. Si lo tocamos otra vez, el estilo se va.</p>
+      <ul class="atajos">
+        <li><p class="atajos__teclas"><span class="btn-prog" aria-hidden="true">B</span> <kbd>Ctrl</kbd> + <kbd>B</kbd></p><h4>Negrita</h4><p>Letra más gruesa. Para las <strong>palabras clave</strong>.</p></li>
+        <li><p class="atajos__teclas"><span class="btn-prog btn-prog--i" aria-hidden="true">I</span> <kbd>Ctrl</kbd> + <kbd>I</kbd></p><h4>Cursiva</h4><p>Letra inclinada. Para títulos de libros o palabras en otro idioma, como <em>mouse</em>.</p></li>
+        <li><p class="atajos__teclas"><span class="btn-prog btn-prog--u" aria-hidden="true">U</span> <kbd>Ctrl</kbd> + <kbd>U</kbd></p><h4>Subrayado</h4><p>Una línea abajo. Casi no se usa: se confunde con un <u>enlace</u>.</p></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="s8b">
+      <h3 class="subtitulo" id="s8b">Alineación</h3>
+      <p class="texto texto--sub">Ordena los renglones de un párrafo. Para alinear un párrafo, alcanza con dejar el cursor adentro y tocar el botón.</p>
+      <ul class="alinear">
+        <li>
+          <svg viewBox="0 0 44 34" role="img" aria-label="Renglones alineados a la izquierda"><rect class="al-hoja" x="1" y="1" width="42" height="32" rx="3"/><path class="al-renglon" d="M7 8h30M7 13.5h22M7 19h28M7 24.5h16"/></svg>
+          <h4>Alinear a la izquierda</h4>
+          <p class="alinear__atajo"><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd></p>
+          <p>La de siempre, para el texto común.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 44 34" role="img" aria-label="Renglones centrados"><rect class="al-hoja" x="1" y="1" width="42" height="32" rx="3"/><path class="al-renglon" d="M7 8h30M11 13.5h22M8 19h28M14 24.5h16"/></svg>
+          <h4>Centrar</h4>
+          <p class="alinear__atajo"><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd></p>
+          <p>Para los títulos.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 44 34" role="img" aria-label="Renglones alineados a la derecha"><rect class="al-hoja" x="1" y="1" width="42" height="32" rx="3"/><path class="al-renglon" d="M7 8h30M15 13.5h22M9 19h28M21 24.5h16"/></svg>
+          <h4>Alinear a la derecha</h4>
+          <p class="alinear__atajo"><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd></p>
+          <p>Para la fecha de una carta.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 44 34" role="img" aria-label="Renglones justificados"><rect class="al-hoja" x="1" y="1" width="42" height="32" rx="3"/><path class="al-renglon" d="M7 8h30M7 13.5h30M7 19h30M7 24.5h18"/></svg>
+          <h4>Justificar</h4>
+          <p class="alinear__atajo"><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>J</kbd></p>
+          <p>Bordes parejos de los dos lados, como en los libros.</p>
+        </li>
+      </ul>
+    </section>
+
+    <aside class="idea" aria-label="Idea clave">
+      <span class="idea__ico"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-foco"/></svg></span>
+      <p><strong>Idea clave:</strong> si destacamos todo, no se destaca nada. La negrita va solo en las palabras más importantes.</p>
+    </aside>
+
+    <footer class="pie">
+      <span class="pie__linea"></span>
+      <span>Taller de Procesamiento de Datos — Prof. Nicolás A. Cussi</span>
+      <span class="pie__linea"></span>
+      <span class="pie__num" aria-label="Página 8">8</span>
+    </footer>
+  </article>
+
+  <!-- =================== PARA PROFUNDIZAR =================== -->
+  <article class="lamina lamina--pf" id="profundizar" aria-labelledby="tpf">
+    <div class="cab" aria-hidden="true">
+      <svg class="cab__logo"><use href="#i-pc-solido"/></svg>
+      <div class="cab__marca"><b>TALLER DE PROCESAMIENTO DE DATOS</b><span>1.ER AÑO</span></div>
+      <div class="cab__lema"><span class="cab__lema-largo">TRABAJO PRÁCTICO </span><span class="cab__lema-corto">TP </span><span class="cab__lema-n">N°2</span></div>
+      <span class="cab__raya"></span>
+    </div>
+
+    <div class="tit">
+      <h2 class="tit__h" id="tpf"><span class="tit__num">+</span> Para profundizar</h2>
+      <p class="tit__sub">Un poco más sobre cada lámina</p>
+    </div>
+
+    <div class="pf-grid">
+    <section class="pf" aria-labelledby="pf5">
+      <p class="pf__etiqueta">Lámina 5</p>
+      <h3 class="pf__titulo" id="pf5">La computadora compartida</h3>
+      <div class="pf__cols">
+        <div class="pf__texto">
+          <p>En el laboratorio, muchas personas usan la misma computadora. Si no cerramos la sesión, la próxima persona que la use puede abrir nuestros archivos.</p>
+          <p>Otra opción es la <strong>ventana de incógnito</strong> de Chrome, que se abre con <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd>. Cuando la cerramos, la sesión se cierra sola.</p>
+        </div>
+        <div class="pf__caja pf__caja--importante">
+          <h4><svg class="ico tit-ico" aria-hidden="true" focusable="false"><use href="#i-importante"/></svg>Antes de irte</h4>
+          <ul class="pf__lista">
+            <li>Cerrar la sesión: el círculo de la cuenta › <strong>Cerrar sesión</strong>.</li>
+            <li>Si el navegador pregunta si guarda la contraseña, elegir <strong>Nunca</strong>.</li>
+            <li>La contraseña no se comparte con nadie.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="pf" aria-labelledby="pf6">
+      <p class="pf__etiqueta">Lámina 6</p>
+      <h3 class="pf__titulo" id="pf6">Ordenar Drive con carpetas</h3>
+      <div class="pf__cols">
+        <div class="pf__texto">
+          <p>Con el tiempo, Drive se llena de archivos. Las <strong>carpetas</strong> juntan los archivos de un mismo tema, como las carpetas de la escuela.</p>
+          <p>Para crear una: <span class="menu">Nuevo › Nueva carpeta</span>. Para guardar un documento adentro, lo arrastramos hasta la carpeta.</p>
+        </div>
+        <div class="pf__caja">
+          <h4>Un ejemplo</h4>
+          <ul class="arbol">
+            <li><svg class="ico ico--carpeta" aria-hidden="true" focusable="false"><use href="#i-carpeta"/></svg>Mi unidad</li>
+            <li class="arbol__n2"><svg class="ico ico--carpeta" aria-hidden="true" focusable="false"><use href="#i-carpeta"/></svg>Escuela</li>
+            <li class="arbol__n3"><svg class="ico ico--carpeta" aria-hidden="true" focusable="false"><use href="#i-carpeta"/></svg>Procesamiento de Datos</li>
+            <li class="arbol__n4"><svg class="ico ico--docs" aria-hidden="true" focusable="false"><use href="#i-documento"/></svg>TP2 - Autobiografía - Ana Pérez</li>
+          </ul>
+          <p>El nombre dice qué es y de quién es.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="pf" aria-labelledby="pf7">
+      <p class="pf__etiqueta">Lámina 7</p>
+      <h3 class="pf__titulo" id="pf7">Letras con y sin serifa</h3>
+      <div class="pf__cols">
+        <div class="pf__texto">
+          <p>Las <strong>serifas</strong> son los remates chiquitos en las puntas de las letras. <span class="f-times">Times New Roman</span> tiene serifas; <span class="f-arial">Arial</span>, no.</p>
+          <p>Las letras sin serifa se leen bien en la pantalla. Las letras con serifa son comunes en los libros impresos.</p>
+        </div>
+        <div class="pf__caja pf__caja--consejo">
+          <h4><svg class="ico tit-ico" aria-hidden="true" focusable="false"><use href="#i-consejo"/></svg>Para elegir</h4>
+          <ul class="pf__lista">
+            <li>Dos o tres fuentes por documento alcanzan.</li>
+            <li>Texto: 11 o 12 puntos. Títulos: de 16 a 24.</li>
+            <li>Al final de la lista de fuentes, <strong>Más fuentes</strong> muestra muchas más.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="pf" aria-labelledby="pf8">
+      <p class="pf__etiqueta">Lámina 8</p>
+      <h3 class="pf__titulo" id="pf8">Copiar y borrar el formato</h3>
+      <div class="pf__cols">
+        <div class="pf__texto">
+          <p><strong>Copiar formato</strong> (el botón del rodillo de pintura) le pasa el formato de un texto a otro: la fuente, el tamaño, el color y los estilos.</p>
+          <p><strong>Borrar formato</strong> hace lo contrario: deja el texto como al principio. Está en <span class="menu">Formato › Borrar formato</span>.</p>
+        </div>
+        <div class="pf__caja">
+          <h4>Copiar formato, paso a paso</h4>
+          <ul class="pf__lista">
+            <li>Seleccionamos el texto que tiene el formato que queremos.</li>
+            <li>Tocamos <strong>Copiar formato</strong>.</li>
+            <li>Seleccionamos el otro texto: toma el mismo formato.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    </div>
+
+    <footer class="pie">
+      <span class="pie__linea"></span>
+      <span>Taller de Procesamiento de Datos — Prof. Nicolás A. Cussi</span>
+      <span class="pie__linea"></span>
+      <span class="pie__num">TP 2</span>
+    </footer>
+  </article>
+
+  <!-- =================== ACTIVIDADES · Parte 1 =================== -->
+  <article class="lamina lamina--act" id="actividades" aria-labelledby="act-1">
+    <div class="cab" aria-hidden="true">
+      <svg class="cab__logo"><use href="#i-pc-solido"/></svg>
+      <div class="cab__marca"><b>TALLER DE PROCESAMIENTO DE DATOS</b><span>1.ER AÑO</span></div>
+      <div class="cab__lema"><span class="cab__lema-largo">TRABAJO PRÁCTICO </span><span class="cab__lema-corto">TP </span><span class="cab__lema-n">N°2</span></div>
+      <span class="cab__raya"></span>
+    </div>
+
+    <header class="act-banda">
+      <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-lapiz"/></svg>
+      <div>
+        <h2 id="act-1">Actividades para hacer en la carpeta</h2>
+        <p>TP N°2 — Mi primer documento</p>
+      </div>
+      <span class="act-banda__parte">Parte<br>1 de 2</span>
+    </header>
+
+    <p class="consigna"><strong>Consigna:</strong> Respondé cada punto en la carpeta, con tus propias palabras. Podés apoyarte en las láminas y en “Para profundizar” del TP N°2.</p>
+
+    <ol class="acts acts--2col">
+      <li class="act">
+        <h3 class="act__titulo"><span class="act__num">1-</span> Mi cuenta de Google y Drive</h3>
+        <ol class="act__items">
+          <li><b class="act__letra">a)</b><div>¿Qué dos datos necesitás para entrar a tu cuenta de Google?</div></li>
+          <li><b class="act__letra">b)</b><div>¿Qué es Drive? ¿Para qué sirve?</div></li>
+          <li><b class="act__letra">c)</b><div>¿Por qué hay que cerrar la sesión al terminar de usar una computadora del laboratorio?</div></li>
+        </ol>
+      </li>
+      <li class="act">
+        <h3 class="act__titulo"><span class="act__num">2-</span> Crear, abrir y guardar</h3>
+        <ol class="act__items">
+          <li><b class="act__letra">a)</b><div>Escribí los pasos para crear un documento nuevo desde Drive.</div></li>
+          <li><b class="act__letra">b)</b><div>¿Cómo le cambiás el nombre a un documento?</div></li>
+          <li><b class="act__letra">c)</b><div>¿Hace falta apretar <kbd>Ctrl</kbd> + <kbd>S</kbd> en Documentos? ¿Por qué?</div></li>
+        </ol>
+      </li>
+      <li class="act">
+        <h3 class="act__titulo"><span class="act__num">3-</span> Fuente, tamaño y color</h3>
+        <ol class="act__items">
+          <li><b class="act__letra">a)</b><div>¿Qué es la fuente? Nombrá dos.</div></li>
+          <li><b class="act__letra">b)</b><div>¿Qué tenés que hacer antes de cambiarle el tamaño o el color a una palabra?</div></li>
+          <li><b class="act__letra">c)</b><div>¿Qué diferencia hay entre <strong>Color del texto</strong> y <strong>Color de resaltado</strong>?</div></li>
+        </ol>
+      </li>
+      <li class="act">
+        <h3 class="act__titulo"><span class="act__num">4-</span> Destacar y alinear el texto</h3>
+        <ol class="act__items">
+          <li><b class="act__letra">a)</b><div>Uní cada estilo con su atajo. Estilos: negrita / cursiva / subrayado. Atajos: <kbd>Ctrl</kbd> + <kbd>U</kbd> / <kbd>Ctrl</kbd> + <kbd>B</kbd> / <kbd>Ctrl</kbd> + <kbd>I</kbd>.</div></li>
+          <li><b class="act__letra">b)</b><div>¿Qué alineación usarías para un título? ¿Y para los párrafos de un texto largo?</div></li>
+          <li><b class="act__letra">c)</b><div>¿Por qué no conviene poner todo el texto en negrita?</div></li>
+        </ol>
+      </li>
+    </ol>
+
+    <footer class="pie">
+      <span class="pie__linea"></span>
+      <span>Taller de Procesamiento de Datos — Prof. Nicolás A. Cussi</span>
+      <span class="pie__linea"></span>
+      <span class="pie__num">TP 2</span>
+    </footer>
+  </article>
+
+  <!-- =================== ACTIVIDADES · Parte 2 =================== -->
+  <article class="lamina lamina--act lamina--compu" id="actividades-2" aria-labelledby="act-2">
+    <div class="cab" aria-hidden="true">
+      <svg class="cab__logo"><use href="#i-pc-solido"/></svg>
+      <div class="cab__marca"><b>TALLER DE PROCESAMIENTO DE DATOS</b><span>1.ER AÑO</span></div>
+      <div class="cab__lema"><span class="cab__lema-largo">TRABAJO PRÁCTICO </span><span class="cab__lema-corto">TP </span><span class="cab__lema-n">N°2</span></div>
+      <span class="cab__raya"></span>
+    </div>
+
+    <header class="act-banda">
+      <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-documento"/></svg>
+      <div>
+        <h2 id="act-2">Práctica en la computadora</h2>
+        <p>TP N°2 — Mi primer documento</p>
+      </div>
+      <span class="act-banda__parte">Parte<br>2 de 2</span>
+    </header>
+
+    <p class="consigna"><strong>Consigna:</strong> Escribí una autobiografía de 1 página con título centrado, párrafos justificados, palabras clave en negrita y al menos 3 estilos de fuente. Seguí los cuatro pasos.</p>
+
+    <ol class="acts acts--2col">
+      <li class="act">
+        <h3 class="act__titulo"><span class="act__num">1-</span> Crear el documento</h3>
+        <ol class="act__items">
+          <li><b class="act__letra">a)</b><div>Entrá a tu cuenta de Google y abrí Drive.</div></li>
+          <li><b class="act__letra">b)</b><div>Creá un documento en blanco y ponele de nombre: <strong>TP2 - Autobiografía - tu nombre y apellido</strong>.</div></li>
+        </ol>
+      </li>
+      <li class="act">
+        <h3 class="act__titulo"><span class="act__num">2-</span> Escribir la autobiografía</h3>
+        <ol class="act__items">
+          <li><b class="act__letra">a)</b><div>Arriba de todo, escribí un título.</div></li>
+          <li><b class="act__letra">b)</b><div>Contá quién sos, dónde naciste, qué te gusta hacer, tu comida o tu música favorita y qué te gustaría aprender. El texto tiene que ocupar <strong>1 página</strong>.</div></li>
+        </ol>
+      </li>
+      <li class="act">
+        <h3 class="act__titulo"><span class="act__num">3-</span> Dar formato</h3>
+        <ol class="act__items">
+          <li><b class="act__letra">a)</b><div>Poné el <strong>título centrado</strong> y más grande que el resto del texto.</div></li>
+          <li><b class="act__letra">b)</b><div>Dejá los <strong>párrafos justificados</strong>.</div></li>
+          <li><b class="act__letra">c)</b><div>Poné las <strong>palabras clave en negrita</strong>.</div></li>
+          <li><b class="act__letra">d)</b><div>Usá <strong>al menos 3 estilos de fuente</strong>, es decir, 3 fuentes distintas. Por ejemplo: una para el título, otra para los párrafos y otra para una frase que quieras destacar.</div></li>
+        </ol>
+      </li>
+      <li class="act">
+        <h3 class="act__titulo"><span class="act__num">4-</span> Entregar</h3>
+        <ol class="act__items">
+          <li><b class="act__letra">a)</b><div>Abrí la tarea del TP N°2 en Classroom.</div></li>
+          <li><b class="act__letra">b)</b><div>Tocá <strong>Agregar o crear</strong>, elegí <strong>Google Drive</strong> y buscá tu documento.</div></li>
+          <li><b class="act__letra">c)</b><div>Tocá <strong>Entregar</strong>.</div></li>
+        </ol>
+      </li>
+    </ol>
+
+    <section class="entrega" aria-labelledby="ent-2">
+      <svg class="ico ico--l" aria-hidden="true" focusable="false"><use href="#i-subir"/></svg>
+      <div>
+        <h3 id="ent-2">Entrega</h3>
+        <p>Entregá en la tarea de Classroom el <strong>link al documento compartido</strong>. Si lo adjuntás desde <strong>Google Drive</strong>, como en el paso 4, Classroom lo comparte con tu docente.</p>
+      </div>
+    </section>
+
+    <footer class="pie">
+      <span class="pie__linea"></span>
+      <span>Taller de Procesamiento de Datos — Prof. Nicolás A. Cussi</span>
+      <span class="pie__linea"></span>
+      <span class="pie__num">TP 2</span>
+    </footer>
+  </article>
+</main>
+
+<script src="../assets/js/actividades.js"></script>
+</body>
+</html>

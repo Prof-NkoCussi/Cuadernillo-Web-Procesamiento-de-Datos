@@ -239,7 +239,7 @@ button.boton { border: 0; font-family: inherit; cursor: pointer; }
   background: var(--panel); border-radius: 8px; padding: 12px 14px;
 }
 .paso .ico { grid-area: ico; width: 56px; height: 56px; margin: 0 auto; }
-.paso h3 { grid-area: tit; font-family: var(--fuente); font-weight: 700; font-size: 19px; color: var(--tinta); }
+.paso h3, .paso h4 { grid-area: tit; font-family: var(--fuente); font-weight: 700; font-size: 19px; color: var(--tinta); }
 .paso p  { grid-area: txt; font-size: 16px; line-height: 1.3; }
 
 /* Tarjetas blancas con encabezado celeste */
@@ -293,7 +293,7 @@ button.boton { border: 0; font-family: inherit; cursor: pointer; }
   display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px;
   background: var(--panel); border-radius: var(--radio); padding: 14px;
 }
-.comparar h3 { font-family: var(--fuente-titulo); font-weight: 700; font-size: 23px; color: var(--tinta); line-height: 1.1; margin-bottom: 4px; }
+.comparar h3, .comparar h4 { font-family: var(--fuente-titulo); font-weight: 700; font-size: 23px; color: var(--tinta); line-height: 1.1; margin-bottom: 4px; }
 .comparar p { font-size: 16.5px; line-height: 1.35; }
 
 /* Tabla comparativa */
@@ -451,9 +451,9 @@ kbd.con-relieve { text-decoration: underline; text-decoration-thickness: 3px; te
 
 /* Atajos */
 .atajos { display: grid; gap: 8px; }
-.atajos li { display: grid; gap: 3px; background: var(--panel); border-radius: var(--radio); padding: 10px 14px; }
+.atajos li { display: grid; gap: 3px; align-content: start; background: var(--panel); border-radius: var(--radio); padding: 10px 14px; }
 .atajos__teclas { font-size: 18px; font-weight: 700; color: var(--tinta); }
-.atajos h3 { font-family: var(--fuente-titulo); font-weight: 700; font-size: 20px; line-height: 1.15; color: var(--tinta); }
+.atajos h3, .atajos h4 { font-family: var(--fuente-titulo); font-weight: 700; font-size: 20px; line-height: 1.15; color: var(--tinta); }
 .atajos p:last-child { font-size: 15.5px; line-height: 1.3; }
 .texto--sub { margin: 10px 0 12px; font-size: 16.5px; }
 .comparar p kbd { margin-bottom: 4px; }
@@ -597,6 +597,9 @@ kbd.con-relieve { text-decoration: underline; text-decoration-thickness: 3px; te
   /* Tintes para rellenar teclas (dedos y zonas): siempre con texto --tinta encima */
   --tinte-violeta: #C4B5FD;  --tinte-azul: #93C5FD;  --tinte-verde: #86EFAC;
   --tinte-ambar: #FCD34D;    --tinte-naranja: #FDBA74;
+
+  /* Muestras de color dentro de un documento (lámina 7): texto en color y resaltador */
+  --doc-rojo: #B91C1C;  --doc-resaltado: #FEF08A;
 }
 
 /* ---- Programa de cada TP, tarjeta o módulo ----
@@ -667,6 +670,7 @@ code.formula { font-family: Consolas, "Cascadia Mono", Menlo, "DejaVu Sans Mono"
 
 /* ---- Esquemas ---- */
 .ico--carpeta { --ac: var(--carpeta); }
+.ico--docs { --ac: var(--docs); }
 .pf__lista li.punto--cian::before { background: var(--cian-texto); }
 .pf__lista li.punto--naranja::before { background: var(--naranja-texto); }
 
@@ -682,6 +686,98 @@ code.formula { font-family: Consolas, "Cascadia Mono", Menlo, "DejaVu Sans Mono"
 .z-esp, .d-pu { fill: var(--tinte-naranja); background: var(--tinte-naranja); }
 
 /* ==========================================================
+   TP2: pantallas de Drive y Documentos, formato del texto
+   ========================================================== */
+/* Pantalla de un programa: esquema SVG + lista numerada */
+.pantalla { display: grid; gap: 12px; background: var(--panel); border-radius: 12px; padding: 16px 14px; }
+.pantalla__cuerpo { display: grid; gap: 12px; align-items: center; }
+.esquema--ventana svg { max-width: 520px; margin: 0 auto; }
+.esquema--barra svg { max-width: 560px; margin: 0 auto; }
+
+/* Ventana de un programa (esquemas SVG) */
+.v-fondo { fill: var(--blanco); }
+.v-marco { fill: none; stroke: var(--tinta); stroke-width: 1.2; }
+.v-barra { fill: var(--prog-claro); }
+.v-barra--neutra { fill: var(--panel); }   /* Drive no tiene color propio */
+.v-gris { fill: var(--panel); }
+.v-borde { fill: var(--blanco); stroke: var(--linea); stroke-width: 1; }
+.v-boton { fill: var(--blanco); stroke: var(--tinta); stroke-width: .9; }
+.v-boton--prog { stroke: var(--prog-texto); }
+.v-caja { fill: none; stroke: var(--prog); stroke-width: 1; stroke-dasharray: 3 2; }
+.v-prog-claro { fill: var(--prog-claro); stroke: var(--prog-linea); stroke-width: 1; }
+.v-sep { fill: none; stroke: var(--linea); stroke-width: 1; }
+.v-sep--prog { stroke: var(--prog-linea); }
+.v-trazo { fill: none; stroke: var(--tinta); stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+.v-trazo--prog { stroke: var(--prog-texto); }
+.v-trazo-claro { fill: none; stroke: var(--blanco); stroke-width: 1.2; stroke-linecap: round; }
+.v-renglon { fill: none; stroke: var(--linea); stroke-width: 2.2; stroke-linecap: round; }
+.v-cursor { fill: none; stroke: var(--tinta); stroke-width: 1.6; }
+.v-tinta { fill: var(--tinta); }
+.v-rojo { fill: var(--punto-rojo); }
+.v-amarillo { fill: var(--punto-amarillo); }
+.v-verde { fill: var(--punto-verde); }
+.v-carpeta { fill: var(--carpeta); }
+.v-carpeta-claro { fill: var(--carpeta-claro); stroke: var(--carpeta-linea); stroke-width: 1; }
+.v-doc { fill: var(--docs); }
+.v-muestra-rojo { fill: var(--doc-rojo); }
+.v-muestra-resaltado { fill: var(--doc-resaltado); stroke: var(--tinta); stroke-width: .5; }
+.esquema .tt--prog { fill: var(--prog-texto); }
+.esquema .tt--b { font-weight: 700; }
+.esquema .tt--i { font-style: italic; }
+
+/* Fuente, tamaño y color (lámina 7) */
+.formatos { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.formatos .tarjeta { gap: 6px; padding-bottom: 10px; }
+.formatos .tarjeta__cab { font-size: 16px; }
+.formatos .tarjeta p { font-size: 15px; }
+.tarjeta .formatos__muestra {
+  flex-grow: 1; display: flex; flex-direction: column; justify-content: center; gap: 2px;
+  font-size: 17px; line-height: 1.2; color: var(--tinta);
+}
+.tarjeta .formatos__muestra--tam { flex-direction: row; justify-content: center; align-items: baseline; gap: 10px; }
+.formatos__muestra--tam span { display: inline-flex; flex-direction: column; align-items: center; line-height: 1; }
+.formatos__muestra--tam small { font-size: 12px; font-weight: 700; color: var(--gris); margin-top: 3px; }
+.t-11 { font-size: 15px; }
+.t-14 { font-size: 19px; }
+.t-20 { font-size: 27px; }
+.f-arial { font-family: Arial, "Liberation Sans", Helvetica, sans-serif; }
+.f-times { font-family: "Times New Roman", Times, "Liberation Serif", serif; }
+.f-courier { font-family: "Courier New", Courier, "Liberation Mono", monospace; }
+.muestra-color { color: var(--doc-rojo); font-weight: 600; }
+.muestra-resaltado { background: var(--doc-resaltado); color: var(--tinta); padding: 0 3px; }
+
+/* Botones de la barra de herramientas dentro del texto (B, I, U) */
+.btn-prog {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 1.6em; height: 1.6em; padding: 0 .3em; border-radius: 6px; vertical-align: middle;
+  background: var(--prog-claro); color: var(--prog-texto); box-shadow: inset 0 0 0 1px var(--prog-linea);
+  font-family: var(--fuente); font-weight: 700; font-size: .9em;
+}
+.btn-prog--i { font-style: italic; }
+.btn-prog--u { text-decoration: underline; text-underline-offset: 2px; }
+
+/* Alineación (lámina 8) */
+.alinear { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.alinear li {
+  display: flex; flex-direction: column; align-items: center; gap: 5px; text-align: center;
+  background: var(--panel); border-radius: var(--radio); padding: 12px 8px;
+}
+.alinear svg { width: 66px; height: 51px; }
+.al-hoja { fill: var(--blanco); stroke: var(--tinta); stroke-width: 1.5; }
+.al-renglon { fill: none; stroke: var(--prog); stroke-width: 2.6; stroke-linecap: round; }
+.alinear h4 { font-family: var(--fuente-titulo); font-weight: 700; font-size: 18px; line-height: 1.15; color: var(--tinta); min-height: 2.3em; display: flex; align-items: center; }
+.alinear p { font-size: 15px; line-height: 1.3; }
+.alinear .alinear__atajo { font-size: 15px; font-weight: 700; color: var(--tinta); }
+
+/* Árbol de carpetas ("Para profundizar") */
+.arbol { display: grid; gap: 3px; }
+.arbol li { display: flex; align-items: center; gap: 6px; }
+.arbol .ico { width: 20px; height: 20px; stroke-width: 3.4; }
+.arbol__n2 { padding-left: 14px; }
+.arbol__n3 { padding-left: 28px; }
+.arbol__n4 { padding-left: 42px; }
+
+/* ==========================================================
    Pantallas medianas: secuencias horizontales
    ========================================================== */
 @media (min-width: 600px), print {
@@ -695,7 +791,7 @@ code.formula { font-family: Consolas, "Cascadia Mono", Menlo, "DejaVu Sans Mono"
     text-align: center; row-gap: 10px; padding: 14px 10px 16px; height: 100%;
     align-content: start;
   }
-  .paso h3 { font-size: 20px; }
+  .paso h3, .paso h4 { font-size: 20px; }
   .paso .ico { width: 64px; height: 64px; }
   .mosaico { grid-template-columns: repeat(4, 1fr); }
   .ambitos { grid-template-columns: repeat(3, 1fr); }
@@ -726,6 +822,16 @@ code.formula { font-family: Consolas, "Cascadia Mono", Menlo, "DejaVu Sans Mono"
   .postura__cuerpo { grid-template-columns: 1.15fr 1fr; gap: 16px; }
   .fila-guia { grid-template-columns: 1fr 1fr 1fr; }
   .atajos { grid-template-columns: 1fr 1fr; }
+  .pantalla__cuerpo { grid-template-columns: 1.7fr 1fr; gap: 14px; }
+  /* Pasos cortos (TP2): ícono a la izquierda, para que ocupen menos alto */
+  .secuencia--sub .paso {
+    grid-template-columns: 50px 1fr; grid-template-areas: "ico tit" "ico txt";
+    text-align: left; row-gap: 3px; column-gap: 12px; padding: 12px 12px; align-content: center;
+  }
+  .secuencia--sub .paso .ico { width: 50px; height: 50px; }
+  .secuencia--sub .paso h4 { font-size: 18px; line-height: 1.15; }
+  .secuencia--sub .paso p { font-size: 15.5px; }
+  .formatos, .alinear { grid-template-columns: repeat(4, 1fr); }
   .ejemplo { grid-template-columns: auto auto 1fr; }
   .ejemplo p { grid-column: auto; padding-left: 12px; border-left: 2px solid var(--panel-linea); }
 }
@@ -778,7 +884,7 @@ code.formula { font-family: Consolas, "Cascadia Mono", Menlo, "DejaVu Sans Mono"
   .intro p { font-size: 19px; padding-left: 18px; }
   .subtitulo { font-size: 24px; }
   .paso { padding: 16px 10px 18px; }
-  .paso h3 { font-size: 21px; }
+  .paso h3, .paso h4 { font-size: 21px; }
   .paso p { font-size: 17.5px; }
   .paso .ico { width: 70px; height: 70px; }
   .tarjeta__cab { font-size: 19px; }
@@ -798,7 +904,7 @@ code.formula { font-family: Consolas, "Cascadia Mono", Menlo, "DejaVu Sans Mono"
   .idea p { font-size: 18.5px; padding: 16px 20px; }
   .idea strong { font-size: 26px; }
   .comparar li { padding: 13px 18px; }
-  .comparar h3 { font-size: 26px; }
+  .comparar h3, .comparar h4 { font-size: 26px; }
   .comparar p { font-size: 17.5px; }
   .comparar .ico--xl { width: 80px; height: 80px; }
   .tabla-comp th, .tabla-comp td { font-size: 17px; padding: 8px 8px; }
@@ -827,7 +933,7 @@ code.formula { font-family: Consolas, "Cascadia Mono", Menlo, "DejaVu Sans Mono"
   /* TP1: teclado, postura y atajos */
   .atajos { grid-template-columns: repeat(3, 1fr); gap: 3mm; }
   .atajos__teclas { font-size: 19px; }
-  .atajos h3 { font-size: 21px; }
+  .atajos h3, .atajos h4 { font-size: 21px; }
   .atajos p:last-child { font-size: 16px; }
   .texto--sub { font-size: 17.5px; }
   .puntos li { font-size: 16.5px; }
@@ -840,6 +946,18 @@ code.formula { font-family: Consolas, "Cascadia Mono", Menlo, "DejaVu Sans Mono"
   .postura { padding: 14px 14px 12px; gap: 8px; }
   .esquema--teclado { padding: 12px 16px; }
   .puntos li { padding: 6px 10px; }
+
+  /* TP2: pantallas, formato del texto y alineación */
+  .pantalla { padding: 14px 16px; gap: 10px; }
+  .pantalla .puntos li { font-size: 15.5px; line-height: 1.25; padding: 5px 9px; }
+  .secuencia--sub .paso { padding: 12px 14px; }
+  .secuencia--sub .paso p { font-size: 16px; }
+  .formatos .tarjeta__cab { font-size: 17px; }
+  .formatos .tarjeta p { font-size: 15.5px; }
+  .alinear li { padding: 12px 8px 14px; }
+  .alinear h4 { font-size: 19px; }
+  .alinear p, .alinear .alinear__atajo { font-size: 16px; }
+  .arbol .ico { width: 18px; height: 18px; }
 
   /* Tablas de la hoja A4 (heredadas del cuadernillo base) */
   .senal--fila { margin-top: 30%; }

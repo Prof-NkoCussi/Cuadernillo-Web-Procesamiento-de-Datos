@@ -28,7 +28,7 @@ Un cuadernillo web para aprender a usar el teclado, los documentos de texto, las
 | **Módulo 1 · Teclado y mecanografía** | | |
 | 1 | El teclado: mi herramienta de trabajo | ✅ Disponible |
 | **Módulo 2 · Documentos de texto** | | |
-| 2 | Mi primer documento | Próximamente |
+| 2 | Mi primer documento | ✅ Disponible |
 | 3 | Documento con estructura | Próximamente |
 | 4 | Documento con imágenes y enlaces | Próximamente |
 | 5 | Trabajo colaborativo y revisión | Próximamente |
